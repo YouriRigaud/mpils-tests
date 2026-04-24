@@ -1,0 +1,31 @@
+Usage: ./build/mpils [options] [instance_file]
+
+Options:
+  --help                          Show this help message and exit
+  --working-dir PATH              Set the tuner working directory
+  --parameters-file PATH          Set the parameter definition file
+  --paramils-instance-file PATH   Set the ParamILS instance list file
+  --initial-selected-parameters N Set the number of initially selected parameters
+  --expansion-parameter-budget N  Set the number of residual parameters evaluated in expansion
+  --solver-threads N              Set the number of solver threads
+  --solver-time SECONDS           Set the cutoff time for each solver run
+  --solver-time-mode MODE         Set solver time budget mode (seconds or ticks)
+  --local-search-engine NAME      Set the exploration backend (iterated_local_search or paramils)
+  --seed N                        Set the base random seed
+  --tuning-objective NAME         Set the tuning objective (gap or upper_bound)
+  --number-of-evaluations N       Override the exploration evaluation budget
+  --max-iterations N              Set the maximum number of tuner iterations
+  --expansion-select-rule MODE    Set expansion selection comparison (strict or inclusive)
+  --expansion-value-strategy MODE Set expansion value evaluation strategy (all or first_last)
+  --expansion-max-deviation VALUE Set the maximum allowed RMS deviation during expansion classification
+  --expansion-early-stop          Enable early stop in expansion
+  --no-expansion-early-stop       Disable early stop in expansion
+  --shared-cache                  Enable shared cache for ILS workers
+  --no-shared-cache               Disable shared cache for ILS workers
+  --exploration-only              Stop after the exploration phase
+  --enable-mip-starts             Enable MIP starts during exploration when applicable
+  --disable-mip-starts            Disable MIP starts during exploration
+  --random-worker-initial-configs Enable per-worker random initial configs for MPI ILS exploration
+  --no-random-worker-initial-configs Disable per-worker random initial configs for MPI ILS exploration
+
+If instance_file is provided as a positional argument, it overrides the default instance path.
