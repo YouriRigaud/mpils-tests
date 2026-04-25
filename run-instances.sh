@@ -230,6 +230,10 @@ for instance_path in "${instances[@]}"; do
     "$tuner_app" \
       "$instance_path" \
       --working-dir "$work_dir" \
+      --parameters-file /home/yorig/tuner/mpils/cplex/params_12_cpx.txt \
+      --no-clean-working-dir \
+      --shared-cache \
+      --expansion-value-strategy all \
       --solver-threads "$cplex_threads" \
       --solver-time "$solver_time" \
       --solver-time-mode "$solver_time_mode" \
