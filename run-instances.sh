@@ -12,7 +12,9 @@ Usage:
     --mpi-procs N \
     --cplex-threads N \
     --solver-time N \
-    --solver-time-mode MODE
+    --solver-time-mode MODE \
+    --seed N \
+    [--parameters-file PATH]
 
 Required arguments:
   --instances-dir PATH     Directory scanned recursively for *.mps instances
@@ -22,6 +24,8 @@ Required arguments:
   --cplex-threads N        Number of CPLEX threads per rank
   --solver-time N          Solver cutoff used by the tuner for each evaluation
   --solver-time-mode MODE  Solver time mode: seconds or ticks
+  --seed N                 Base random seed passed to the tuner
+  --parameters-file PATH   Parameter definition file (default: TUNER_DIR/cplex/params_12_cpx.txt)
 
 Notes:
   - This script runs the tuner only. It does not perform a post-tuning CPLEX test.
@@ -54,6 +58,8 @@ mpi_procs=""
 cplex_threads=""
 solver_time=""
 solver_time_mode=""
+seed=""
+parameters_file=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -92,6 +98,16 @@ while [[ $# -gt 0 ]]; do
       solver_time_mode="$2"
       shift 2
       ;;
+    --seed)
+      [[ $# -ge 2 ]] || fail "missing value for $1"
+      seed="$2"
+      shift 2
+      ;;
+    --parameters-file)
+      [[ $# -ge 2 ]] || fail "missing value for $1"
+      parameters_file="$2"
+      shift 2
+      ;;
     -h|--help)
       usage
       exit 0
@@ -109,10 +125,12 @@ done
 [[ -n "$cplex_threads" ]] || fail "--cplex-threads is required"
 [[ -n "$solver_time" ]] || fail "--solver-time is required"
 [[ -n "$solver_time_mode" ]] || fail "--solver-time-mode is required"
+[[ -n "$seed" ]] || fail "--seed is required"
 
 require_positive_integer "$mpi_procs" "--mpi-procs"
 require_positive_integer "$cplex_threads" "--cplex-threads"
 require_positive_integer "$solver_time" "--solver-time"
+require_positive_integer "$seed" "--seed"
 
 case "$solver_time_mode" in
   seconds|ticks)
@@ -131,13 +149,17 @@ output_root=$(realpath -m "$output_root")
 
 tuner_app="${tuner_dir}/build/mpils"
 [[ -x "$tuner_app" ]] || fail "tuner executable not found or not executable: $tuner_app"
-tuner_parameters="${tuner_dir}/cplex/params_12_cpx.txt"
-[[ -f "$tuner_parameters" ]] || fail "tuner parameters file not found: $tuner_parameters"
+if [[ -n "$parameters_file" ]]; then
+  parameters_file=$(realpath -m "$parameters_file")
+else
+  parameters_file="${tuner_dir}/cplex/params_12_cpx.txt"
+fi
+[[ -f "$parameters_file" ]] || fail "parameters file not found: $parameters_file"
 
 command -v srun >/dev/null 2>&1 || fail "srun not found in PATH"
 
-if [[ -n "${SLURM_NTASKS:-}" && "${SLURM_NTASKS}" -ne "$mpi_procs" ]]; then
-  fail "--mpi-procs=${mpi_procs} but Slurm allocated SLURM_NTASKS=${SLURM_NTASKS}"
+if [[ -n "${SLURM_NTASKS:-}" && "${SLURM_NTASKS}" -lt "$mpi_procs" ]]; then
+  fail "--mpi-procs=${mpi_procs} but Slurm allocated only SLURM_NTASKS=${SLURM_NTASKS}"
 fi
 
 if [[ -n "${SLURM_CPUS_PER_TASK:-}" && "${SLURM_CPUS_PER_TASK}" -ne "$cplex_threads" ]]; then
@@ -160,8 +182,8 @@ mapfile -d '' instances < <(find "$instances_dir" -type f -name '*.mps' -print0 
 run_stamp=$(date +%Y%m%d_%H%M%S)
 summary_csv="${output_root}/summary_${run_stamp}.csv"
 metrics_csv="${output_root}/tuning_metrics_${run_stamp}.csv"
-echo "instance,tuner_rc,best_configuration_present,output_dir,log_path" >"$summary_csv"
-echo "instance,objective,tuning_time" >"$metrics_csv"
+echo "instance,seed,tuner_rc,best_configuration_present,output_dir,log_path" >"$summary_csv"
+echo "instance,seed,objective,tuning_time" >"$metrics_csv"
 
 echo "===== Launch info ====="
 echo "SLURM_JOB_ID=${SLURM_JOB_ID:-NA}"
@@ -170,11 +192,13 @@ echo "SLURM_NTASKS=${SLURM_NTASKS:-NA}"
 echo "SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK:-NA}"
 echo "instances_dir=$instances_dir"
 echo "tuner_dir=$tuner_dir"
+echo "parameters_file=$parameters_file"
 echo "output_root=$output_root"
 echo "mpi_procs=$mpi_procs"
 echo "cplex_threads=$cplex_threads"
 echo "solver_time=$solver_time"
 echo "solver_time_mode=$solver_time_mode"
+echo "seed=$seed"
 echo "summary_csv=$summary_csv"
 echo "metrics_csv=$metrics_csv"
 echo "instance_count=${#instances[@]}"
@@ -190,7 +214,7 @@ for instance_path in "${instances[@]}"; do
   instance_name=$(basename "$instance_path")
   instance_stem="${instance_name%.mps}"
   timestamp=$(date +%Y%m%d_%H%M%S)
-  output_dir="${output_root}/${instance_stem}_${timestamp}"
+  output_dir="${output_root}/${count}_${instance_stem}_seed-${seed}_${timestamp}"
   log_file="${output_dir}/run.log"
   tuner_log="${output_dir}/tuner.log"
   tuner_rc=0
@@ -206,7 +230,7 @@ for instance_path in "${instances[@]}"; do
   echo "Output dir        : $output_dir"
   echo "------------------------------------------"
 
-  rm -rf "$output_dir"
+  [[ ! -e "$output_dir" ]] || fail "output directory already exists: $output_dir"
   mkdir -p "$output_dir"
 
   set +e
@@ -216,16 +240,17 @@ for instance_path in "${instances[@]}"; do
     --distribution=block:block \
     --cpu-bind=cores \
     --mem-bind=local \
-      "$tuner_app" \
+    "$tuner_app" \
       "$instance_path" \
       --working-dir "$output_dir" \
-      --parameters-file "$tuner_parameters" \
-      --no-clean-working-dir \
-      --shared-cache \
+      --parameters-file "$parameters_file" \
+      --clean-working-dir \
+      --no-shared-cache \
       --expansion-value-strategy all \
       --solver-threads "$cplex_threads" \
       --solver-time "$solver_time" \
       --solver-time-mode "$solver_time_mode" \
+      --seed "$seed" \
       </dev/null >"$log_file" 2>&1
   tuner_rc=$?
   set -e
@@ -254,8 +279,8 @@ for instance_path in "${instances[@]}"; do
     failed_instances+=("${instance_name} (rc=${tuner_rc})")
   fi
 
-  echo "${instance_name},${tuner_rc},${best_configuration_present},${output_dir},${log_file}" >>"$summary_csv"
-  echo "${instance_name},${objective},${tuning_time}" >>"$metrics_csv"
+  echo "${instance_name},${seed},${tuner_rc},${best_configuration_present},${output_dir},${log_file}" >>"$summary_csv"
+  echo "${instance_name},${seed},${objective},${tuning_time}" >>"$metrics_csv"
 done
 
 echo
