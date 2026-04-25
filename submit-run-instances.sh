@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=mpils-batch
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=2
+#SBATCH --ntasks=4
+#SBATCH --cpus-per-task=8
 #SBATCH --time=24:00:00
 #SBATCH --mem=0
 #SBATCH --output=job_%j.out
@@ -10,19 +10,18 @@
 
 set -euo pipefail
 
-MPI_PROCS=1
-CPLEX_THREADS=2
-SOLVER_TIME=15
-SOLVER_TIME_MODE="seconds"
+MPI_PROCS=4
+CPLEX_THREADS=8
+SOLVER_TIME=50000
+SOLVER_TIME_MODE="ticks"
 
-INSTANCES_DIR="/path/to/instances"
-TUNER_DIR="/path/to/tuner"
-WORKING_ROOT="/scratch/${USER}/mpils-work"
-RESULTS_ROOT="/scratch/${USER}/mpils-results"
+INSTANCES_DIR="/home/yorig/tuner/mpils-tests/instances/miplib/medium"
+TUNER_DIR="/home/yorig/tuner/mpils"
+WORKING_ROOT="/scratch/${USER}/mpils-work-med-50k-4proc-shared"
+RESULTS_ROOT="/scratch/${USER}/mpils-results-med-50k-4proc-shared"
 
-SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
-"${SCRIPT_DIR}/run-instances.sh" \
+"/home/yorig/tuner/mpils-tests/run-instances.sh" \
   --instances-dir "$INSTANCES_DIR" \
   --tuner-dir "$TUNER_DIR" \
   --working-root "$WORKING_ROOT" \
