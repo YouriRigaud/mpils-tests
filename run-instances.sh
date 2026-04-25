@@ -8,8 +8,7 @@ Usage:
   ./run-instances.sh \
     --instances-dir PATH \
     --tuner-dir PATH \
-    --working-root PATH \
-    --results-root PATH \
+    --output-root PATH \
     --mpi-procs N \
     --cplex-threads N \
     --solver-time N \
@@ -18,8 +17,7 @@ Usage:
 Required arguments:
   --instances-dir PATH     Directory scanned recursively for *.mps instances
   --tuner-dir PATH         Root directory of the tuner repository
-  --working-root PATH      Root directory for temporary per-instance working dirs
-  --results-root PATH      Root directory for archived per-instance results
+  --output-root PATH       Root directory for per-instance tuner outputs
   --mpi-procs N            Number of MPI ranks/tasks for each tuner launch
   --cplex-threads N        Number of CPLEX threads per rank
   --solver-time N          Solver cutoff used by the tuner for each evaluation
@@ -51,8 +49,7 @@ require_positive_integer() {
 
 instances_dir=""
 tuner_dir=""
-working_root=""
-results_root=""
+output_root=""
 mpi_procs=""
 cplex_threads=""
 solver_time=""
@@ -70,14 +67,9 @@ while [[ $# -gt 0 ]]; do
       tuner_dir="$2"
       shift 2
       ;;
-    --working-root)
+    --output-root)
       [[ $# -ge 2 ]] || fail "missing value for $1"
-      working_root="$2"
-      shift 2
-      ;;
-    --results-root)
-      [[ $# -ge 2 ]] || fail "missing value for $1"
-      results_root="$2"
+      output_root="$2"
       shift 2
       ;;
     --mpi-procs)
@@ -112,8 +104,7 @@ done
 
 [[ -n "$instances_dir" ]] || fail "--instances-dir is required"
 [[ -n "$tuner_dir" ]] || fail "--tuner-dir is required"
-[[ -n "$working_root" ]] || fail "--working-root is required"
-[[ -n "$results_root" ]] || fail "--results-root is required"
+[[ -n "$output_root" ]] || fail "--output-root is required"
 [[ -n "$mpi_procs" ]] || fail "--mpi-procs is required"
 [[ -n "$cplex_threads" ]] || fail "--cplex-threads is required"
 [[ -n "$solver_time" ]] || fail "--solver-time is required"
@@ -133,14 +124,15 @@ esac
 
 instances_dir=$(realpath "$instances_dir")
 tuner_dir=$(realpath "$tuner_dir")
-working_root=$(realpath -m "$working_root")
-results_root=$(realpath -m "$results_root")
+output_root=$(realpath -m "$output_root")
 
 [[ -d "$instances_dir" ]] || fail "instances directory not found: $instances_dir"
 [[ -d "$tuner_dir" ]] || fail "tuner directory not found: $tuner_dir"
 
 tuner_app="${tuner_dir}/build/mpils"
 [[ -x "$tuner_app" ]] || fail "tuner executable not found or not executable: $tuner_app"
+tuner_parameters="${tuner_dir}/cplex/params_12_cpx.txt"
+[[ -f "$tuner_parameters" ]] || fail "tuner parameters file not found: $tuner_parameters"
 
 command -v srun >/dev/null 2>&1 || fail "srun not found in PATH"
 
@@ -152,7 +144,7 @@ if [[ -n "${SLURM_CPUS_PER_TASK:-}" && "${SLURM_CPUS_PER_TASK}" -ne "$cplex_thre
   fail "--cplex-threads=${cplex_threads} but Slurm allocated SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}"
 fi
 
-mkdir -p "$working_root" "$results_root"
+mkdir -p "$output_root"
 
 export OMP_NUM_THREADS="$cplex_threads"
 export CPLEX_NUM_THREADS="$cplex_threads"
@@ -166,9 +158,9 @@ mapfile -d '' instances < <(find "$instances_dir" -type f -name '*.mps' -print0 
 [[ "${#instances[@]}" -gt 0 ]] || fail "no .mps instances found under: $instances_dir"
 
 run_stamp=$(date +%Y%m%d_%H%M%S)
-summary_csv="${results_root}/summary_${run_stamp}.csv"
-metrics_csv="${results_root}/tuning_metrics_${run_stamp}.csv"
-echo "instance,tuner_rc,best_configuration_present,save_dir,log_path" >"$summary_csv"
+summary_csv="${output_root}/summary_${run_stamp}.csv"
+metrics_csv="${output_root}/tuning_metrics_${run_stamp}.csv"
+echo "instance,tuner_rc,best_configuration_present,output_dir,log_path" >"$summary_csv"
 echo "instance,objective,tuning_time" >"$metrics_csv"
 
 echo "===== Launch info ====="
@@ -178,8 +170,7 @@ echo "SLURM_NTASKS=${SLURM_NTASKS:-NA}"
 echo "SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK:-NA}"
 echo "instances_dir=$instances_dir"
 echo "tuner_dir=$tuner_dir"
-echo "working_root=$working_root"
-echo "results_root=$results_root"
+echo "output_root=$output_root"
 echo "mpi_procs=$mpi_procs"
 echo "cplex_threads=$cplex_threads"
 echo "solver_time=$solver_time"
@@ -199,10 +190,9 @@ for instance_path in "${instances[@]}"; do
   instance_name=$(basename "$instance_path")
   instance_stem="${instance_name%.mps}"
   timestamp=$(date +%Y%m%d_%H%M%S)
-  work_dir="${working_root}/${instance_stem}_${timestamp}"
-  save_dir="${results_root}/${instance_stem}_${timestamp}"
-  log_file="${save_dir}/run.log"
-  tuner_log="${work_dir}/tuner.log"
+  output_dir="${output_root}/${instance_stem}_${timestamp}"
+  log_file="${output_dir}/run.log"
+  tuner_log="${output_dir}/tuner.log"
   tuner_rc=0
   best_configuration_present=0
   objective="NA"
@@ -213,12 +203,11 @@ for instance_path in "${instances[@]}"; do
   echo "Instance #$count: $instance_name"
   echo "Date / Time       : $(date)"
   echo "Instance path     : $instance_path"
-  echo "Work dir          : $work_dir"
-  echo "Save dir          : $save_dir"
+  echo "Output dir        : $output_dir"
   echo "------------------------------------------"
 
-  rm -rf "$work_dir"
-  mkdir -p "$work_dir" "$save_dir"
+  rm -rf "$output_dir"
+  mkdir -p "$output_dir"
 
   set +e
   srun \
@@ -227,10 +216,10 @@ for instance_path in "${instances[@]}"; do
     --distribution=block:block \
     --cpu-bind=cores \
     --mem-bind=local \
-    "$tuner_app" \
+      "$tuner_app" \
       "$instance_path" \
-      --working-dir "$work_dir" \
-      --parameters-file /home/yorig/tuner/mpils/cplex/params_12_cpx.txt \
+      --working-dir "$output_dir" \
+      --parameters-file "$tuner_parameters" \
       --no-clean-working-dir \
       --shared-cache \
       --expansion-value-strategy all \
@@ -240,10 +229,6 @@ for instance_path in "${instances[@]}"; do
       </dev/null >"$log_file" 2>&1
   tuner_rc=$?
   set -e
-
-  if [[ -d "$work_dir" ]]; then
-    cp -r "$work_dir"/. "$save_dir"/
-  fi
 
   if [[ -f "$tuner_log" ]]; then
     objective=$(extract_last_value '^Objective:' "$tuner_log")
@@ -258,7 +243,7 @@ for instance_path in "${instances[@]}"; do
     fi
   fi
 
-  if [[ -f "${save_dir}/best_configuration.prm" || -f "${work_dir}/best_configuration.prm" ]]; then
+  if [[ -f "${output_dir}/best_configuration.prm" ]]; then
     best_configuration_present=1
   fi
 
@@ -269,7 +254,7 @@ for instance_path in "${instances[@]}"; do
     failed_instances+=("${instance_name} (rc=${tuner_rc})")
   fi
 
-  echo "${instance_name},${tuner_rc},${best_configuration_present},${save_dir},${log_file}" >>"$summary_csv"
+  echo "${instance_name},${tuner_rc},${best_configuration_present},${output_dir},${log_file}" >>"$summary_csv"
   echo "${instance_name},${objective},${tuning_time}" >>"$metrics_csv"
 done
 

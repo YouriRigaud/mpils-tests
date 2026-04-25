@@ -17,16 +17,14 @@ SOLVER_TIME_MODE="seconds"
 
 INSTANCES_DIR="/path/to/instances"
 TUNER_DIR="/path/to/tuner"
-WORKING_ROOT="/scratch/${USER}/mpils-work"
-RESULTS_ROOT="/scratch/${USER}/mpils-results"
+OUTPUT_ROOT="/scratch/${USER}/mpils-results"
 
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 "${SCRIPT_DIR}/run-instances.sh" \
   --instances-dir "$INSTANCES_DIR" \
   --tuner-dir "$TUNER_DIR" \
-  --working-root "$WORKING_ROOT" \
-  --results-root "$RESULTS_ROOT" \
+  --output-root "$OUTPUT_ROOT" \
   --mpi-procs "$MPI_PROCS" \
   --cplex-threads "$CPLEX_THREADS" \
   --solver-time "$SOLVER_TIME" \
