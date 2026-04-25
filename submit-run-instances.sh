@@ -17,15 +17,13 @@ SOLVER_TIME_MODE="ticks"
 
 INSTANCES_DIR="/home/yorig/tuner/mpils-tests/instances/miplib/medium"
 TUNER_DIR="/home/yorig/tuner/mpils"
-WORKING_ROOT="/scratch/${USER}/mpils-work-med-50k-4proc-shared"
-RESULTS_ROOT="/scratch/${USER}/mpils-results-med-50k-4proc-shared"
+OUTPUT_ROOT="/scratch/${USER}/mpils-results-med-50k-4proc-shared"
 
 
 "/home/yorig/tuner/mpils-tests/run-instances.sh" \
   --instances-dir "$INSTANCES_DIR" \
   --tuner-dir "$TUNER_DIR" \
-  --working-root "$WORKING_ROOT" \
-  --results-root "$RESULTS_ROOT" \
+  --output-root "$OUTPUT_ROOT" \
   --mpi-procs "$MPI_PROCS" \
   --cplex-threads "$CPLEX_THREADS" \
   --solver-time "$SOLVER_TIME" \
