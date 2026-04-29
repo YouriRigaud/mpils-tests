@@ -9,18 +9,21 @@
 #   --ntasks-per-socket = ceil(MPI_PROCS / 2)   ← keeps ranks balanced across the 2 sockets
 #   --cpus-per-task   = CPLEX_THREADS            (8, matches one chiplet = one L3 cache)
 #
-# Architecture-native proc counts for this node (2 sockets × 12 chiplets × 8 cores = 192 cores):
+# Node topology: 2 sockets × 4 NUMA × 3 chiplets × 8 cores = 192 cores.
+# Each rank gets 1 dedicated chiplet (8 cores, 32 MiB L3). --ntasks-per-socket
+# keeps ranks balanced across the 2 sockets so all workers get equal memory bandwidth.
 #
-#   procs  ntasks-per-socket  meaning
-#     1          1            1 chiplet
-#     3          2            1 NUMA node  (3 chiplets)
-#     6          3            2 NUMA nodes (1 per socket)
-#    12          6            1 full socket
-#    24         12            1 full node  ← ideal: 1 chiplet + 1 mem channel per rank
+#   procs  --ntasks  --ntasks-per-socket  mem ch/rank
+#     1       1             1              12.0   (1 chiplet, socket 0 only)
+#     2       2             1              12.0   (1 chiplet per socket)
+#     4       4             2               6.0
+#     8       8             4               3.0
+#    16      16             8               1.5
+#    24      24            12               1.0   ← full node, perfect fill
 #
-# Example submissions:
-#   sbatch --export=ALL,MPI_PROCS=12  submit-run-instances.sh   # 12 procs
-#   sbatch --export=ALL,MPI_PROCS=24  submit-run-instances.sh   # 24 procs
+# Example submissions (update the three [CHANGE] lines below first):
+#   sbatch --export=ALL,MPI_PROCS=8   submit-run-instances.sh
+#   sbatch --export=ALL,MPI_PROCS=24  submit-run-instances.sh
 #
 #SBATCH --job-name=mpils-batch
 # 3 instance dirs * 10 seeds = 30 array tasks.
