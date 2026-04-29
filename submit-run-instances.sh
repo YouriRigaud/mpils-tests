@@ -1,14 +1,39 @@
 #!/bin/bash
+#
+# Submit one batch of tuning runs: one proc count, all (instance_dir × seed) combos.
+#
+# BEFORE SUBMITTING: update the four SBATCH lines marked [CHANGE PER SUBMISSION]
+# to match the target proc count. The relationship is:
+#
+#   --ntasks          = MPI_PROCS
+#   --ntasks-per-socket = ceil(MPI_PROCS / 2)   ← keeps ranks balanced across the 2 sockets
+#   --cpus-per-task   = CPLEX_THREADS            (8, matches one chiplet = one L3 cache)
+#
+# Architecture-native proc counts for this node (2 sockets × 12 chiplets × 8 cores = 192 cores):
+#
+#   procs  ntasks-per-socket  meaning
+#     1          1            1 chiplet
+#     3          2            1 NUMA node  (3 chiplets)
+#     6          3            2 NUMA nodes (1 per socket)
+#    12          6            1 full socket
+#    24         12            1 full node  ← ideal: 1 chiplet + 1 mem channel per rank
+#
+# Example submissions:
+#   sbatch --export=ALL,MPI_PROCS=12  submit-run-instances.sh   # 12 procs
+#   sbatch --export=ALL,MPI_PROCS=24  submit-run-instances.sh   # 24 procs
+#
 #SBATCH --job-name=mpils-batch
 # 3 instance dirs * 10 seeds = 30 array tasks.
 #SBATCH --array=0-29
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=8
+#SBATCH --nodes=1                  # all ranks on the same physical node
+#SBATCH --exclusive                # no other job shares this node
+#SBATCH --ntasks=1                 # [CHANGE PER SUBMISSION] = MPI_PROCS
+#SBATCH --ntasks-per-socket=1      # [CHANGE PER SUBMISSION] = ceil(MPI_PROCS / 2)
+#SBATCH --cpus-per-task=8          # [CHANGE PER SUBMISSION] = CPLEX_THREADS (1 chiplet)
 #SBATCH --time=24:00:00
 #SBATCH --mem=0
 #SBATCH --output=job_%A_%a.out
 #SBATCH --error=job_%A_%a.err
-#SBATCH --distribution=block:block
 
 set -euo pipefail
 
@@ -31,9 +56,10 @@ num_instance_dirs="${#INSTANCE_DIR_NAMES[@]}"
 num_seeds="${#SEEDS[@]}"
 total_tasks=$((num_instance_dirs * num_seeds))
 
+# Verify SBATCH --ntasks matches MPI_PROCS so the allocation is correct.
 if [[ -n "${SLURM_NTASKS:-}" && "${SLURM_NTASKS}" -ne "$MPI_PROCS" ]]; then
   echo "Error: MPI_PROCS=${MPI_PROCS} but Slurm allocated SLURM_NTASKS=${SLURM_NTASKS}" >&2
-  echo "Edit both MPI_PROCS and #SBATCH --ntasks to the same value." >&2
+  echo "Update both MPI_PROCS and #SBATCH --ntasks to the same value." >&2
   exit 1
 fi
 

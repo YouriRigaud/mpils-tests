@@ -166,6 +166,21 @@ if [[ -n "${SLURM_CPUS_PER_TASK:-}" && "${SLURM_CPUS_PER_TASK}" -ne "$cplex_thre
   fail "--cplex-threads=${cplex_threads} but Slurm allocated SLURM_CPUS_PER_TASK=${SLURM_CPUS_PER_TASK}"
 fi
 
+# Compute balanced socket placement.
+# Node topology: 2 sockets × 12 chiplets × 8 cores = 192 cores/node.
+# block:block fills socket 0 first, saturating it before using socket 1 —
+# causing up to 3× memory-bandwidth asymmetry between workers (e.g. at 16 procs:
+# 12 ranks on socket 0 vs 4 on socket 1, 1.0 vs 3.0 mem channels/rank).
+# --ntasks-per-socket distributes evenly so all workers get equal bandwidth.
+cores_per_node=192
+sockets_per_node=2
+chiplets_per_node=$((cores_per_node / cplex_threads))  # total chiplets available
+ntasks_per_socket=$(( (mpi_procs + sockets_per_node - 1) / sockets_per_node ))
+# Warn if mpi_procs is odd (can't split evenly)
+if (( mpi_procs % sockets_per_node != 0 )); then
+  echo "Warning: mpi_procs=${mpi_procs} is not divisible by ${sockets_per_node} sockets; socket load will be slightly uneven (${ntasks_per_socket} vs $((mpi_procs / sockets_per_node)) ranks per socket)." >&2
+fi
+
 mkdir -p "$output_root"
 
 export OMP_NUM_THREADS="$cplex_threads"
@@ -195,6 +210,7 @@ echo "tuner_dir=$tuner_dir"
 echo "parameters_file=$parameters_file"
 echo "output_root=$output_root"
 echo "mpi_procs=$mpi_procs"
+echo "ntasks_per_socket=$ntasks_per_socket"
 echo "cplex_threads=$cplex_threads"
 echo "solver_time=$solver_time"
 echo "solver_time_mode=$solver_time_mode"
@@ -237,7 +253,9 @@ for instance_path in "${instances[@]}"; do
   srun \
     --ntasks="$mpi_procs" \
     --cpus-per-task="$cplex_threads" \
-    --distribution=block:block \
+    --ntasks-per-socket="$ntasks_per_socket" \
+    --distribution=block:block:block \
+    --hint=nomultithread \
     --cpu-bind=cores \
     --mem-bind=local \
     "$tuner_app" \
