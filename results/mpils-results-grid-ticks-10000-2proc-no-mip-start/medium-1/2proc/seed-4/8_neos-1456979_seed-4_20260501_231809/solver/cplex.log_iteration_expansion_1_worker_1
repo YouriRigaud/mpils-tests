@@ -1,0 +1,3003 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Limits_ProbeTime_50_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_ProbeTime                    50
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.04 sec. (33.51 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.11 ticks)
+Probing time = 0.29 sec. (33.23 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.05 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.17 sec. (730.84 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1394  1026      177.5000   123      260.0000      158.9220    59090   38.88%
+*  1414  1072      integral     0      197.0000      158.9220    60987   19.33%
+   1630   966      171.6704   191      197.0000      158.9220    68522   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.95 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.16 ticks)
+Represolve time = 0.19 sec. (104.43 ticks)
+   1727     0      154.3150   187      197.0000      Cuts: 65    79708   19.33%
+   1727     0      156.4211   173      197.0000      Cuts: 76    79954   19.33%
+   1727     0      158.5000   143      197.0000     Cuts: 150    80241   19.33%
+   1727     2      158.5000   143      197.0000      158.9220    80241   19.33%
+*  1796+    2                          195.0000      158.9220            18.50%
+   1832    91      183.6077   145      195.0000      158.9220    94071   18.50%
+Elapsed time = 6.94 sec. (5425.73 ticks, tree = 1.07 MB, solutions = 3)
+   2121   255      188.6566   134      195.0000      160.5000   118333   17.69%
+   2424   474      193.1667   117      195.0000      160.5000   135686   17.69%
+   2717   793      177.2609   106      195.0000      160.5000   158524   17.69%
+   3406  1320      174.2500   138      195.0000      160.5000   186952   17.69%
+
+GUB cover cuts applied:  14
+Clique cuts applied:  6
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  390
+Flow path cuts applied:  0
+Zero-half cuts applied:  45
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  45
+
+Root node processing (before b&c):
+  Real time             =    1.14 sec. (728.53 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.32 sec. (9275.81 ticks)
+  Sync time (average)   =    3.26 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.47 sec. (10004.34 ticks)
+Gap: 17.69%
+Upper bound: 195
+Lower bound: 160.5
+End of CPLEX run. Time: 12.4672 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Limits_ProbeTime_60_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_ProbeTime                    60
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.03 sec. (33.51 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.11 ticks)
+Probing time = 0.20 sec. (33.23 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.04 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.31 sec. (730.84 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1394  1026      177.5000   123      260.0000      158.9220    59090   38.88%
+*  1414  1072      integral     0      197.0000      158.9220    60987   19.33%
+   1630   966      171.6704   191      197.0000      158.9220    68522   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.95 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.16 ticks)
+Represolve time = 0.13 sec. (104.43 ticks)
+   1727     0      154.3150   187      197.0000      Cuts: 65    79708   19.33%
+   1727     0      156.4211   173      197.0000      Cuts: 76    79954   19.33%
+   1727     0      158.5000   143      197.0000     Cuts: 150    80241   19.33%
+   1727     2      158.5000   143      197.0000      158.9220    80241   19.33%
+*  1796+    2                          195.0000      158.9220            18.50%
+   1832    91      183.6077   145      195.0000      158.9220    94071   18.50%
+Elapsed time = 6.49 sec. (5425.73 ticks, tree = 1.07 MB, solutions = 3)
+   2121   255      188.6566   134      195.0000      160.5000   118333   17.69%
+   2424   474      193.1667   117      195.0000      160.5000   135686   17.69%
+   2717   793      177.2609   106      195.0000      160.5000   158524   17.69%
+   3406  1320      174.2500   138      195.0000      160.5000   186952   17.69%
+
+GUB cover cuts applied:  14
+Clique cuts applied:  6
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  390
+Flow path cuts applied:  0
+Zero-half cuts applied:  45
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  45
+
+Root node processing (before b&c):
+  Real time             =    1.27 sec. (728.53 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   10.86 sec. (9275.81 ticks)
+  Sync time (average)   =    3.61 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.13 sec. (10004.34 ticks)
+Gap: 17.69%
+Upper bound: 195
+Lower bound: 160.5
+End of CPLEX run. Time: 12.1315 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Limits_ProbeTime_120_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_ProbeTime                    120
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.03 sec. (33.51 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.11 ticks)
+Probing time = 0.05 sec. (33.23 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.05 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 0.96 sec. (730.84 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1394  1026      177.5000   123      260.0000      158.9220    59090   38.88%
+*  1414  1072      integral     0      197.0000      158.9220    60987   19.33%
+   1630   966      171.6704   191      197.0000      158.9220    68522   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.95 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.16 ticks)
+Represolve time = 0.13 sec. (104.43 ticks)
+   1727     0      154.3150   187      197.0000      Cuts: 65    79708   19.33%
+   1727     0      156.4211   173      197.0000      Cuts: 76    79954   19.33%
+   1727     0      158.5000   143      197.0000     Cuts: 150    80241   19.33%
+   1727     2      158.5000   143      197.0000      158.9220    80241   19.33%
+*  1796+    2                          195.0000      158.9220            18.50%
+   1832    91      183.6077   145      195.0000      158.9220    94071   18.50%
+Elapsed time = 6.64 sec. (5425.73 ticks, tree = 1.07 MB, solutions = 3)
+   2121   255      188.6566   134      195.0000      160.5000   118333   17.69%
+   2424   474      193.1667   117      195.0000      160.5000   135686   17.69%
+   2717   793      177.2609   106      195.0000      160.5000   158524   17.69%
+   3406  1320      174.2500   138      195.0000      160.5000   186952   17.69%
+
+GUB cover cuts applied:  14
+Clique cuts applied:  6
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  390
+Flow path cuts applied:  0
+Zero-half cuts applied:  45
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  45
+
+Root node processing (before b&c):
+  Real time             =    0.89 sec. (728.53 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   10.51 sec. (9275.81 ticks)
+  Sync time (average)   =    3.54 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   11.40 sec. (10004.34 ticks)
+Gap: 17.69%
+Upper bound: 195
+Lower bound: 160.5
+End of CPLEX run. Time: 11.4052 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Limits_ProbeTime_240_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_ProbeTime                    240
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.03 sec. (33.51 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.11 ticks)
+Probing time = 0.15 sec. (33.23 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.02 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 0.91 sec. (730.84 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1394  1026      177.5000   123      260.0000      158.9220    59090   38.88%
+*  1414  1072      integral     0      197.0000      158.9220    60987   19.33%
+   1630   966      171.6704   191      197.0000      158.9220    68522   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.95 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.16 ticks)
+Represolve time = 0.11 sec. (104.43 ticks)
+   1727     0      154.3150   187      197.0000      Cuts: 65    79708   19.33%
+   1727     0      156.4211   173      197.0000      Cuts: 76    79954   19.33%
+   1727     0      158.5000   143      197.0000     Cuts: 150    80241   19.33%
+   1727     2      158.5000   143      197.0000      158.9220    80241   19.33%
+*  1796+    2                          195.0000      158.9220            18.50%
+   1832    91      183.6077   145      195.0000      158.9220    94071   18.50%
+Elapsed time = 6.56 sec. (5425.73 ticks, tree = 1.07 MB, solutions = 3)
+   2121   255      188.6566   134      195.0000      160.5000   118333   17.69%
+   2424   474      193.1667   117      195.0000      160.5000   135686   17.69%
+   2717   793      177.2609   106      195.0000      160.5000   158524   17.69%
+   3406  1320      174.2500   138      195.0000      160.5000   186952   17.69%
+
+GUB cover cuts applied:  14
+Clique cuts applied:  6
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  390
+Flow path cuts applied:  0
+Zero-half cuts applied:  45
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  45
+
+Root node processing (before b&c):
+  Real time             =    0.88 sec. (728.53 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    9.41 sec. (9275.81 ticks)
+  Sync time (average)   =    2.78 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   10.29 sec. (10004.34 ticks)
+Gap: 17.69%
+Upper bound: 195
+Lower bound: 160.5
+End of CPLEX run. Time: 10.2911 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_RINSHeur_-1_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_RINSHeur                   -1
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.14 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.10 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1394  1026      177.5000   123      260.0000      158.9220    59090   38.88%
+*  1414  1072      integral     0      197.0000      158.9220    60987   19.33%
+   1628  1024      186.0000   133      197.0000      158.9220    71320   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.21 sec. (103.72 ticks)
+   1730     0      154.4211   123      197.0000      Cuts: 32    79940   19.33%
+   1730     0      157.6250   204      197.0000      Cuts: 97    80267   19.33%
+   1730     0      158.7414   177      197.0000      Cuts: 99    80539   19.33%
+   1730     2      158.7414   163      197.0000      158.9220    80539   19.33%
+   1825    94      174.7872   112      197.0000      159.3394    93442   19.12%
+Elapsed time = 5.86 sec. (5182.98 ticks, tree = 1.18 MB, solutions = 2)
+   2131   308      188.5771    65      197.0000      159.3394   121929   19.12%
+   2370   516      171.0000    87      197.0000      160.0833   154282   18.74%
+   2829   794      188.5000    93      197.0000      160.0833   191966   18.74%
+   3079  1047      173.3618    87      197.0000      160.0833   224425   18.74%
+   3674  1478      172.0000   116      197.0000      160.0833   276132   18.74%
+
+GUB cover cuts applied:  8
+Clique cuts applied:  4
+Cover cuts applied:  4
+Mixed integer rounding cuts applied:  317
+Flow path cuts applied:  0
+Zero-half cuts applied:  39
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  33
+
+Root node processing (before b&c):
+  Real time             =    1.05 sec. (657.82 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   10.33 sec. (9346.27 ticks)
+  Sync time (average)   =    3.15 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   11.38 sec. (10004.10 ticks)
+Gap: 18.74%
+Upper bound: 197
+Lower bound: 160.083
+End of CPLEX run. Time: 11.3844 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_RINSHeur_20_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_RINSHeur                   20
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.22 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.17 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+*  1155+  860                          259.0000      158.9220            38.64%
+*  1248+  925                          258.0000      158.9220            38.40%
+   1317  1009      174.9400    97      258.0000      158.9220    58755   38.40%
+*  1339+ 1080                          257.0000      158.9220            38.16%
+   1358  1100      200.0000    98      257.0000      158.9220    62306   38.16%
+*  1379+ 1059                          235.0000      158.9220            32.37%
+*  1379+ 1059                          234.0000      158.9220            32.08%
+   1379  1061      170.3384   103      234.0000      158.9220    60870   32.08%
+   1788  1101      202.7778    96      234.0000      158.9220    62416   32.08%
+Elapsed time = 5.77 sec. (4719.02 ticks, tree = 47.93 MB, solutions = 9)
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.11 sec. (105.94 ticks)
+   1789     0      154.4211   155      234.0000      Cuts: 31    78892   32.08%
+   1789     0      157.6673   199      234.0000     Cuts: 112    79262   32.08%
+   1789     0      158.9664   277      234.0000     Cuts: 214    79619   32.07%
+*  1789+    0                          229.0000      158.9664            30.58%
+*  1789+    0                          225.0000      158.9664            29.35%
+*  1789+    0                          223.0000      158.9664            28.71%
+   1789     0  -1.00000e+75     0      223.0000      158.9664    79619   28.71%
+   1789     2      158.9664   252      223.0000      158.9664    79619   28.71%
+*  1880+    7                          219.0000      159.3556            27.23%
+   1880    86      171.5977    56      219.0000      159.3556    92577   27.23%
+   2078   209      163.0468   184      219.0000      160.5177   112033   26.70%
+
+GUB cover cuts applied:  5
+Clique cuts applied:  2
+Cover cuts applied:  1
+Mixed integer rounding cuts applied:  362
+Flow path cuts applied:  0
+Zero-half cuts applied:  51
+Multi commodity flow cuts applied:  2
+Gomory fractional cuts applied:  28
+
+Root node processing (before b&c):
+  Real time             =    1.16 sec. (657.77 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   10.99 sec. (9353.93 ticks)
+  Sync time (average)   =    2.87 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.15 sec. (10011.70 ticks)
+Gap: 26.7%
+Upper bound: 219
+Lower bound: 160.518
+End of CPLEX run. Time: 12.1497 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_RINSHeur_40_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_RINSHeur                   40
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.12 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.10 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1390   992      196.6129    61      260.0000      158.9220    57869   38.88%
+*  1423+ 1018                          254.0000      158.9220            37.43%
+*  1423  1070      integral     0      197.0000      158.9220    60960   19.33%
+   1620   970      185.4683   105      197.0000      158.9220    69179   19.33%
+*  1625+  962                          196.0000      158.9220            18.92%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.08 sec. (104.40 ticks)
+   1705     0      154.4211   123      196.0000      Cuts: 32    79516   18.92%
+   1705     0      157.6250   204      196.0000      Cuts: 97    79843   18.92%
+   1705     0      158.7414   172      196.0000      Cuts: 99    80103   18.92%
+   1705     2      158.7414   172      196.0000      158.9220    80103   18.92%
+*  1774+    4                          191.0000      158.9220            16.79%
+   1827   100      183.0000    24      191.0000      159.5884    91282   16.45%
+Elapsed time = 6.39 sec. (5153.60 ticks, tree = 1.57 MB, solutions = 6)
+   2063   205      161.8579   176      191.0000      159.6722   108072   16.40%
+   2473   502      190.0000     6      191.0000      160.0000   135023   16.23%
+   2669   733      176.7708   173      191.0000      160.0000   147981   16.23%
+*  2691+  617                          189.0000      160.0000            15.34%
+   3123  1002      176.0000   118      189.0000      160.0000   163973   15.34%
+   3565  1567      187.7500   122      189.0000      160.0000   196125   15.34%
+
+GUB cover cuts applied:  6
+Clique cuts applied:  3
+Cover cuts applied:  6
+Mixed integer rounding cuts applied:  344
+Flow path cuts applied:  0
+Zero-half cuts applied:  40
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  38
+
+Root node processing (before b&c):
+  Real time             =    1.02 sec. (658.02 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.51 sec. (9345.98 ticks)
+  Sync time (average)   =    3.87 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.53 sec. (10004.00 ticks)
+Gap: 15.34%
+Upper bound: 189
+Lower bound: 160
+End of CPLEX run. Time: 12.5372 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_RINSHeur_60_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_RINSHeur                   60
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.27 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.19 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1391  1024      177.5000   123      260.0000      158.9220    59080   38.88%
+*  1417  1073      integral     0      197.0000      158.9220    60987   19.33%
+   1629  1007      188.5000    67      197.0000      158.9220    70543   19.33%
+*  1700+ 1033                          196.0000      158.9220            18.92%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.08 sec. (104.34 ticks)
+   1719     0      154.4211   123      196.0000      Cuts: 32    79880   18.92%
+   1719     0      157.6250   188      196.0000      Cuts: 97    80217   18.92%
+   1719     0      158.8158   229      196.0000     Cuts: 108    80563   18.92%
+   1719     2      158.8158   229      196.0000      158.9220    80563   18.92%
+*  1788+    5                          195.0000      159.0044            18.46%
+   1800    77      180.5437   177      195.0000      159.0044    97022   18.46%
+Elapsed time = 6.41 sec. (5253.02 ticks, tree = 0.15 MB, solutions = 4)
+*  2088+  137                          185.0000      159.0044            14.05%
+   2099   239      179.0862   133      185.0000      159.0044   120149   14.05%
+   2481   384      174.3222   198      185.0000      159.0044   135617   14.05%
+   3016   808      183.6364   118      185.0000      159.0044   161575   14.05%
+*  3280+  615                          182.0000      159.0044            12.63%
+   3394   979      176.9545   179      182.0000      159.0044   188111   12.63%
+
+GUB cover cuts applied:  5
+Clique cuts applied:  4
+Cover cuts applied:  3
+Mixed integer rounding cuts applied:  314
+Flow path cuts applied:  0
+Zero-half cuts applied:  42
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  34
+
+Root node processing (before b&c):
+  Real time             =    1.11 sec. (657.99 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.28 sec. (9348.20 ticks)
+  Sync time (average)   =    3.55 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.39 sec. (10006.19 ticks)
+Gap: 12.63%
+Upper bound: 182
+Lower bound: 159.004
+End of CPLEX run. Time: 12.3928 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_RINSHeur_100_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_RINSHeur                   100
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.17 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.02 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.08 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1393  1025      177.5000   123      260.0000      158.9220    59038   38.88%
+*  1412  1096      integral     0      197.0000      158.9220    61545   19.33%
+   1627  1035      181.1617   119      197.0000      158.9220    71532   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.08 sec. (103.72 ticks)
+   1720     0      154.4211   123      197.0000      Cuts: 32    79690   19.33%
+   1720     0      157.6250   204      197.0000      Cuts: 97    80017   19.33%
+   1720     0      158.7414   177      197.0000      Cuts: 99    80289   19.33%
+   1720     2      158.7414   163      197.0000      158.9220    80289   19.33%
+*  1816+    7                          194.0000      159.4407            17.81%
+   1824   100      173.8333   127      194.0000      159.4407    92921   17.81%
+Elapsed time = 6.17 sec. (5241.78 ticks, tree = 1.13 MB, solutions = 3)
+*  1958   163      integral     0      177.0000      159.4407    99815    9.92%
+   2073   194        cutoff            177.0000      160.5105   111972    9.32%
+   2484   419        cutoff            177.0000      160.5105   133704    9.32%
+   3012   650      175.8770   132      177.0000      160.5105   161331    9.32%
+   3550   792      172.1667   106      177.0000      160.5105   180416    9.32%
+
+GUB cover cuts applied:  11
+Clique cuts applied:  4
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  444
+Flow path cuts applied:  0
+Zero-half cuts applied:  43
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  34
+
+Root node processing (before b&c):
+  Real time             =    1.06 sec. (657.92 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.27 sec. (9347.45 ticks)
+  Sync time (average)   =    3.85 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.33 sec. (10005.37 ticks)
+Gap: 9.32%
+Upper bound: 177
+Lower bound: 160.51
+End of CPLEX run. Time: 12.3349 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_RINSHeur_200_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_RINSHeur                   200
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.01 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.04 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 0.97 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1394  1026      177.5000   123      260.0000      158.9220    59090   38.88%
+*  1414  1072      integral     0      197.0000      158.9220    60987   19.33%
+   1629  1024      185.3065    91      197.0000      158.9220    71263   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.15 sec. (103.72 ticks)
+   1726     0      154.4211   123      197.0000      Cuts: 32    79841   19.33%
+   1726     0      157.6250   204      197.0000      Cuts: 97    80168   19.33%
+   1726     0      158.7414   177      197.0000      Cuts: 99    80440   19.33%
+   1726     2      158.7414   163      197.0000      158.9220    80440   19.33%
+*  1822+    7                          194.0000      159.4407            17.81%
+   1830   100      173.8333   127      194.0000      159.4407    93072   17.81%
+Elapsed time = 6.22 sec. (5240.18 ticks, tree = 1.13 MB, solutions = 3)
+*  1964   163      integral     0      177.0000      159.4407    99966    9.92%
+   2081   193      169.3333   134      177.0000      160.5105   112289    9.32%
+   2545   457      170.6667   153      177.0000      160.5105   135855    9.32%
+   3172   617        cutoff            177.0000      160.5105   156368    9.32%
+   3573   816      174.3333   131      177.0000      160.5105   178818    9.32%
+
+GUB cover cuts applied:  11
+Clique cuts applied:  3
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  463
+Flow path cuts applied:  0
+Zero-half cuts applied:  43
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  32
+
+Root node processing (before b&c):
+  Real time             =    0.93 sec. (657.53 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.49 sec. (9352.48 ticks)
+  Sync time (average)   =    3.64 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.41 sec. (10010.01 ticks)
+Gap: 9.32%
+Upper bound: 177
+Lower bound: 160.51
+End of CPLEX run. Time: 12.4162 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_RINSHeur_500_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_RINSHeur                   500
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.20 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.04 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.18 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1394  1026      177.5000   123      260.0000      158.9220    59090   38.88%
+*  1414  1072      integral     0      197.0000      158.9220    60987   19.33%
+   1628  1024      186.0000   133      197.0000      158.9220    71320   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.28 sec. (103.72 ticks)
+   1730     0      154.4211   123      197.0000      Cuts: 32    79940   19.33%
+   1730     0      157.6250   204      197.0000      Cuts: 97    80267   19.33%
+   1730     0      158.7414   177      197.0000      Cuts: 99    80539   19.33%
+   1730     2      158.7414   163      197.0000      158.9220    80539   19.33%
+*  1826+    7                          194.0000      159.4407            17.81%
+   1834   100      173.8333   127      194.0000      159.4407    93171   17.81%
+Elapsed time = 7.03 sec. (5247.70 ticks, tree = 1.13 MB, solutions = 3)
+*  1968   163      integral     0      177.0000      159.4407   100065    9.92%
+   2085   193      169.3333   134      177.0000      160.5105   112388    9.32%
+   2549   457      170.6667   153      177.0000      160.5105   135954    9.32%
+   3182   617        cutoff            177.0000      160.5105   156467    9.32%
+   3593   864      175.1763   120      177.0000      160.5105   179951    9.32%
+
+GUB cover cuts applied:  9
+Clique cuts applied:  3
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  449
+Flow path cuts applied:  0
+Zero-half cuts applied:  43
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  32
+
+Root node processing (before b&c):
+  Real time             =    1.13 sec. (657.92 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   10.72 sec. (9347.59 ticks)
+  Sync time (average)   =    3.11 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   11.86 sec. (10005.51 ticks)
+Gap: 9.32%
+Upper bound: 177
+Lower bound: 160.51
+End of CPLEX run. Time: 11.8587 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_RINSHeur_1000_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_RINSHeur                   1000
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.12 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.04 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.24 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1394  1026      177.5000   123      260.0000      158.9220    59090   38.88%
+*  1414  1072      integral     0      197.0000      158.9220    60987   19.33%
+   1628  1024      186.0000   133      197.0000      158.9220    71320   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.22 sec. (103.72 ticks)
+   1730     0      154.4211   123      197.0000      Cuts: 32    79940   19.33%
+   1730     0      157.6250   204      197.0000      Cuts: 97    80267   19.33%
+   1730     0      158.7414   177      197.0000      Cuts: 99    80539   19.33%
+   1730     2      158.7414   163      197.0000      158.9220    80539   19.33%
+*  1826+    7                          194.0000      159.4407            17.81%
+   1834   100      173.8333   127      194.0000      159.4407    93171   17.81%
+Elapsed time = 7.47 sec. (5247.70 ticks, tree = 1.13 MB, solutions = 3)
+*  1968   163      integral     0      177.0000      159.4407   100065    9.92%
+   2085   193      169.3333   134      177.0000      160.5105   112388    9.32%
+   2549   457      170.6667   153      177.0000      160.5105   135954    9.32%
+   3182   617        cutoff            177.0000      160.5105   156467    9.32%
+   3593   864      175.1763   120      177.0000      160.5105   179951    9.32%
+
+GUB cover cuts applied:  9
+Clique cuts applied:  3
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  449
+Flow path cuts applied:  0
+Zero-half cuts applied:  43
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  32
+
+Root node processing (before b&c):
+  Real time             =    1.20 sec. (657.92 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.94 sec. (9347.59 ticks)
+  Sync time (average)   =    3.65 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   13.14 sec. (10005.51 ticks)
+Gap: 9.32%
+Upper bound: 177
+Lower bound: 160.51
+End of CPLEX run. Time: 13.1427 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_BBInterval_0_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_BBInterval                 0
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.14 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.10 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    377   288      165.3981    80                    158.0000    24758         
+*   554   418      integral     0      233.0000      158.9220    31449   31.79%
+    639   453      163.0000   126      233.0000      158.9220    33717   31.79%
+*   761   570      integral     0      203.0000      158.9220    39649   21.71%
+    891   584      180.3333    88      203.0000      158.9220    43720   21.71%
+   1028   714      186.5907    85      203.0000      158.9220    49902   21.71%
+   1301   922      174.0000   115      203.0000      158.9220    59210   21.71%
+   1574  1203      179.7035   122      203.0000      158.9220    70004   21.71%
+   1840  1427      192.3333    92      203.0000      158.9220    79091   21.71%
+   2902  2263      174.5362    97      203.0000      158.9220   113802   21.71%
+Elapsed time = 4.71 sec. (3771.89 ticks, tree = 105.37 MB, solutions = 2)
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.09 sec. (104.06 ticks)
+   3404     0      154.0000   182      203.0000      Cuts: 40   138837   21.71%
+   3404     0      157.2500   192      203.0000      Cuts: 37   139172   21.71%
+   3404     0      158.0000   183      203.0000     Cuts: 163   139391   21.71%
+   3404     2      158.0000   168      203.0000      158.9220   139391   21.71%
+   3502    97      187.5266    66      203.0000      159.1311   150819   21.61%
+*  3516   100      integral     0      202.0000      159.1311   151229   21.22%
+   3783   301      178.1271    48      202.0000      161.5863   167339   20.01%
+   4291   644      186.4324   113      202.0000      161.7706   188520   19.92%
+   4949  1176      198.7239    86      202.0000      161.7706   212020   19.92%
+
+GUB cover cuts applied:  8
+Clique cuts applied:  4
+Cover cuts applied:  3
+Mixed integer rounding cuts applied:  281
+Flow path cuts applied:  0
+Zero-half cuts applied:  40
+Multi commodity flow cuts applied:  1
+Gomory fractional cuts applied:  42
+
+Root node processing (before b&c):
+  Real time             =    1.05 sec. (657.50 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   10.69 sec. (9354.10 ticks)
+  Sync time (average)   =    3.44 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   11.73 sec. (10011.60 ticks)
+Gap: 19.92%
+Upper bound: 202
+Lower bound: 161.771
+End of CPLEX run. Time: 11.739 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_BBInterval_2_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_BBInterval                 2
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.16 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.12 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    388   276      169.0000   102                    158.0000    23706         
+    635   454      186.2615     8                    158.9220    33069         
+    904   643      163.3576   145                    158.9220    43472         
+*   924   749      integral     0      219.0000      158.9220    48294   27.43%
+*   927   700      integral     0      215.0000      158.9220    49682   26.08%
+   1026   699      168.0000   109      215.0000      158.9220    51974   26.08%
+*  1035   714      integral     0      205.0000      158.9220    52897   22.48%
+   1281   839      196.6823    58      205.0000      158.9220    60465   22.48%
+   1536  1065      183.0000    82      205.0000      158.9220    70718   22.48%
+   1785  1260      178.9590    83      205.0000      158.9220    78889   22.48%
+*  2680  1976      integral     0      201.0000      158.9220   108664   20.93%
+   2792  1963      178.8069    90      201.0000      158.9220   116675   20.93%
+Elapsed time = 5.02 sec. (3773.17 ticks, tree = 94.32 MB, solutions = 4)
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.08 sec. (105.40 ticks)
+   3408     0      154.8333   111      201.0000      Cuts: 54   144863   20.93%
+   3408     0      157.1667   199      201.0000      Cuts: 73   145236   20.93%
+   3408     0      158.4092   239      201.0000     Cuts: 121   145517   20.93%
+   3408     2      158.4092   224      201.0000      158.9220   145517   20.93%
+*  3419+    3                          199.0000      158.9220            20.14%
+   3469    62      165.5385   113      199.0000      159.2599   158139   19.97%
+*  3780   277      integral     0      198.0000      159.2599   173052   19.57%
+   3802   334      180.4891    91      198.0000      159.2599   177399   19.57%
+*  4181   476      integral     0      181.0000      159.2599   188129   12.01%
+   4212   418        cutoff            181.0000      159.2599   197057   12.01%
+   4742   628        cutoff            181.0000      159.2599   221306   12.01%
+
+GUB cover cuts applied:  7
+Clique cuts applied:  4
+Cover cuts applied:  6
+Mixed integer rounding cuts applied:  368
+Flow path cuts applied:  0
+Zero-half cuts applied:  54
+Multi commodity flow cuts applied:  1
+Gomory fractional cuts applied:  28
+
+Root node processing (before b&c):
+  Real time             =    1.12 sec. (658.03 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   10.85 sec. (9346.33 ticks)
+  Sync time (average)   =    3.26 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   11.97 sec. (10004.35 ticks)
+Gap: 12.01%
+Upper bound: 181
+Lower bound: 159.26
+End of CPLEX run. Time: 11.9687 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_BBInterval_3_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_BBInterval                 3
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.12 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.12 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    383   300      169.0004    76                    158.0000    25444         
+    610   477      166.4548   160                    158.9220    35117         
+    912   666    infeasible                          158.9220    45573         
+*   964   713      integral     0      205.0000      158.9220    47605   22.48%
+*   967   643      integral     0      204.0000      158.9220    50217   22.10%
+   1014   642      179.1781   100      204.0000      158.9220    51724   22.10%
+   1296   798      178.3056   115      204.0000      158.9220    57447   22.10%
+   1614  1067      190.0000   123      204.0000      158.9220    67156   22.10%
+   1914  1311        cutoff            204.0000      158.9220    76479   22.10%
+   2962  2282      185.5000    71      204.0000      158.9220   114659   22.10%
+Elapsed time = 4.82 sec. (3770.10 ticks, tree = 112.61 MB, solutions = 2)
+*  3272  2559      integral     0      203.0000      158.9220   125194   21.71%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.10 sec. (104.71 ticks)
+   3393     0      154.4211   164      203.0000      Cuts: 81   132964   21.71%
+   3393     0      157.9274   194      203.0000     Cuts: 140   133244   21.71%
+   3393     0      158.9071   199      203.0000      Cuts: 91   133463   21.71%
+   3393     2      158.9071   182      203.0000      158.9220   133463   21.71%
+   3485    63      173.6532   134      203.0000      158.9220   145841   21.71%
+   3888   375      183.0000    23      203.0000      158.9220   166351   21.71%
+*  3953   383      integral     0      194.0000      158.9220   166831   18.08%
+   4197   629      176.5668    83      194.0000      158.9220   185518   18.08%
+   4897  1077      186.2857   106      194.0000      158.9220   206743   18.08%
+
+GUB cover cuts applied:  8
+Clique cuts applied:  4
+Cover cuts applied:  4
+Mixed integer rounding cuts applied:  322
+Flow path cuts applied:  0
+Zero-half cuts applied:  48
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  44
+
+Root node processing (before b&c):
+  Real time             =    1.10 sec. (657.94 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.20 sec. (9345.90 ticks)
+  Sync time (average)   =    3.28 sec.
+  Wait time (average)   =    0.01 sec.
+                          ------------
+Total (root+branch&cut) =   12.30 sec. (10003.84 ticks)
+Gap: 18.08%
+Upper bound: 194
+Lower bound: 158.922
+End of CPLEX run. Time: 12.3038 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_BBInterval_4_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_BBInterval                 4
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.13 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.05 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.22 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    386   312      168.5455    85                    158.0000    25859         
+    642   497      232.9458    29                    158.9220    36080         
+*   867   633      integral     0      205.0000      158.9220    43510   22.48%
+    907   655      170.0000    72      205.0000      158.9220    44278   22.48%
+   1092   698      176.0000   119      205.0000      158.9220    52927   22.48%
+   1383   886      191.1667   136      205.0000      158.9220    59475   22.48%
+   1659  1120      178.0000   116      205.0000      158.9220    68540   22.48%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.14 sec. (103.10 ticks)
+   1698     0      155.0000   175      205.0000      Cuts: 89    77248   22.48%
+   1698     0      157.3253   197      205.0000     Cuts: 157    77439   22.48%
+   1698     0      158.2222   192      205.0000     Cuts: 111    77568   22.48%
+   1698     2      158.2222   192      205.0000      158.9220    77568   22.48%
+*  1729+    2                          199.0000      158.9220            20.14%
+   1855   103      173.0000    23      199.0000      158.9220    94289   20.14%
+Elapsed time = 7.00 sec. (4988.75 ticks, tree = 1.82 MB, solutions = 2)
+   2274   362      192.2824   149      199.0000      158.9220   120745   20.14%
+   2707   525      176.3108   128      199.0000      158.9220   136628   20.14%
+   3246  1062      186.4081   136      199.0000      158.9220   160311   20.14%
+   4004  1734      179.8492   115      199.0000      158.9220   191840   20.14%
+   4496  2147      187.3333    51      199.0000      158.9220   213817   20.14%
+
+GUB cover cuts applied:  15
+Clique cuts applied:  2
+Cover cuts applied:  1
+Mixed integer rounding cuts applied:  344
+Flow path cuts applied:  0
+Zero-half cuts applied:  20
+Multi commodity flow cuts applied:  1
+Gomory fractional cuts applied:  37
+
+Root node processing (before b&c):
+  Real time             =    1.17 sec. (657.82 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.43 sec. (9348.55 ticks)
+  Sync time (average)   =    3.37 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.60 sec. (10006.37 ticks)
+Gap: 20.14%
+Upper bound: 199
+Lower bound: 158.922
+End of CPLEX run. Time: 12.6003 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_BBInterval_5_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_BBInterval                 5
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.26 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.15 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    386   312      168.5455    85                    158.0000    25859         
+    642   497      232.9458    29                    158.9220    36080         
+*   869   642      integral     0      205.0000      158.9220    43929   22.48%
+    912   664      186.5639    82      205.0000      158.9220    44686   22.48%
+   1096   715      191.7012    93      205.0000      158.9220    53403   22.48%
+   1418   930      170.0749   109      205.0000      158.9220    60681   22.48%
+   1649  1188      200.1397   107      205.0000      158.9220    69502   22.48%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.08 sec. (103.15 ticks)
+   1668     0      154.7500   158      205.0000      Cuts: 51    74000   22.48%
+   1668     0      156.4211   210      205.0000     Cuts: 134    74374   22.48%
+   1668     0      158.9909   224      205.0000     Cuts: 102    74596   22.44%
+   1668     2      158.9909   183      205.0000      158.9909    74596   22.44%
+*  1685+    4                          191.0000      159.4909            16.50%
+   1773    79      174.7300   117      191.0000      159.6115    87161   16.43%
+Elapsed time = 6.42 sec. (5352.03 ticks, tree = 0.80 MB, solutions = 2)
+*  1991   212      integral     0      182.0000      159.6115   104593   12.30%
+   2076   256      188.0605    14      182.0000      159.6115   107027   12.30%
+   2465   444      170.3333   121      182.0000      159.6115   129328   12.30%
+   2833   779      172.2414   104      182.0000      159.6115   154315   12.30%
+   3537  1306      179.8095   102      182.0000      159.6115   186135   12.30%
+
+GUB cover cuts applied:  12
+Clique cuts applied:  3
+Cover cuts applied:  5
+Mixed integer rounding cuts applied:  488
+Flow path cuts applied:  0
+Zero-half cuts applied:  43
+Gomory fractional cuts applied:  37
+
+Root node processing (before b&c):
+  Real time             =    1.13 sec. (657.92 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   10.79 sec. (9349.00 ticks)
+  Sync time (average)   =    3.25 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   11.91 sec. (10006.92 ticks)
+Gap: 12.3%
+Upper bound: 182
+Lower bound: 159.612
+End of CPLEX run. Time: 11.9156 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_BBInterval_10_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_BBInterval                 10
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.25 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.26 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    386   312      168.5455    85                    158.0000    25859         
+    642   497      232.9458    29                    158.9220    36080         
+*   867   640      integral     0      205.0000      158.9220    43929   22.48%
+    912   664      186.5639    82      205.0000      158.9220    44686   22.48%
+   1112   674      196.4286    19      205.0000      158.9220    51345   22.48%
+*  1143   674      integral     0      204.0000      158.9220    51435   22.10%
+*  1390   879      integral     0      187.0000      158.9220    59474   15.01%
+   1417   879      199.6667   105      187.0000      158.9220    58967   15.01%
+   1625   923      166.0000    93      187.0000      158.9220    70831   15.01%
+   1931  1126      174.2596   137      187.0000      158.9220    77190   15.01%
+   3173  2031      180.0000    72      187.0000      158.9220   115524   15.01%
+Elapsed time = 5.38 sec. (3773.01 ticks, tree = 88.31 MB, solutions = 3)
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 36 rows and 30 columns.
+MIP Presolve modified 4698 coefficients.
+Reduced MIP has 6559 rows, 4565 columns, and 34103 nonzeros.
+Reduced MIP has 4215 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.87 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6559 rows, 4565 columns, and 34103 nonzeros.
+Reduced MIP has 4215 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (24.97 ticks)
+Represolve time = 0.16 sec. (104.50 ticks)
+   3428     0      154.0000   155      187.0000      Cuts: 59   127981   15.01%
+   3428     0      158.2328   145      187.0000     Cuts: 123   128385   15.01%
+   3428     0      160.5000   217      187.0000      Cuts: 98   128715   14.17%
+   3428     2      160.5000   207      187.0000      160.5000   128715   14.17%
+   3548   113      181.4001    44      187.0000      161.0000   142017   13.90%
+   3843   320        cutoff            187.0000      161.0000   172168   13.90%
+   4281   634        cutoff            187.0000      161.0000   197065   13.90%
+   4826  1048      174.0000   151      187.0000      161.0000   219277   13.90%
+
+GUB cover cuts applied:  3
+Clique cuts applied:  2
+Cover cuts applied:  7
+Mixed integer rounding cuts applied:  333
+Flow path cuts applied:  0
+Zero-half cuts applied:  48
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  36
+
+Root node processing (before b&c):
+  Real time             =    1.22 sec. (657.86 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.17 sec. (9346.19 ticks)
+  Sync time (average)   =    3.42 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.39 sec. (10004.05 ticks)
+Gap: 13.9%
+Upper bound: 187
+Lower bound: 161
+End of CPLEX run. Time: 12.3957 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_BBInterval_15_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_BBInterval                 15
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.11 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.09 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    386   313      171.0000    37                    158.0000    25889         
+    657   467      164.3770   117                    158.9220    34046         
+*   838   631      integral     0      233.0000      158.9220    41920   31.79%
+*   870   654      integral     0      212.0000      158.9220    43311   25.04%
+    896   651      189.0611    52      212.0000      158.9220    42997   25.04%
+   1121   747      175.0000   130      212.0000      158.9220    51351   25.04%
+   1453  1045      190.5453   102      212.0000      158.9220    61176   25.04%
+   1754  1234      191.3333    71      212.0000      158.9220    68083   25.04%
+   2061  1555      204.3614    23      212.0000      158.9220    77971   25.04%
+   3234  2668      199.2008    97      212.0000      158.9220   115834   25.04%
+Elapsed time = 5.16 sec. (3778.10 ticks, tree = 133.41 MB, solutions = 2)
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.19 sec. (103.48 ticks)
+   3277     0      154.0000   127      212.0000      Cuts: 32   120961   25.04%
+   3277     0      157.4086   207      212.0000     Cuts: 133   121415   25.04%
+   3277     0      158.3218   223      212.0000     Cuts: 114   121753   25.04%
+   3277     2      158.3218   223      212.0000      159.0000   121753   25.00%
+   3385    87      163.5000    73      212.0000      159.0000   136340   25.00%
+*  3442   131      integral     0      204.0000      159.0000   143405   22.06%
+*  3481   152      integral     0      203.0000      159.0000   146506   21.67%
+   3648   225      169.7846    88      203.0000      159.0000   157259   21.67%
+   4016   464      180.2759   129      203.0000      162.4737   195678   19.96%
+
+GUB cover cuts applied:  6
+Clique cuts applied:  4
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  334
+Flow path cuts applied:  0
+Zero-half cuts applied:  48
+Multi commodity flow cuts applied:  1
+Gomory fractional cuts applied:  35
+
+Root node processing (before b&c):
+  Real time             =    1.02 sec. (657.93 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.51 sec. (9346.05 ticks)
+  Sync time (average)   =    3.02 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.52 sec. (10003.97 ticks)
+Gap: 19.96%
+Upper bound: 203
+Lower bound: 162.474
+End of CPLEX run. Time: 12.5246 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_BBInterval_30_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_MIP_Strategy_BBInterval                 30
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.01 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 0.87 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    386   313      171.0000    37                    158.0000    25889         
+    658   468      163.0000   122                    158.9220    34096         
+*   837   632      integral     0      233.0000      158.9220    41954   31.79%
+*   867   655      integral     0      212.0000      158.9220    43341   25.04%
+    890   621      170.0000    80      212.0000      158.9220    41830   25.04%
+*   989   636      integral     0      190.0000      158.9220    48237   16.36%
+   1113   700      179.5847    76      190.0000      158.9220    49896   16.36%
+   1436   826      168.4161    99      190.0000      158.9220    60379   16.36%
+   1762  1040      183.6746    89      190.0000      158.9220    68016   16.36%
+   2106  1317      177.3333    91      190.0000      158.9220    77629   16.36%
+   3280  2345      181.0000    99      190.0000      158.9220   114895   16.36%
+Elapsed time = 4.97 sec. (3774.29 ticks, tree = 116.23 MB, solutions = 3)
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 21 rows and 15 columns.
+MIP Presolve modified 4718 coefficients.
+Reduced MIP has 6574 rows, 4580 columns, and 34198 nonzeros.
+Reduced MIP has 4230 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.95 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6574 rows, 4580 columns, and 34198 nonzeros.
+Reduced MIP has 4230 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.06 ticks)
+Represolve time = 0.10 sec. (103.68 ticks)
+   3417     0      154.0000   139      190.0000      Cuts: 89   124029   16.36%
+   3417     0      155.7544   207      190.0000     Cuts: 127   124364   16.36%
+   3417     0      157.4086   212      190.0000      Cuts: 97   124600   16.36%
+   3417     2      157.4086   212      190.0000      158.9220   124600   16.36%
+   3524    91      170.2857   141      190.0000      158.9220   140351   16.36%
+   3826   288      176.1813   141      190.0000      158.9220   158626   16.36%
+*  3847   297      integral     0      186.0000      158.9220   159442   14.56%
+   4263   646      171.2639   128      186.0000      158.9220   185583   14.56%
+   4944  1045      177.0168    99      186.0000      158.9220   207242   14.56%
+
+GUB cover cuts applied:  13
+Clique cuts applied:  3
+Cover cuts applied:  2
+Mixed integer rounding cuts applied:  251
+Flow path cuts applied:  0
+Zero-half cuts applied:  24
+Gomory fractional cuts applied:  34
+
+Root node processing (before b&c):
+  Real time             =    0.81 sec. (657.92 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.65 sec. (9346.38 ticks)
+  Sync time (average)   =    3.68 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.46 sec. (10004.30 ticks)
+Gap: 14.56%
+Upper bound: 186
+Lower bound: 158.922
+End of CPLEX run. Time: 12.4879 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_Branch_-1_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Strategy_Branch                     -1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.00 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.04 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.05 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+    104    75      161.3061   127                    157.0000     7561         
+    335   301      171.3061   130                    157.0000    17999         
+    548   489      178.6977   142                    157.0000    25530         
+    772   685      189.3488    95                    157.0000    32895         
+    955   841      209.7993    95                    157.0000    40214         
+   1128  1058      254.9571   107                    157.0000    53923         
+   1325  1174      200.0996   108                    157.0000    61581         
+   1550  1416      250.1772    70                    157.0000    74263         
+   1662  1579      313.0000    79                    157.0000    82283         
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.08 sec. (102.14 ticks)
+   1663     0      154.0000   148                    Cuts: 73    86698         
+   1663     0      155.1429   179                   Cuts: 163    86897         
+   1663     0      157.4224   220                    Cuts: 89    87178         
+   1663     2      157.4224   194                    157.4224    87178         
+Elapsed time = 4.71 sec. (4246.87 ticks, tree = 0.02 MB, solutions = 0)
+   1747    65      165.1250   173                    157.4757   105272         
+   2225   441      190.2826   194                    157.4757   138178         
+   2622   871      224.0000   132                    157.4757   160470         
+   3270  1409      220.9091   194                    157.4757   189371         
+   3732  2006      332.9722   134                    157.4757   225709         
+   3990  2143      187.0000    72                    157.4757   235470         
+
+GUB cover cuts applied:  7
+Clique cuts applied:  4
+Cover cuts applied:  4
+Mixed integer rounding cuts applied:  268
+Flow path cuts applied:  0
+Zero-half cuts applied:  37
+Multi commodity flow cuts applied:  1
+Gomory fractional cuts applied:  38
+
+Root node processing (before b&c):
+  Real time             =    0.93 sec. (657.67 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   10.73 sec. (9345.92 ticks)
+  Sync time (average)   =    3.34 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   11.66 sec. (10003.59 ticks)
+Gap: unavailable
+Lower bound: 157.476
+End of CPLEX run. Time: 11.6618 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Strategy_Branch_1_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Strategy_Branch                     1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.00 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.05 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.03 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     61    47      213.2520    54                    158.0000     8019         
+    271   124      162.3706   126                    158.0000    18515         
+    395   181      213.4827    24                    158.0000    24738         
+*   562   257      integral     0      213.0000      158.0000    32626   25.82%
+    618   274      179.7076    93      213.0000      158.0000    36083   25.82%
+    767   335      193.5665    29      213.0000      158.0000    45092   25.82%
+*  1011   378      integral     0      212.0000      158.0000    51379   25.47%
+   1012   387      186.0920   127      212.0000      158.0000    52413   25.47%
+   1218   436      206.9821    50      212.0000      158.0000    61181   25.47%
+   1339   488        cutoff            212.0000      158.0000    72135   25.47%
+   1653   506      204.7843    47      212.0000      158.0000    77691   25.47%
+*  2829   700      integral     0      211.0000      158.0000   122980   25.12%
+   3002   723      195.2393    76      211.0000      158.0000   127308   25.12%
+Elapsed time = 4.74 sec. (3768.94 ticks, tree = 8.91 MB, solutions = 5)
+*  3218   761      integral     0      210.0000      158.0000   133307   24.76%
+*  3224   793      integral     0      207.0000      158.0000   138310   23.67%
+*  3249   767      integral     0      206.0000      158.0000   140342   23.30%
+   4088   845      171.3758   110      206.0000      158.0000   168948   23.30%
+*  4196   828      integral     0      205.0000      158.0000   171872   22.93%
+*  4460   840      integral     0      204.0000      158.0000   180712   22.55%
+*  4621   831      integral     0      201.0000      158.0000   184038   21.39%
+*  4708   769      integral     0      194.0000      158.0000   186119   18.56%
+*  4773   615      integral     0      193.0000      158.0000   187675   18.13%
+   5419   522        cutoff            193.0000      158.0000   204645   18.13%
+*  5696   522      integral     0      192.0000      158.0000   207888   17.71%
+*  6385   526      integral     0      190.0000      158.0000   236881   16.84%
+   6763   501        cutoff            190.0000      158.0000   240949   16.84%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 21 rows and 15 columns.
+MIP Presolve modified 4718 coefficients.
+Reduced MIP has 6574 rows, 4580 columns, and 34198 nonzeros.
+Reduced MIP has 4230 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.95 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6574 rows, 4580 columns, and 34198 nonzeros.
+Reduced MIP has 4230 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.06 ticks)
+Represolve time = 0.16 sec. (114.31 ticks)
+   6786     0      155.3780   259      190.0000      Cuts: 32   254725   16.84%
+   6786     0      157.5565   186      190.0000     Cuts: 133   254879   16.84%
+   6786     0      158.6133   168      190.0000      Cuts: 90   255107   16.52%
+   6786     2      158.6133   168      190.0000      158.6133   255107   16.52%
+   6884    42      187.0000    76      190.0000      159.0962   268843   16.27%
+
+GUB cover cuts applied:  11
+Clique cuts applied:  8
+Cover cuts applied:  3
+Mixed integer rounding cuts applied:  403
+Flow path cuts applied:  0
+Zero-half cuts applied:  45
+Multi commodity flow cuts applied:  1
+Gomory fractional cuts applied:  46
+
+Root node processing (before b&c):
+  Real time             =    0.89 sec. (658.24 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.54 sec. (9359.36 ticks)
+  Sync time (average)   =    3.58 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.43 sec. (10017.60 ticks)
+Gap: 16.03%
+Upper bound: 190
+Lower bound: 159.546
+End of CPLEX run. Time: 12.43 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Limits_CutsFactor_1_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_CutsFactor                   1
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.00 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.05 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     2      154.0000    60                    154.0000      736         
+Elapsed time = 0.51 sec. (277.28 ticks, tree = 0.02 MB, solutions = 0)
+    203   165      164.8842   110                    154.3061    14931         
+    337   292      208.8873   104                    154.3061    29178         
+*   605   476      integral     0      223.0000      154.3061    47362   30.80%
+    611   462      218.1978    64      223.0000      154.3061    46061   30.80%
+    842   574      175.8774    90      223.0000      154.3061    61194   30.80%
+*  1131   848      integral     0      203.0000      154.3061    84100   23.99%
+   1138   802      194.6023    53      203.0000      154.3061    86621   23.99%
+   1403   952      175.2451    85      203.0000      154.3061    99209   23.99%
+   1608  1143      199.6250   110      203.0000      154.3061   115616   23.99%
+   1887  1369      201.3889    41      203.0000      154.3061   134538   23.99%
+   2178  1616      182.6122    50      203.0000      154.3061   153833   23.99%
+   3356  2580      193.0000    53      203.0000      154.3061   222407   23.99%
+Elapsed time = 4.44 sec. (3386.90 ticks, tree = 11.22 MB, solutions = 2)
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.08 sec. (103.02 ticks)
+   3437    16      159.0000   145      203.0000      155.1111   238926   23.59%
+   3891   314      159.0000   110      203.0000      155.1111   260276   23.59%
+*  4083   509      integral     0      190.0000      155.1111   272971   18.36%
+   4416   614      178.1839   112      190.0000      155.1111   283311   18.36%
+   5059  1094      170.0159   126      190.0000      155.1111   307608   18.36%
+   5859  1708      170.4082   120      190.0000      155.1111   333911   18.36%
+   6515  2281      182.5000    69      190.0000      155.1111   359227   18.36%
+
+GUB cover cuts applied:  0
+Clique cuts applied:  0
+Mixed integer rounding cuts applied:  0
+Flow path cuts applied:  0
+
+Root node processing (before b&c):
+  Real time             =    0.36 sec. (275.04 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.60 sec. (9730.08 ticks)
+  Sync time (average)   =    3.93 sec.
+  Wait time (average)   =    0.01 sec.
+                          ------------
+Total (root+branch&cut) =   11.96 sec. (10005.12 ticks)
+Gap: 18.36%
+Upper bound: 190
+Lower bound: 155.111
+End of CPLEX run. Time: 11.9654 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Limits_CutsFactor_2_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_CutsFactor                   2
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.00 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.04 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.10 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1394  1026      177.5000   123      260.0000      158.9220    59090   38.88%
+*  1414  1072      integral     0      197.0000      158.9220    60987   19.33%
+   1630   966      171.6704   191      197.0000      158.9220    68522   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.03 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.09 sec. (103.72 ticks)
+   1727     0      154.4211   123      197.0000      Cuts: 32    79978   19.33%
+   1727     0      157.6250   204      197.0000      Cuts: 97    80305   19.33%
+   1727     0      158.7414   177      197.0000      Cuts: 99    80577   19.33%
+   1727     2      158.7414   163      197.0000      158.9220    80577   19.33%
+*  1823+    7                          194.0000      159.4407            17.81%
+   1831   100      173.8333   127      194.0000      159.4407    93209   17.81%
+Elapsed time = 6.18 sec. (5240.18 ticks, tree = 1.13 MB, solutions = 3)
+*  1965   163      integral     0      177.0000      159.4407   100103    9.92%
+   2082   193      169.3333   134      177.0000      160.5105   112426    9.32%
+   2546   457      170.6667   153      177.0000      160.5105   135992    9.32%
+   3179   617        cutoff            177.0000      160.5105   156505    9.32%
+   3589   856      175.2500    84      177.0000      160.5105   179647    9.32%
+
+GUB cover cuts applied:  10
+Clique cuts applied:  3
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  456
+Flow path cuts applied:  0
+Zero-half cuts applied:  43
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  32
+
+Root node processing (before b&c):
+  Real time             =    0.93 sec. (657.92 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.13 sec. (9346.34 ticks)
+  Sync time (average)   =    3.71 sec.
+  Wait time (average)   =    0.01 sec.
+                          ------------
+Total (root+branch&cut) =   12.07 sec. (10004.25 ticks)
+Gap: 9.32%
+Upper bound: 177
+Lower bound: 160.51
+End of CPLEX run. Time: 12.0693 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Limits_CutsFactor_4_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_CutsFactor                   4
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.00 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.04 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 0.90 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1394  1026      177.5000   123      260.0000      158.9220    59090   38.88%
+*  1414  1072      integral     0      197.0000      158.9220    60987   19.33%
+   1630   966      171.6704   191      197.0000      158.9220    68522   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.19 sec. (103.72 ticks)
+   1727     0      154.4211   123      197.0000      Cuts: 32    79978   19.33%
+   1727     0      157.6250   204      197.0000      Cuts: 97    80305   19.33%
+   1727     0      158.7414   177      197.0000      Cuts: 99    80577   19.33%
+   1727     2      158.7414   163      197.0000      158.9220    80577   19.33%
+*  1823+    7                          194.0000      159.4407            17.81%
+   1831   100      173.8333   127      194.0000      159.4407    93209   17.81%
+Elapsed time = 6.00 sec. (5240.18 ticks, tree = 1.13 MB, solutions = 3)
+*  1965   163      integral     0      177.0000      159.4407   100103    9.92%
+   2082   193      169.3333   134      177.0000      160.5105   112426    9.32%
+   2546   457      170.6667   153      177.0000      160.5105   135992    9.32%
+   3179   617        cutoff            177.0000      160.5105   156505    9.32%
+   3589   856      175.2500    84      177.0000      160.5105   179647    9.32%
+
+GUB cover cuts applied:  10
+Clique cuts applied:  3
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  456
+Flow path cuts applied:  0
+Zero-half cuts applied:  43
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  32
+
+Root node processing (before b&c):
+  Real time             =    0.78 sec. (657.92 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.13 sec. (9346.34 ticks)
+  Sync time (average)   =    3.33 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   11.91 sec. (10004.25 ticks)
+Gap: 9.32%
+Upper bound: 177
+Lower bound: 160.51
+End of CPLEX run. Time: 11.9124 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Limits_CutsFactor_8_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_CutsFactor                   8
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.00 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.06 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.15 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1394  1026      177.5000   123      260.0000      158.9220    59090   38.88%
+*  1414  1072      integral     0      197.0000      158.9220    60987   19.33%
+   1630   966      171.6704   191      197.0000      158.9220    68522   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.08 sec. (103.72 ticks)
+   1727     0      154.4211   123      197.0000      Cuts: 32    79978   19.33%
+   1727     0      157.6250   204      197.0000      Cuts: 97    80305   19.33%
+   1727     0      158.7414   177      197.0000      Cuts: 99    80577   19.33%
+   1727     2      158.7414   163      197.0000      158.9220    80577   19.33%
+*  1823+    7                          194.0000      159.4407            17.81%
+   1831   100      173.8333   127      194.0000      159.4407    93209   17.81%
+Elapsed time = 6.29 sec. (5240.18 ticks, tree = 1.13 MB, solutions = 3)
+*  1965   163      integral     0      177.0000      159.4407   100103    9.92%
+   2082   193      169.3333   134      177.0000      160.5105   112426    9.32%
+   2546   457      170.6667   153      177.0000      160.5105   135992    9.32%
+   3179   617        cutoff            177.0000      160.5105   156505    9.32%
+   3589   856      175.2500    84      177.0000      160.5105   179647    9.32%
+
+GUB cover cuts applied:  10
+Clique cuts applied:  3
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  456
+Flow path cuts applied:  0
+Zero-half cuts applied:  43
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  32
+
+Root node processing (before b&c):
+  Real time             =    0.93 sec. (657.92 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.32 sec. (9346.34 ticks)
+  Sync time (average)   =    3.55 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.24 sec. (10004.25 ticks)
+Gap: 9.32%
+Upper bound: 177
+Lower bound: 160.51
+End of CPLEX run. Time: 12.2462 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-1456979.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-2proc-no-mip-start/medium-1/2proc/seed-4/8_neos-1456979_seed-4_20260501_231809/expansion/config_param_CPXPARAM_MIP_Limits_CutsFactor_16_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R6771
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   150
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_CutsFactor                   16
+Tried aggregator 1 time.
+MIP Presolve eliminated 175 rows and 10 columns.
+MIP Presolve modified 4950 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (15.92 ticks)
+Probing time = 0.01 sec. (5.74 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve modified 90 coefficients.
+Reduced MIP has 6595 rows, 4595 columns, and 35740 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (27.10 ticks)
+Probing time = 0.00 sec. (5.37 ticks)
+Clique table members: 20433.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.04 sec. (38.64 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      154.0000   120                    154.0000      736         
+      0     0      154.0000   129                    Cuts: 76      897         
+      0     0      154.0000   119                    Cuts: 65     1093         
+      0     0      154.0000   132                   Cuts: 229     1320         
+      0     2      154.0000    68                    154.0000     1320         
+Elapsed time = 1.04 sec. (660.17 ticks, tree = 0.02 MB, solutions = 0)
+     69    59      178.7480    85                    158.0000     7875         
+    242   216      210.5325    97                    158.0000    19227         
+    392   315      171.0000    37                    158.0000    25830         
+    660   455      186.2322    58                    158.0000    32938         
+    929   678      264.2410    23                    158.9220    44068         
+*   932   672      integral     0      260.0000      158.9220    44080   38.88%
+   1093   812      172.6250    50      260.0000      158.9220    51413   38.88%
+   1394  1026      177.5000   123      260.0000      158.9220    59090   38.88%
+*  1414  1072      integral     0      197.0000      158.9220    60987   19.33%
+   1630   966      171.6704   191      197.0000      158.9220    68522   19.33%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve eliminated 1 rows and 0 columns.
+MIP Presolve modified 4723 coefficients.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (33.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 6594 rows, 4595 columns, and 34313 nonzeros.
+Reduced MIP has 4245 binaries, 175 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.02 sec. (25.15 ticks)
+Represolve time = 0.13 sec. (103.72 ticks)
+   1727     0      154.4211   123      197.0000      Cuts: 32    79978   19.33%
+   1727     0      157.6250   204      197.0000      Cuts: 97    80305   19.33%
+   1727     0      158.7414   177      197.0000      Cuts: 99    80577   19.33%
+   1727     2      158.7414   163      197.0000      158.9220    80577   19.33%
+*  1823+    7                          194.0000      159.4407            17.81%
+   1831   100      173.8333   127      194.0000      159.4407    93209   17.81%
+Elapsed time = 6.43 sec. (5240.18 ticks, tree = 1.13 MB, solutions = 3)
+*  1965   163      integral     0      177.0000      159.4407   100103    9.92%
+   2082   193      169.3333   134      177.0000      160.5105   112426    9.32%
+   2546   457      170.6667   153      177.0000      160.5105   135992    9.32%
+   3179   617        cutoff            177.0000      160.5105   156505    9.32%
+   3589   856      175.2500    84      177.0000      160.5105   179647    9.32%
+
+GUB cover cuts applied:  10
+Clique cuts applied:  3
+Cover cuts applied:  8
+Mixed integer rounding cuts applied:  456
+Flow path cuts applied:  0
+Zero-half cuts applied:  43
+Multi commodity flow cuts applied:  3
+Gomory fractional cuts applied:  32
+
+Root node processing (before b&c):
+  Real time             =    0.88 sec. (657.92 ticks)
+Parallel b&c, 8 threads:
+  Real time             =   11.46 sec. (9346.34 ticks)
+  Sync time (average)   =    3.73 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   12.34 sec. (10004.25 ticks)
+Gap: 9.32%
+Upper bound: 177
+Lower bound: 160.51
+End of CPLEX run. Time: 12.3428 seconds
