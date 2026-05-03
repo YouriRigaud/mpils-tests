@@ -1,0 +1,68 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-2/supportcase40.mps
+Config: /scratch/yorig/mpils-results-grid-seconds-10-no-mip-start/medium-2/2proc/seed-4/8_supportcase40_seed-4_20260503_051802/expansion/config_param_CPXPARAM_MIP_Strategy_SubAlgorithm_1_iter_3.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  obj
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Strategy_SubAlgorithm               1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Strategy_HeuristicFreq              40
+CPXPARAM_TimeLimit                               10
+Tried aggregator 2 times.
+MIP Presolve eliminated 29622 rows and 11272 columns.
+MIP Presolve modified 700 coefficients.
+Aggregator did 100 substitutions.
+Reduced MIP has 8469 rows, 5068 columns, and 24192 nonzeros.
+Reduced MIP has 300 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (31.66 ticks)
+Found incumbent of value 213568.377872 after 0.04 sec. (87.62 ticks)
+Probing time = 0.00 sec. (1.10 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 8469 rows, 5068 columns, and 24192 nonzeros.
+Reduced MIP has 300 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (12.02 ticks)
+Probing time = 0.14 sec. (0.85 ticks)
+Clique table members: 100.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.13 sec. (175.25 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                       213568.3779     3301.6156            98.45%
+*     0+    0                        36874.2135     3301.6156            91.05%
+      0     0    22536.4834    38    36874.2135    22536.4834     4631   38.88%
+      0     0    22643.5396    38    36874.2135      Cuts: 33     6271   38.59%
+      0     0    22720.6482    39    36874.2135      Cuts: 29     7644   38.38%
+*     0+    0                        26365.4617    22720.6482            13.82%
+Detecting symmetries...
+      0     2    22720.6482    39    26365.4617    22720.6482     7644   13.82%
+Elapsed time = 8.60 sec. (6729.37 ticks, tree = 0.02 MB, solutions = 3)
+      1     3    23217.4949    34    26365.4617    22720.6482    22490   13.82%
+      3     4    23962.0521    27    26365.4617    22720.6482    26377   13.82%
+
+Flow cuts applied:  1
+Gomory fractional cuts applied:  75
+
+Root node processing (before b&c):
+  Real time             =    7.76 sec. (6723.87 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    2.24 sec. (3122.60 ticks)
+  Sync time (average)   =    1.28 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   10.00 sec. (9846.48 ticks)
+Gap: 13.81%
+Upper bound: 26365.5
+Lower bound: 22723.2
+End of CPLEX run. Time: 10.0059 seconds
