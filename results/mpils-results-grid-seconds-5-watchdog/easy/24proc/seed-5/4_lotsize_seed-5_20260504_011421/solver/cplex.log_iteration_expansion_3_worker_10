@@ -1,0 +1,120 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/easy/lotsize.mps
+Config: /scratch/yorig/mpils-results-grid-seconds-5-watchdog/easy/24proc/seed-5/4_lotsize_seed-5_20260504_011421/expansion/config_param_CPXPARAM_Barrier_Ordering_1_iter_3.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R1921
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Wall watchdog: enabled factor=1 grace=1 limit=6 seconds
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Cuts_Covers                         -1
+CPXPARAM_MIP_Cuts_Implied                        1
+CPXPARAM_MIP_Limits_GomoryCand                   25
+CPXPARAM_MIP_Cuts_Gomory                         1
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_Disjunctive                    -1
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_Preprocessing_Symmetry                  2
+CPXPARAM_Barrier_Ordering                        1
+CPXPARAM_TimeLimit                               5
+Tried aggregator 1 time.
+MIP Presolve eliminated 595 rows and 0 columns.
+MIP Presolve added 1190 rows and 0 columns.
+MIP Presolve modified 10 coefficients.
+Reduced MIP has 2515 rows, 2985 columns, and 7755 nonzeros.
+Reduced MIP has 1195 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (4.53 ticks)
+Probing fixed 0 vars, tightened 5487 bounds.
+Probing time = 0.01 sec. (18.38 ticks)
+Tried aggregator 2 times.
+MIP Presolve modified 1206 coefficients.
+Aggregator did 10 substitutions.
+Reduced MIP has 2505 rows, 2975 columns, and 7735 nonzeros.
+Reduced MIP has 1195 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (5.29 ticks)
+Probing fixed 0 vars, tightened 2401 bounds.
+Probing time = 0.00 sec. (6.41 ticks)
+Clique table members: 190.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.01 sec. (9.71 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0   348385.3466   472                 348385.3466      882         
+      0     0   572993.6826   462                   Cuts: 726     1894         
+      0     0   804826.2087   708                   Cuts: 726     2778         
+      0     0   948430.3141   703                   Cuts: 726     3536         
+*     0+    0                       1.01740e+07   948430.3141            90.68%
+*     0+    0                      7973370.0000   948430.3141            88.11%
+Detecting symmetries...
+      0     2   948430.3141   703  7973370.0000   948430.3141     3536   88.11%
+Elapsed time = 0.35 sec. (481.58 ticks, tree = 0.02 MB, solutions = 2)
+    251   171   970244.4898   792  7973370.0000   948796.4085     8552   88.10%
+    883   703  1045351.1626   617  7973370.0000   948796.4085    14615   88.10%
+   1543  1311  1186276.4964   423  7973370.0000   948796.4085    21931   88.10%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+MIP Presolve modified 1154 coefficients.
+Reduced MIP has 2505 rows, 2975 columns, and 7735 nonzeros.
+Reduced MIP has 1195 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (3.78 ticks)
+Tried aggregator 1 time.
+MIP Presolve modified 1013 coefficients.
+Reduced MIP has 2505 rows, 2975 columns, and 7735 nonzeros.
+Reduced MIP has 1195 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (3.75 ticks)
+Represolve time = 0.01 sec. (17.19 ticks)
+   1644     0  1097944.8022   737  7973370.0000     Cuts: 726    29549   86.23%
+   1644     0  1179521.1410   689  7973370.0000     Cuts: 726    30321   85.21%
+   1644     0  1253251.5341   726  7973370.0000     Cuts: 726    31039   84.28%
+   1644     2  1253251.5341   726  7973370.0000  1253251.5341    31039   84.28%
+   1658    16  1310346.7504   615  7973370.0000  1253264.8192    31715   84.28%
+   1694    52  1339703.6990   509  7973370.0000  1253264.8192    32478   84.28%
+   1714    72  1423787.9014   538  7973370.0000  1253264.8192    35371   84.28%
+   1758   113  1469686.9813   499  7973370.0000  1253275.5493    38285   84.28%
+   1813   118  1358209.9490   780  7973370.0000  1253275.5493    43229   84.28%
+*  1931+  258                      1891953.0000  1302482.5825            31.16%
+*  2143+  413                      1873712.0000  1302482.5825            30.49%
+*  2171   451      integral     0  1863878.0000  1302482.5825    73368   30.12%
+Elapsed time = 3.79 sec. (4869.64 ticks, tree = 0.82 MB, solutions = 5)
+*  2174   447      integral     0  1854663.0000  1302482.5825    73372   29.77%
+*  2571+  792                      1841541.0000  1302525.9304            29.27%
+*  2729+  834                      1584063.0000  1302525.9304            17.77%
+*  2808+  834                      1581304.0000  1302525.9304            17.63%
+   2830   946  1505549.5905   477  1581304.0000  1302525.9304   104031   17.63%
+*  2909+  842                      1567826.0000  1302525.9304            16.92%
+*  3005+  894                      1543068.0000  1305056.6810            15.42%
+
+Implied bound cuts applied:  15
+Flow cuts applied:  557
+Mixed integer rounding cuts applied:  1070
+Flow path cuts applied:  132
+Multi commodity flow cuts applied:  18
+Lift and project cuts applied:  2
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    0.34 sec. (479.45 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    4.66 sec. (5919.82 ticks)
+  Sync time (average)   =    0.42 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    5.01 sec. (6399.27 ticks)
+Gap: 15.17%
+Upper bound: 1.54307e+06
+Lower bound: 1.30894e+06
+Termination status: Normal
+End of CPLEX run. Time: 5.00753 seconds
