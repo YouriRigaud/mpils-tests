@@ -21,9 +21,20 @@
 #    16      16             8               1.5
 #    24      24            12               1.0   ← full node, perfect fill
 #
+# MPI_PROCS_PER_ILS controls how many procs back each ILS instance (default: 1).
+# ILS instances = MPI_PROCS / MPI_PROCS_PER_ILS. Must divide MPI_PROCS evenly.
+#
+# Example: 24 total procs, varying the ILS split:
+#   MPI_PROCS_PER_ILS=1  → 24 ILS ×  1 proc  (max diversity, current behaviour)
+#   MPI_PROCS_PER_ILS=2  → 12 ILS ×  2 procs
+#   MPI_PROCS_PER_ILS=4  →  6 ILS ×  4 procs
+#   MPI_PROCS_PER_ILS=8  →  3 ILS ×  8 procs
+#   MPI_PROCS_PER_ILS=12 →  2 ILS × 12 procs
+#   MPI_PROCS_PER_ILS=24 →  1 ILS × 24 procs  (single stream, max per-eval parallelism)
+#
 # Example submissions (update the three [CHANGE] lines below first):
-#   sbatch --export=ALL,MPI_PROCS=8   submit-run-instances.sh
-#   sbatch --export=ALL,MPI_PROCS=24  submit-run-instances.sh
+#   sbatch --export=ALL,MPI_PROCS=24,MPI_PROCS_PER_ILS=1   submit-run-instances.sh
+#   sbatch --export=ALL,MPI_PROCS=24,MPI_PROCS_PER_ILS=12  submit-run-instances.sh
 #
 #SBATCH --job-name=mpils-batch
 # 3 instance dirs * 10 seeds = 30 array tasks.
@@ -46,6 +57,7 @@ INSTANCE_DIR_NAMES=(${INSTANCE_DIR_NAMES:-easy medium-1 medium-2})
 SEEDS=(${SEEDS:-1 2 3 4 5 6 7 8 9 10})
 
 MPI_PROCS="${MPI_PROCS:-1}"
+MPI_PROCS_PER_ILS="${MPI_PROCS_PER_ILS:-1}"
 CPLEX_THREADS="${CPLEX_THREADS:-8}"
 SOLVER_TIME="${SOLVER_TIME:-10000}"
 SOLVER_TIME_MODE="${SOLVER_TIME_MODE:-ticks}"
@@ -78,11 +90,13 @@ BATCH_NAME="${INSTANCE_DIR_NAMES[$instance_dir_index]}"
 SEED="${SEEDS[$seed_index]}"
 
 INSTANCES_DIR="${TESTS_DIR}/instances/miplib/${BATCH_NAME}"
-OUTPUT_ROOT="${RESULTS_ROOT}/${BATCH_NAME}/${MPI_PROCS}proc/seed-${SEED}"
+OUTPUT_ROOT="${RESULTS_ROOT}/${BATCH_NAME}/${MPI_PROCS}proc-${MPI_PROCS_PER_ILS}pils/seed-${SEED}"
 
 echo "Array task      : ${task_id}/${total_tasks}"
 echo "Instance dir    : $BATCH_NAME"
 echo "MPI procs       : $MPI_PROCS"
+echo "Procs per ILS   : $MPI_PROCS_PER_ILS"
+echo "ILS instances   : $((MPI_PROCS / MPI_PROCS_PER_ILS))"
 echo "CPLEX threads   : $CPLEX_THREADS"
 echo "Solver time     : $SOLVER_TIME"
 echo "Solver time mode: $SOLVER_TIME_MODE"
@@ -94,6 +108,7 @@ run_args=(
   --tuner-dir "$TUNER_DIR" \
   --output-root "$OUTPUT_ROOT" \
   --mpi-procs "$MPI_PROCS" \
+  --mpi-procs-per-ils "$MPI_PROCS_PER_ILS" \
   --cplex-threads "$CPLEX_THREADS" \
   --solver-time "$SOLVER_TIME" \
   --solver-time-mode "$SOLVER_TIME_MODE" \

@@ -14,6 +14,7 @@ Usage:
     --solver-time N \
     --solver-time-mode MODE \
     --seed N \
+    [--mpi-procs-per-ils N] \
     [--parameters-file PATH]
 
 Required arguments:
@@ -25,6 +26,11 @@ Required arguments:
   --solver-time N          Solver cutoff used by the tuner for each evaluation
   --solver-time-mode MODE  Solver time mode: seconds or ticks
   --seed N                 Base random seed passed to the tuner
+
+Optional arguments:
+  --mpi-procs-per-ils N    MPI ranks dedicated to each ILS instance (default: 1)
+                           Must divide --mpi-procs evenly.
+                           ILS instances = mpi-procs / mpi-procs-per-ils
   --parameters-file PATH   Parameter definition file (default: TUNER_DIR/cplex/params_12_cpx.txt)
 
 Notes:
@@ -55,6 +61,7 @@ instances_dir=""
 tuner_dir=""
 output_root=""
 mpi_procs=""
+mpi_procs_per_ils="1"
 cplex_threads=""
 solver_time=""
 solver_time_mode=""
@@ -103,6 +110,11 @@ while [[ $# -gt 0 ]]; do
       seed="$2"
       shift 2
       ;;
+    --mpi-procs-per-ils)
+      [[ $# -ge 2 ]] || fail "missing value for $1"
+      mpi_procs_per_ils="$2"
+      shift 2
+      ;;
     --parameters-file)
       [[ $# -ge 2 ]] || fail "missing value for $1"
       parameters_file="$2"
@@ -128,9 +140,12 @@ done
 [[ -n "$seed" ]] || fail "--seed is required"
 
 require_positive_integer "$mpi_procs" "--mpi-procs"
+require_positive_integer "$mpi_procs_per_ils" "--mpi-procs-per-ils"
 require_positive_integer "$cplex_threads" "--cplex-threads"
 require_positive_integer "$solver_time" "--solver-time"
 require_positive_integer "$seed" "--seed"
+(( mpi_procs % mpi_procs_per_ils == 0 )) || \
+  fail "--mpi-procs-per-ils=${mpi_procs_per_ils} does not divide --mpi-procs=${mpi_procs} evenly"
 
 case "$solver_time_mode" in
   seconds|ticks)
@@ -210,6 +225,8 @@ echo "tuner_dir=$tuner_dir"
 echo "parameters_file=$parameters_file"
 echo "output_root=$output_root"
 echo "mpi_procs=$mpi_procs"
+echo "mpi_procs_per_ils=$mpi_procs_per_ils"
+echo "ils_count=$((mpi_procs / mpi_procs_per_ils))"
 echo "ntasks_per_socket=$ntasks_per_socket"
 echo "cplex_threads=$cplex_threads"
 echo "solver_time=$solver_time"
@@ -269,6 +286,7 @@ for instance_path in "${instances[@]}"; do
       --solver-time "$solver_time" \
       --solver-time-mode "$solver_time_mode" \
       --seed "$seed" \
+      --mpi-procs-per-ils "$mpi_procs_per_ils" \
       </dev/null >"$log_file" 2>&1
   tuner_rc=$?
   set -e
