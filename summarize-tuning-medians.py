@@ -88,6 +88,7 @@ def main():
 
     selected_instance_dirs = set(args.instance_dirs or [])
     values = defaultdict(lambda: defaultdict(lambda: {"objective": [], "tuning_time": []}))
+    skipped_na = []  # (metrics_path, instance) pairs skipped due to NA
 
     metrics_files = sorted(results_root.rglob("tuning_metrics_*.csv"))
     if not metrics_files:
@@ -108,6 +109,9 @@ def main():
                 raise SystemExit(f"{metrics_path}: missing columns: {missing}")
 
             for row_number, row in enumerate(reader, start=2):
+                if row["objective"] == "NA" or row["tuning_time"] == "NA":
+                    skipped_na.append((metrics_path, row["instance"]))
+                    continue
                 instance = row["instance"]
                 values[instance][proc_count]["objective"].append(
                     as_float(row["objective"], metrics_path, row_number, "objective")
@@ -148,6 +152,12 @@ def main():
     print(f"metrics files: {len(metrics_files)}")
     print(f"instances: {len(values)}")
     print("proc counts: " + ", ".join(f"{proc}proc" for proc in proc_counts))
+    if skipped_na:
+        from collections import Counter
+        counts = Counter((str(p), inst) for p, inst in skipped_na)
+        print(f"WARNING: skipped {len(skipped_na)} NA row(s) across {len(counts)} (file, instance) pair(s):")
+        for (path, inst), n in sorted(counts.items()):
+            print(f"  {n}x  {inst}  in  {path}")
 
 
 if __name__ == "__main__":
