@@ -281,6 +281,7 @@ for instance_path in "${instances[@]}"; do
       --parameters-file "$parameters_file" \
       --clean-working-dir \
       --no-shared-cache \
+      --disable-mip-starts \
       --expansion-value-strategy all \
       --solver-threads "$cplex_threads" \
       --solver-time "$solver_time" \
