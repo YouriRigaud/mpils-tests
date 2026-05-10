@@ -1,0 +1,155 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/easy/csched008.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/easy/24proc-4pils/seed-2/1_csched008_seed-2_20260510_032344/iterated_local_search/run_6_worker_8/parallel_0_2.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  makespan
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Preprocessing_Dependency                2
+CPXPARAM_Simplex_PGradient                       4
+CPXPARAM_Read_Scale                              1
+CPXPARAM_Simplex_Limits_Singularity              5
+CPXPARAM_Preprocessing_Reduce                    0
+CPXPARAM_Threads                                 8
+CPXPARAM_Sifting_Algorithm                       4
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Cuts_Covers                         -1
+CPXPARAM_MIP_Strategy_VariableSelect             2
+CPXPARAM_Preprocessing_BoundStrength             0
+CPXPARAM_MIP_OrderType                           2
+CPXPARAM_MIP_Strategy_PresolveNode               2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      -1
+CPXPARAM_MIP_Limits_StrongCand                   20
+CPXPARAM_MIP_Limits_GomoryCand                   400
+CPXPARAM_MIP_Cuts_Gomory                         1
+CPXPARAM_MIP_Cuts_PathCut                        1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_Disjunctive                    -1
+CPXPARAM_Emphasis_MIP                            5
+CPXPARAM_Barrier_Algorithm                       3
+CPXPARAM_Preprocessing_QPMakePSD                 0
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_CutsFactor                   2
+Generated priority order by increasing bound range.
+Tried aggregator 0 times.
+Reduced MIP has 351 rows, 1536 columns, and 5687 nonzeros.
+Reduced MIP has 1284 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.31 ticks)
+Probing fixed 0 vars, tightened 5 bounds.
+Probing time = 0.00 sec. (4.69 ticks)
+Clique table members: 50.
+MIP emphasis: heuristic.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.01 sec. (11.27 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      171.0000   183                    171.0000      331         
+*     0+    0                          181.0000      171.0000             5.52%
+      0     0      171.0000   114      181.0000       Cuts: 3      350    5.52%
+      0     0      171.0000   185      181.0000      Cuts: 61     1046    5.52%
+      0     0      171.0000   134      181.0000   ZeroHalf: 1     1051    5.52%
+      0     0      171.0000   160      181.0000  ZeroHalf: 33     1653    5.52%
+      0     2      171.0000   147      181.0000      171.0000     1653    5.52%
+Elapsed time = 1.60 sec. (2630.46 ticks, tree = 0.02 MB, solutions = 1)
+*    35+    3                          180.0000      171.0000             5.00%
+     94    77      171.0000   151      180.0000      171.0000     9779    5.00%
+    312   239      171.0000   147      180.0000      171.0000    33861    5.00%
+    631   379      172.6552   147      180.0000      171.0000    66291    5.00%
+   1067   541      174.8000   167      180.0000      171.0000   112093    5.00%
+   1501   700      172.2000    88      180.0000      171.0000   152128    5.00%
+   1876   920      171.0000    83      180.0000      171.0000   198893    5.00%
+   2276  1117      175.1000   121      180.0000      171.0000   246056    5.00%
+   2693  1297      173.2000   127      180.0000      171.0000   283941    5.00%
+   3132  1496    infeasible            180.0000      171.0000   337853    5.00%
+   4971  2244      174.0000   106      180.0000      171.0000   513798    5.00%
+Elapsed time = 3.38 sec. (5736.05 ticks, tree = 1.70 MB, solutions = 2)
+   7096  3085      172.2000   112      180.0000      171.0000   672137    5.00%
+*  7884+ 3294                          179.0000      171.0000             4.47%
+   9534  3717      175.0000    45      179.0000      171.1714   807273    4.37%
+  12307  4669    infeasible            179.0000      171.5667   969072    4.15%
+  14584  5384    infeasible            179.0000      172.0000  1121808    3.91%
+
+Flow path cuts applied:  0
+Zero-half cuts applied:  25
+Gomory fractional cuts applied:  2
+
+Root node processing (before b&c):
+  Real time             =    1.60 sec. (2629.90 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    4.27 sec. (7371.45 ticks)
+  Sync time (average)   =    0.34 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    5.87 sec. (10001.36 ticks)
+Gap: 3.91%
+Upper bound: 179
+Lower bound: 172
+Termination status: Normal
+End of CPLEX run. Time: 5.86787 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/easy/csched008.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/easy/24proc-4pils/seed-2/1_csched008_seed-2_20260510_032344/iterated_local_search/run_6_worker_8/parallel_4_2.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  makespan
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Preprocessing_Dependency                1
+CPXPARAM_Simplex_DGradient                       1
+CPXPARAM_Simplex_PGradient                       4
+CPXPARAM_Read_Scale                              1
+CPXPARAM_Simplex_Limits_Singularity              20
+CPXPARAM_Preprocessing_Reduce                    2
+CPXPARAM_Threads                                 8
+CPXPARAM_Sifting_Algorithm                       1
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Cuts_Covers                         1
+CPXPARAM_MIP_Strategy_SubAlgorithm               1
+CPXPARAM_MIP_Strategy_VariableSelect             2
+CPXPARAM_Preprocessing_BoundStrength             0
+CPXPARAM_MIP_OrderType                           2
+CPXPARAM_MIP_Cuts_FlowCovers                     2
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Cuts_GUBCovers                      1
+CPXPARAM_MIP_Limits_StrongCand                   20
+CPXPARAM_MIP_Limits_GomoryCand                   800
+CPXPARAM_MIP_Cuts_Gomory                         1
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_Emphasis_MIP                            5
+CPXPARAM_Barrier_Algorithm                       3
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_CutsFactor                   2
+Generated priority order by increasing bound range.
+Tried aggregator 0 times.
+Reduced MIP has 351 rows, 1536 columns, and 5687 nonzeros.
+Reduced MIP has 1284 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.49 ticks)
+Probing fixed 0 vars, tightened 5 bounds.
+Probing time = 0.00 sec. (4.69 ticks)
+Clique table members: 50.
+MIP emphasis: heuristic.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.02 sec. (23.69 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      171.0000   164                    171.0000      700         

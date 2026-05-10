@@ -1,0 +1,157 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/easy/fastxgemm-n2r6s0t2.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/easy/24proc-4pils/seed-3/2_fastxgemm-n2r6s0t2_seed-3_20260510_032828/iterated_local_search/run_7_worker_0/ils_config_2883420793455837934.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  OBJ
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Simplex_DGradient                       5
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Strategy_PresolveNode               1
+CPXPARAM_MIP_Cuts_FlowCovers                     2
+CPXPARAM_MIP_Cuts_GUBCovers                      -1
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        1
+CPXPARAM_Emphasis_MIP                            3
+CPXPARAM_MIP_Strategy_RINSHeur                   -1
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 1 time.
+Reduced MIP has 5998 rows, 784 columns, and 19376 nonzeros.
+Reduced MIP has 48 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (4.89 ticks)
+Found incumbent of value 2072.450000 after 0.01 sec. (14.84 ticks)
+Probing time = 0.00 sec. (1.49 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve eliminated 68 rows and 48 columns.
+MIP Presolve modified 1 coefficients.
+Reduced MIP has 5930 rows, 736 columns, and 19088 nonzeros.
+Reduced MIP has 72 binaries, 72 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (21.66 ticks)
+Probing time = 0.00 sec. (0.79 ticks)
+Probing added 144 nonzeros.
+Clique table members: 24.
+MIP emphasis: best bound.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.10 sec. (139.81 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                         2072.4500        0.0000           100.00%
+      0     0       27.0000   110     2072.4500       27.0000     2122   98.70%
+*     0+    0                         1127.0000       27.0000            97.60%
+*     0+    0                          827.0000       27.0000            96.74%
+      0     2       27.0000    50      827.0000       27.0000     2122   96.74%
+Elapsed time = 1.04 sec. (1838.55 ticks, tree = 0.02 MB, solutions = 3)
+      4     4       27.0000   111      827.0000       27.0000     3140   96.74%
+     61    47       27.0000    66      827.0000       27.0000    11430   96.74%
+     99    77       28.7000   114      827.0000       27.0000    18395   96.74%
+    135   129       27.0000    89      827.0000       27.0000    35370   96.74%
+    174   154       28.5000    75      827.0000       27.0000    42550   96.74%
+    208   173       30.0000   105      827.0000       27.0000    49198   96.74%
+    248   223       30.0000    34      827.0000       27.0000    68115   96.74%
+    351   265       30.0000    21      827.0000       28.0000    79290   96.61%
+    458   387       31.5000    61      827.0000       28.6667    96428   96.53%
+*   712+  514                          527.0000       30.0000            94.31%
+    775   701       30.7500    60      527.0000       30.0000   147043   94.31%
+Elapsed time = 2.83 sec. (5002.56 ticks, tree = 0.68 MB, solutions = 5)
+   1150  1021      127.0000    48      527.0000       30.5900   210341   94.20%
+   1526  1335       33.5000    94      527.0000       31.5000   269379   94.02%
+
+Performing restart 1
+
+Repeating presolve.
+Tried aggregator 1 time.
+Reduced MIP has 5930 rows, 736 columns, and 19232 nonzeros.
+Reduced MIP has 72 binaries, 72 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (6.94 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 5930 rows, 736 columns, and 19232 nonzeros.
+Reduced MIP has 72 binaries, 72 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (17.96 ticks)
+Represolve time = 0.02 sec. (29.55 ticks)
+   1688     2       27.0000   101      527.0000       32.5428   319607   93.82%
+
+Flow cuts applied:  0
+Mixed integer rounding cuts applied:  15
+Flow path cuts applied:  0
+
+Root node processing (before b&c):
+  Real time             =    1.04 sec. (1836.18 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    4.39 sec. (8166.65 ticks)
+  Sync time (average)   =    0.61 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    5.43 sec. (10002.82 ticks)
+Gap: 93.82%
+Upper bound: 527
+Lower bound: 32.5428
+Termination status: Normal
+End of CPLEX run. Time: 5.429 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/easy/fastxgemm-n2r6s0t2.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/easy/24proc-4pils/seed-3/2_fastxgemm-n2r6s0t2_seed-3_20260510_032828/iterated_local_search/run_7_worker_0/ils_config_7341080899738952492.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  OBJ
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Preprocessing_Reduce                    0
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Strategy_PresolveNode               1
+CPXPARAM_MIP_Cuts_FlowCovers                     2
+CPXPARAM_MIP_Cuts_GUBCovers                      -1
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        1
+CPXPARAM_Emphasis_MIP                            3
+CPXPARAM_MIP_Strategy_RINSHeur                   -1
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 0 times.
+Reduced MIP has 5998 rows, 784 columns, and 19376 nonzeros.
+Reduced MIP has 48 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (0.75 ticks)
+Found incumbent of value 2026.999987 after 0.01 sec. (9.44 ticks)
+Probing time = 0.00 sec. (1.49 ticks)
+Probing added 144 nonzeros.
+Clique table members: 216.
+MIP emphasis: best bound.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.09 sec. (106.40 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                         2027.0000        0.0000           100.00%
+      0     0       27.0000   152     2027.0000       27.0000     1333   98.67%
+*     0+    0                         1427.0000       27.0000            98.11%
+*     0+    0                          527.0000       27.0000            94.88%
+      0     2       27.0000    62      527.0000       27.0000     1333   94.88%
+Elapsed time = 1.22 sec. (2121.21 ticks, tree = 0.02 MB, solutions = 3)
+      1     3       27.0000   152      527.0000       27.0000     1902   94.88%
+      2     4       27.0000   147      527.0000       27.0000     2055   94.88%
+      4     3       27.0000   160      527.0000       27.0000     1682   94.88%
+      5     5       27.0000   158      527.0000       27.0000     2190   94.88%
+      7     7       27.0000   166      527.0000       27.0000     2750   94.88%
+     11    12       27.0000   142      527.0000       27.0000     3922   94.88%
+     14    10       27.0000   142      527.0000       27.0000     3875   94.88%
+     20     9       27.0000   141      527.0000       27.0000     3422   94.88%
+     28    26       27.0000   135      527.0000       27.0000     9433   94.88%
+    125    85      127.0000    71      527.0000       27.0000    25102   94.88%
+Elapsed time = 3.55 sec. (7223.45 ticks, tree = 1.21 MB, solutions = 3)

@@ -1,0 +1,71 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/easy/fastxgemm-n2r6s0t2.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/easy/24proc-4pils/seed-3/2_fastxgemm-n2r6s0t2_seed-3_20260510_032828/iterated_local_search/run_7_worker_12/ils_config_11732123509390928323.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  OBJ
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Read_Scale                              1
+CPXPARAM_Simplex_Limits_Singularity              0
+CPXPARAM_Preprocessing_Reduce                    1
+CPXPARAM_LPMethod                                1
+CPXPARAM_Threads                                 8
+CPXPARAM_Sifting_Algorithm                       4
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Strategy_Branch                     -1
+CPXPARAM_Preprocessing_BoundStrength             0
+CPXPARAM_MIP_Strategy_PresolveNode               3
+CPXPARAM_MIP_Cuts_FlowCovers                     1
+CPXPARAM_MIP_Strategy_Probe                      -1
+CPXPARAM_MIP_Cuts_GUBCovers                      -1
+CPXPARAM_MIP_Limits_GomoryCand                   800
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         1
+CPXPARAM_Emphasis_MIP                            1
+CPXPARAM_Barrier_Algorithm                       3
+CPXPARAM_Preprocessing_QPMakePSD                 0
+CPXPARAM_MIP_Strategy_RINSHeur                   40
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_CutsFactor                   8
+Tried aggregator 1 time.
+Reduced MIP has 5998 rows, 784 columns, and 19376 nonzeros.
+Reduced MIP has 48 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (3.75 ticks)
+Found incumbent of value 2027.000000 after 0.01 sec. (13.58 ticks)
+Tried aggregator 1 time.
+Reduced MIP has 5998 rows, 784 columns, and 19376 nonzeros.
+Reduced MIP has 120 binaries, 72 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (4.59 ticks)
+Clique table members: 72.
+MIP emphasis: integer feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.08 sec. (91.53 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                         2027.0000        0.0000           100.00%
+      0     0       27.0000   168     2027.0000       27.0000     1243   98.67%
+*     0+    0                          527.0000       27.0000            94.88%
+      0     2       27.0000    21      527.0000       27.0000     1243   94.88%
+Elapsed time = 0.70 sec. (1068.13 ticks, tree = 0.02 MB, solutions = 2)
+*     8+    3                          230.0000       27.0000            88.26%
+      8     5       27.0000    62      230.0000       27.0000     1999   88.26%
+     24    25      127.0000   122      230.0000       27.0000     4859   88.26%
+     60    41      127.0000   133      230.0000       27.0000     8526   88.26%
+    102    81      127.0000    86      230.0000       27.0000    13437   88.26%
+    154   106      127.0000   128      230.0000       27.0000    20646   88.26%
+    269   138        cutoff            230.0000       27.0000    26059   88.26%
+    366   191      127.0000   123      230.0000       27.0000    34629   88.26%
+    466   267        cutoff            230.0000       27.0000    52256   88.26%
+    591   312      127.0000   128      230.0000       27.0000    63615   88.26%
+   1155   628      127.0100    88      230.0000       27.0000   125424   88.26%
+Elapsed time = 2.53 sec. (4212.00 ticks, tree = 0.87 MB, solutions = 3)
+   1705   852        cutoff            230.0000       27.0000   186289   88.26%
+   2294  1107        cutoff            230.0000       27.0000   268061   88.26%

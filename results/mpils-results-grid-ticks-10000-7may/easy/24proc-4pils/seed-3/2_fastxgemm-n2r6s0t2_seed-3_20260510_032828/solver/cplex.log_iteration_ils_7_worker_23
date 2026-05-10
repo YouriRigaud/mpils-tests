@@ -1,0 +1,69 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/easy/fastxgemm-n2r6s0t2.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/easy/24proc-4pils/seed-3/2_fastxgemm-n2r6s0t2_seed-3_20260510_032828/iterated_local_search/run_7_worker_20/parallel_0_3.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  OBJ
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Read_Scale                              1
+CPXPARAM_Simplex_Limits_Singularity              0
+CPXPARAM_Preprocessing_Reduce                    2
+CPXPARAM_Threads                                 8
+CPXPARAM_Sifting_Algorithm                       2
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Strategy_Branch                     -1
+CPXPARAM_Preprocessing_BoundStrength             0
+CPXPARAM_MIP_Strategy_PresolveNode               1
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        2
+CPXPARAM_MIP_Strategy_Probe                      1
+CPXPARAM_MIP_Cuts_GUBCovers                      -1
+CPXPARAM_MIP_Limits_StrongCand                   5
+CPXPARAM_MIP_Limits_GomoryCand                   800
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        1
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_MIP_Strategy_RINSHeur                   60
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 0 times.
+Reduced MIP has 5998 rows, 784 columns, and 19376 nonzeros.
+Reduced MIP has 48 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.03 ticks)
+Found incumbent of value 6427.720000 after 0.01 sec. (11.53 ticks)
+Probing time = 0.00 sec. (1.49 ticks)
+Clique table members: 216.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.08 sec. (90.60 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                         6427.7200        0.0000           100.00%
+      0     0       27.0000   168     6427.7200       27.0000     1243   99.58%
+*     0+    0                         1427.0000       27.0000            98.11%
+*     0+    0                          527.0000       27.0000            94.88%
+      0     2       27.0000    21      527.0000       27.0000     1243   94.88%
+Elapsed time = 0.84 sec. (1365.63 ticks, tree = 0.02 MB, solutions = 3)
+      3     5       27.0000    84      527.0000       27.0000     1558   94.88%
+      9     8      127.0000    14      527.0000       27.0000     2010   94.88%
+     17    16      127.0000   148      527.0000       27.0000     3538   94.88%
+     32    26      127.0000   122      527.0000       27.0000     6876   94.88%
+    129    61      427.0000    61      527.0000       27.0000    11045   94.88%
+    243   148      427.0000    96      527.0000       27.0000    18125   94.88%
+    334   249       27.0000   125      527.0000       27.0000    26728   94.88%
+    394   278      127.0000    89      527.0000       27.0000    30174   94.88%
+*   430+    4                          236.0000       27.0000            88.56%
+    447   335       27.0000   137      236.0000       27.0000    36660   88.56%
+*   466+    4                          230.0000       27.0000            88.26%
+    574   353      227.0000    98      230.0000       27.0000    45618   88.26%
+Elapsed time = 2.65 sec. (4681.34 ticks, tree = 8.11 MB, solutions = 6)
+   1013   523      162.0333    54      230.0000       27.0000    71101   88.26%
+   1519   915       27.3400    76      230.0000       27.0000   129406   88.26%
+   2035  1228       27.0000   114      230.0000       27.0000   178793   88.26%

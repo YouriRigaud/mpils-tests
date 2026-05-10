@@ -1,0 +1,102 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-3024952-loue.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/medium-1/24proc-2pils/seed-3/9_neos-3024952-loue_seed-3_20260510_025236/expansion/config_param_CPXPARAM_MIP_Strategy_SubAlgorithm_1_iter_5.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R3706
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        1
+CPXPARAM_MIP_Strategy_StartAlgorithm             1
+CPXPARAM_MIP_Strategy_SubAlgorithm               1
+CPXPARAM_MIP_Strategy_VariableSelect             4
+CPXPARAM_MIP_Cuts_FlowCovers                     2
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_MIP_Cuts_Disjunctive                    -1
+CPXPARAM_MIP_Strategy_HeuristicFreq              -1
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 2 times.
+MIP Presolve eliminated 40 rows and 0 columns.
+MIP Presolve modified 80 coefficients.
+Aggregator did 32 substitutions.
+Reduced MIP has 3633 rows, 3223 columns, and 15906 nonzeros.
+Reduced MIP has 0 binaries, 3223 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (7.72 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 3633 rows, 3223 columns, and 15906 nonzeros.
+Reduced MIP has 0 binaries, 3223 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.01 sec. (8.53 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.08 sec. (150.18 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    22882.0000   408                  22882.0000     3179         
+      0     0    23565.6048   694                   Cuts: 504     4520         
+      0     0    23739.6936   857                   Cuts: 255     5224         
+      0     0    23834.9452  1047                   Cuts: 159     5534         
+      0     0    23845.3765  1074                   Cuts: 147     5884         
+      0     0    23968.9706  1167                   Cuts: 122     6179         
+Detecting symmetries...
+      0     0    24079.5467   983                   Cuts: 116     6451         
+      0     0    24184.3241  1140                   Cuts: 103     6851         
+      0     0    24318.3732  1241                   Cuts: 127     7130         
+      0     0    24464.3816  1163                    Cuts: 87     7496         
+      0     0    24474.7964  1270                    Cuts: 78     7751         
+      0     0    24524.8517  1305                    Cuts: 68     8082         
+      0     0    24557.9276  1242                    Cuts: 65     8323         
+      0     0    24560.5658  1366                    Cuts: 63     8481         
+      0     0    24564.2012  1425                    Cuts: 50     8632         
+      0     0    24567.5622  1401                    Cuts: 37     8765         
+      0     0    24567.9135  1361                    Cuts: 44     8884         
+      0     0    24568.6412  1429                    Cuts: 38     9035         
+Detecting symmetries...
+      0     2    24568.6412  1429                  24568.6412     9035         
+Elapsed time = 2.41 sec. (3046.14 ticks, tree = 0.02 MB, solutions = 0)
+    136   123    24593.9635  1335                  24568.7309    16497         
+    353   317    24820.3010  1220                  24568.7309    29892         
+    609   529    24690.8145   990                  24568.7309    39915         
+    855   775    24926.4277  1179                  24568.7309    53334         
+   1088   947    24714.0926  1133                  24568.7309    64648         
+   1375  1293    24760.4322   935                  24568.7309    83066         
+   1675  1576    24832.2443   829                  24568.7309    98760         
+   1991  1783    25010.5572   768                  24568.7309   109457         
+   2296  2106    25173.7452   660                  24568.7309   125642         
+   3629  3548    25603.6329   706                  24568.7309   206029         
+Elapsed time = 4.52 sec. (6150.55 ticks, tree = 8.08 MB, solutions = 0)
+   5248  4978    27749.7468   386                  24568.7309   267734         
+   7192  6988    29012.9524   247                  24568.7309   341042         
+   9473  9200    30716.1209   121                  24568.7309   391878         
+* 11497 11059      integral     0    31572.0000    24568.7309   427867   22.18%
+  11730 11312    32412.0000     8    31572.0000    24568.7309   430712   22.18%
+
+Clique cuts applied:  0
+Flow cuts applied:  0
+Mixed integer rounding cuts applied:  115
+Zero-half cuts applied:  182
+Gomory fractional cuts applied:  41
+
+Root node processing (before b&c):
+  Real time             =    2.36 sec. (3042.83 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    4.66 sec. (6958.60 ticks)
+  Sync time (average)   =    0.34 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    7.02 sec. (10001.44 ticks)
+Gap: 22.18%
+Upper bound: 31572
+Lower bound: 24568.7
+Termination status: Normal
+End of CPLEX run. Time: 7.02284 seconds

@@ -1,0 +1,101 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-2/neos-4387871-tavua.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/medium-2/24proc-6pils/seed-3/1_neos-4387871-tavua_seed-3_20260510_040013/expansion/config_param_CPXPARAM_Preprocessing_Reduce_0_iter_5.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R4555
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Simplex_PGradient                       4
+CPXPARAM_Preprocessing_Reduce                    0
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        1
+CPXPARAM_MIP_Cuts_Implied                        2
+CPXPARAM_MIP_Limits_GomoryCand                   400
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_Disjunctive                    -1
+CPXPARAM_MIP_Limits_AggForCut                    10
+CPXPARAM_Emphasis_MIP                            3
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 0 times.
+Reduced MIP has 4554 rows, 4004 columns, and 23496 nonzeros.
+Reduced MIP has 2000 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (1.09 ticks)
+Probing fixed 3 vars, tightened 149 bounds.
+Probing time = 0.00 sec. (3.62 ticks)
+Probing added 1839 nonzeros.
+Clique table members: 4719.
+MIP emphasis: best bound.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.04 sec. (61.54 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0       10.1438    33                     10.1438     1473         
+      0     0       13.4515    40                    Cuts: 32     1543         
+      0     0       14.6747    49                    Cuts: 49     1782         
+*     0+    0                           39.6274       14.6747            62.97%
+      0     0       15.0899    53       39.6274      Cuts: 37     1936   61.92%
+      0     0       16.5231    71       39.6274      Cuts: 62     2188   58.30%
+*     0+    0                           38.0416       16.5231            56.57%
+      0     0       16.9736    91       38.0416      Cuts: 30     2442   55.38%
+*     0+    0                           37.2131       16.9736            54.39%
+      0     0  -1.00000e+75     0       37.2131       16.9736     2442   54.39%
+      0     0       17.7072    73       37.2131      Cuts: 26     2685   52.42%
+      0     0       17.8220    95       37.2131      Cuts: 21     2858   52.11%
+      0     0       17.8879    99       37.2131      Cuts: 20     2972   51.93%
+      0     0       17.9801   100       37.2131      Cuts: 13     3136   51.68%
+*     0+    0                           36.7989       17.9801            51.14%
+      0     0       18.1091    93       36.7989      Cuts: 18     3250   49.68%
+*     0+    0                           35.9705       18.5176            48.52%
+      0     0       19.7483   103       35.9705      Cuts: 34     3866   45.10%
+      0     0       20.1212   131       35.9705      Cuts: 28     4257   44.06%
+      0     0       20.2132   134       35.9705      Cuts: 13     4386   43.81%
+      0     0       20.2251   144       35.9705       Cuts: 6     4429   43.77%
+      0     0       20.2755   139       35.9705   Flowcuts: 3     4541   43.63%
+      0     0       20.2788   139       35.9705   Flowcuts: 1     4555   43.62%
+*     0+    0                           33.9705       20.2788            40.30%
+      0     0  -1.00000e+75     0       33.9705       20.2788     4555   40.30%
+      0     2       20.2788   139       33.9705       20.2788     4555   40.30%
+Elapsed time = 1.33 sec. (2328.77 ticks, tree = 0.02 MB, solutions = 6)
+      1     3       21.2012   104       33.9705       20.2791     5040   40.30%
+      2     3       20.4305   129       33.9705       20.4308     4825   39.86%
+      3     4       21.8604   109       33.9705       20.4308     5392   39.86%
+      5     5       21.6213   103       33.9705       20.4308     5848   39.86%
+      7     6       22.1320   114       33.9705       20.4352     5825   39.84%
+      9     6       22.2179    89       33.9705       20.4352     5845   39.84%
+     13     9       20.8146   131       33.9705       20.6610     7177   39.18%
+     16    11       22.3871   123       33.9705       20.6610     7634   39.18%
+     23    10       23.1419   119       33.9705       20.6610     7403   39.18%
+     34    18       22.1728   125       33.9705       20.8202     9962   38.71%
+Elapsed time = 4.65 sec. (8598.90 ticks, tree = 0.14 MB, solutions = 6)
+     57    40       22.5154   115       33.9705       21.5950    16467   36.43%
+
+Clique cuts applied:  0
+Cover cuts applied:  16
+Implied bound cuts applied:  0
+Flow cuts applied:  49
+Multi commodity flow cuts applied:  24
+Lift and project cuts applied:  24
+Gomory fractional cuts applied:  20
+
+Root node processing (before b&c):
+  Real time             =    1.32 sec. (2321.35 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    4.06 sec. (7684.65 ticks)
+  Sync time (average)   =    1.19 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    5.38 sec. (10006.00 ticks)
+Gap: 34.92%
+Upper bound: 33.9705
+Lower bound: 22.1089
+Termination status: Normal
+End of CPLEX run. Time: 5.38488 seconds

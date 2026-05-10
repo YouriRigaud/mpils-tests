@@ -1,0 +1,101 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/neos-3024952-loue.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/medium-1/24proc-2pils/seed-2/9_neos-3024952-loue_seed-2_20260510_024834/expansion/config_param_CPXPARAM_Preprocessing_Presolve_0_iter_2.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R3706
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Preprocessing_Presolve                  0
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        1
+CPXPARAM_MIP_Cuts_FlowCovers                     1
+CPXPARAM_MIP_Cuts_Implied                        2
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   10
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_Disjunctive                    1
+CPXPARAM_Emphasis_MIP                            4
+CPXPARAM_MIP_Strategy_RINSHeur                   -1
+CPXPARAM_DetTimeLimit                            10000
+MIP emphasis: hidden feasible solutions.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.13 sec. (171.49 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    22882.0000   412                  22882.0000     3872         
+      0     0    22989.7810   629                ZeroHalf: 68     4087         
+      0     0    23023.3714   796                ZeroHalf: 77     4204         
+      0     0    23117.2746   848               ZeroHalf: 103     4361         
+      0     0    23146.3460   952                ZeroHalf: 87     4410         
+      0     0    23170.9115   961                ZeroHalf: 95     4449         
+      0     0    23268.7738   891               ZeroHalf: 108     4535         
+      0     0    23303.0296   975                ZeroHalf: 99     4598         
+      0     0    23324.2405  1094               ZeroHalf: 100     4637         
+      0     0    23473.2677   899               ZeroHalf: 100     4750         
+      0     0    23522.3042  1014                ZeroHalf: 75     4803         
+      0     0    23533.4685  1070                ZeroHalf: 87     4830         
+      0     0    23565.8500  1103               ZeroHalf: 105     4878         
+      0     0    23569.2786  1130                ZeroHalf: 87     4898         
+      0     0    23685.8100  1120               ZeroHalf: 100     4992         
+      0     0    23791.5048   998                ZeroHalf: 79     5078         
+      0     0    23810.8952  1036                ZeroHalf: 74     5130         
+      0     0    23869.4333  1004                ZeroHalf: 79     5197         
+      0     0    23877.5090  1210                ZeroHalf: 69     5244         
+      0     0    23892.0920  1080                ZeroHalf: 60     5323         
+      0     0    24034.5250   785                ZeroHalf: 55     5445         
+      0     0    24050.5333   940                ZeroHalf: 47     5524         
+      0     0    24052.7833   997                ZeroHalf: 40     5597         
+      0     0    24054.1405  1072                ZeroHalf: 37     5631         
+Detecting symmetries...
+      0     2    24054.1405  1072                  24054.1405     5631         
+Elapsed time = 1.78 sec. (2607.02 ticks, tree = 0.02 MB, solutions = 0)
+      2     4    24068.8905   875                  24055.8071     5709         
+     10     9    24073.4500   791                  24057.1405     5763         
+    137    50    24357.2667   766                  24069.6405     6465         
+    313   260    24106.5333   538                  24069.6405     8202         
+    544   484    24308.9219   567                  24069.6405    10010         
+    740   675    24374.6762   540                  24069.6405    12182         
+   1111   941    24399.8762   540                  24069.6405    14467         
+   1295  1142    24400.6762   501                  24069.6405    17176         
+   1789  1541    24811.6286   485                  24069.6405    20752         
+   4905  4410    25028.1673   596                  24069.6405    45395         
+Elapsed time = 3.66 sec. (5791.32 ticks, tree = 11.28 MB, solutions = 0)
+   9219  8522    28382.3810   171                  24069.6405    74053         
+  13685 13202    24277.8167   720                  24069.6405   109904         
+* 15180+14134                        32611.0000    24069.6405            26.19%
+  17555 15658    24206.1500   661    32611.0000    24080.4500   135505   26.16%
+  21962 20037    30842.0000    96    32611.0000    24080.4500   173784   26.16%
+* 22629+20547                        31677.0000    24080.4500            23.98%
+
+GUB cover cuts applied:  0
+Clique cuts applied:  0
+Implied bound cuts applied:  0
+Flow cuts applied:  0
+Mixed integer rounding cuts applied:  6
+Zero-half cuts applied:  218
+Disjunctive cuts applied:  0
+Cone linearizations applied:  0
+
+Root node processing (before b&c):
+  Real time             =    1.77 sec. (2604.36 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    4.36 sec. (7400.10 ticks)
+  Sync time (average)   =    0.53 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    6.13 sec. (10004.46 ticks)
+Gap: 23.98%
+Upper bound: 31677
+Lower bound: 24080.4
+Termination status: Normal
+End of CPLEX run. Time: 6.12953 seconds

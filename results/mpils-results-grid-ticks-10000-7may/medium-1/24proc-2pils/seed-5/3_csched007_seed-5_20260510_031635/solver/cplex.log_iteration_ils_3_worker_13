@@ -1,0 +1,606 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/csched007.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/medium-1/24proc-2pils/seed-5/3_csched007_seed-5_20260510_031635/iterated_local_search/run_3_worker_12/parallel_0_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  totdelay
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        3
+CPXPARAM_MIP_Cuts_Covers                         2
+CPXPARAM_MIP_Strategy_VariableSelect             3
+CPXPARAM_MIP_Cuts_Implied                        1
+CPXPARAM_MIP_Strategy_Probe                      -1
+CPXPARAM_MIP_Limits_GomoryCand                   400
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_Disjunctive                    -1
+CPXPARAM_MIP_Strategy_Dive                       3
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 2 times.
+MIP Presolve eliminated 53 rows and 53 columns.
+MIP Presolve modified 236 coefficients.
+Aggregator did 22 substitutions.
+Reduced MIP has 276 rows, 1683 columns, and 6209 nonzeros.
+Reduced MIP has 1457 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (5.05 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 276 rows, 1683 columns, and 6209 nonzeros.
+Reduced MIP has 1457 binaries, 226 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (3.86 ticks)
+Clique table members: 50.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.04 sec. (61.55 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      269.2516   138                    269.2516     1957         
+      0     0      278.7365   208                   Cuts: 120     2180         
+      0     0      282.5917   239                    Cuts: 71     2326         
+      0     0      285.7244   245                    Cuts: 67     2481         
+      0     0      287.3931   254                    Cuts: 42     2632         
+      0     0      288.4355   264                    Cuts: 46     2746         
+Detecting symmetries...
+      0     0      289.3611   268                    Cuts: 25     2819         
+      0     0      290.0683   291                    Cuts: 24     2903         
+      0     0      291.8031   283                    Cuts: 18     2984         
+      0     0      292.6135   280                    Cuts: 32     3057         
+      0     0      293.1920   300                    Cuts: 27     3145         
+      0     0      293.9178   285                    Cuts: 29     3226         
+      0     0      294.1757   305                    Cuts: 24     3285         
+      0     0      294.6133   308                    Cuts: 24     3371         
+      0     0      294.9243   314                    Cuts: 19     3470         
+      0     0      295.5796   304                    Cuts: 21     3602         
+      0     0      296.2104   298                    Cuts: 28     3718         
+      0     0      296.7224   302                    Cuts: 30     3837         
+      0     0      298.1741   299                    Cuts: 29     3978         
+      0     0      298.9158   302                    Cuts: 30     4089         
+      0     0      299.0517   285                    Cuts: 21     4144         
+      0     0      299.3112   302                    Cuts: 27     4223         
+      0     0      299.6344   312                    Cuts: 17     4330         
+      0     0      299.8035   341                    Cuts: 22     4415         
+      0     0      299.9769   334                     Cuts: 8     4508         
+      0     0      300.1629   339                    Cuts: 19     4626         
+      0     0      300.1735   338                 ZeroHalf: 2     4644         
+      0     0      300.2255   319                     Cuts: 9     4702         
+*     0+    0                          463.0000      300.2255            35.16%
+*     0+    0                          462.0000      300.2255            35.02%
+      0     0  -1.00000e+75     0      462.0000      300.2255     4702   35.02%
+Detecting symmetries...
+      0     2      300.2255   314      462.0000      300.2255     4702   35.02%
+Elapsed time = 0.77 sec. (1046.50 ticks, tree = 0.02 MB, solutions = 2)
+      5     6      306.9600   225      462.0000      300.2342     5509   35.01%
+*     7+    2                          456.0000      300.2342            34.16%
+*     8+    2                          449.0000      300.2342            33.13%
+     20    16      306.7054   253      449.0000      300.6094     7148   33.05%
+     44    34      318.8983   234      449.0000      300.8014    11262   33.01%
+     71    59      331.8934   203      449.0000      300.8014    15798   33.01%
+    101    85      337.2746   191      449.0000      300.8014    20300   33.01%
+    129    99      330.5747   192      449.0000      300.8014    22517   33.01%
+    170   145      373.5167    79      449.0000      300.8014    29554   33.01%
+    232   152      311.5671   274      449.0000      301.1066    31426   32.94%
+    290   233      386.3500    41      449.0000      301.1066    40021   32.94%
+*   341   266      integral     0      409.0000      301.1066    41878   26.38%
+Elapsed time = 2.04 sec. (3435.28 ticks, tree = 0.14 MB, solutions = 4)
+*   381   288      integral     0      404.0000      301.1066    43479   25.47%
+    508   337      414.6756    47      404.0000      303.4185    59591   24.90%
+    667   413      351.7005   132      404.0000      303.6833    72042   24.83%
+    862   530      335.6405   207      404.0000      304.7458    90282   24.57%
+   1051   672      310.4997   257      404.0000      305.1919   116958   24.46%
+   1206   796      342.6331   190      404.0000      306.2278   142493   24.20%
+   1351   845      381.8182   202      404.0000      307.8105   153782   23.81%
+
+Clique cuts applied:  0
+Cover cuts applied:  2
+Implied bound cuts applied:  0
+Flow cuts applied:  119
+Zero-half cuts applied:  114
+
+Root node processing (before b&c):
+  Real time             =    0.76 sec. (1041.13 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    4.59 sec. (8961.28 ticks)
+  Sync time (average)   =    0.43 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    5.35 sec. (10002.42 ticks)
+Gap: 23.72%
+Upper bound: 404
+Lower bound: 308.155
+Termination status: Normal
+End of CPLEX run. Time: 5.35369 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/csched007.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/medium-1/24proc-2pils/seed-5/3_csched007_seed-5_20260510_031635/iterated_local_search/run_3_worker_12/parallel_2_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  totdelay
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        3
+CPXPARAM_MIP_Cuts_Covers                         2
+CPXPARAM_MIP_Strategy_VariableSelect             3
+CPXPARAM_MIP_Cuts_Implied                        1
+CPXPARAM_MIP_Limits_GomoryCand                   400
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_Disjunctive                    -1
+CPXPARAM_MIP_Strategy_Dive                       3
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 2 times.
+MIP Presolve eliminated 53 rows and 53 columns.
+MIP Presolve modified 236 coefficients.
+Aggregator did 22 substitutions.
+Reduced MIP has 276 rows, 1683 columns, and 6209 nonzeros.
+Reduced MIP has 1457 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (5.05 ticks)
+Probing time = 0.00 sec. (2.27 ticks)
+Cover probing fixed 0 vars, tightened 1 bounds.
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 276 rows, 1683 columns, and 6209 nonzeros.
+Reduced MIP has 1457 binaries, 226 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (3.86 ticks)
+Probing time = 0.00 sec. (2.51 ticks)
+Clique table members: 50.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (33.70 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      269.2516   139                    269.2516     1029         
+      0     0      278.5957   208                   Cuts: 115     1293         
+      0     0      281.9375   230                    Cuts: 64     1471         
+      0     0      284.1989   220                    Cuts: 53     1647         
+      0     0      286.0895   257                    Cuts: 39     1863         
+      0     0      287.7197   254                    Cuts: 28     1999         
+Detecting symmetries...
+      0     0      289.7003   258                    Cuts: 30     2148         
+      0     0      290.1949   267                    Cuts: 30     2278         
+      0     0      290.7006   275                    Cuts: 24     2394         
+      0     0      291.1068   303                    Cuts: 25     2505         
+      0     0      291.5516   295                    Cuts: 15     2567         
+      0     0      291.8150   307                    Cuts: 17     2621         
+      0     0      292.0338   294                    Cuts: 10     2705         
+      0     0      292.6627   311                    Cuts: 21     2815         
+      0     0      293.1512   311                    Cuts: 27     2913         
+      0     0      293.6351   318                    Cuts: 38     3110         
+      0     0      293.9516   320                    Cuts: 20     3200         
+*     0+    0                          491.0000      293.9516            40.13%
+      0     0      294.1151   313      491.0000      Cuts: 27     3277   40.10%
+*     0+    0                          489.0000      294.1151            39.85%
+      0     0  -1.00000e+75     0      489.0000      294.1151     3277   39.85%
+      0     0      294.2086   323      489.0000      Cuts: 17     3329   39.83%
+      0     0      294.2886   326      489.0000      Cuts: 11     3392   39.82%
+      0     0      294.3623   323      489.0000       Cuts: 5     3444   39.80%
+      0     0      294.4195   328      489.0000      Cuts: 13     3500   39.79%
+      0     0      294.4205   333      489.0000       Cuts: 7     3514   39.79%
+*     0+    0                          482.0000      294.4205            38.92%
+Detecting symmetries...
+      0     2      294.4205   329      482.0000      294.4205     3514   38.92%
+Elapsed time = 0.62 sec. (731.68 ticks, tree = 0.02 MB, solutions = 3)
+      4     5      295.3125   298      482.0000      294.4355     3767   38.91%
+     19    15      320.5788   262      482.0000      294.4517     5336   38.91%
+*    35+    7                          480.0000      294.4517            38.66%
+     43    36      307.1839   236      480.0000      294.7672     8634   38.59%
+     67    56      317.2676   239      480.0000      294.7672    12185   38.59%
+     94    76      319.2118   241      480.0000      294.7672    14844   38.59%
+    121    99      321.7438   214      480.0000      294.7672    17779   38.59%
+    153   130      348.5241   152      480.0000      294.7672    21833   38.59%
+    191   156      350.1679   147      480.0000      294.7672    25474   38.59%
+    232   178      332.1997   174      480.0000      294.7672    28838   38.59%
+*   422   314      integral     0      454.0000      294.7672    43143   35.07%
+Elapsed time = 2.20 sec. (3707.88 ticks, tree = 0.22 MB, solutions = 5)
+*   538   388      integral     0      399.0000      294.7672    50961   26.12%
+*   541   345      integral     0      397.0000      294.7672    52154   25.75%
+    631   378      349.6510   222      397.0000      297.0018    57600   25.19%
+    810   492      381.0500    33      397.0000      297.7511    71612   25.00%
+   1029   602      357.9900   182      397.0000      298.6217    86735   24.78%
+*  1061   656      integral     0      363.0000      299.0113    92857   17.63%
+   1215   586      326.6520   179      363.0000      300.0687   116753   17.34%
+   1391   663      305.2014   254      363.0000      300.0687   129538   17.34%
+   1550   805      327.7928   251      363.0000      300.0687   155139   17.34%
+
+Clique cuts applied:  0
+Cover cuts applied:  1
+Implied bound cuts applied:  0
+Flow cuts applied:  113
+Zero-half cuts applied:  126
+
+Root node processing (before b&c):
+  Real time             =    0.61 sec. (726.02 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    4.69 sec. (9276.08 ticks)
+  Sync time (average)   =    0.39 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    5.30 sec. (10002.09 ticks)
+Gap: 16.65%
+Upper bound: 363
+Lower bound: 302.548
+Termination status: Normal
+End of CPLEX run. Time: 5.29994 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/csched007.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/medium-1/24proc-2pils/seed-5/3_csched007_seed-5_20260510_031635/iterated_local_search/run_3_worker_12/parallel_4_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  totdelay
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        3
+CPXPARAM_MIP_Cuts_Covers                         3
+CPXPARAM_MIP_Strategy_VariableSelect             3
+CPXPARAM_MIP_Cuts_Implied                        1
+CPXPARAM_MIP_Limits_GomoryCand                   400
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_Disjunctive                    -1
+CPXPARAM_MIP_Strategy_Dive                       3
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 2 times.
+MIP Presolve eliminated 53 rows and 53 columns.
+MIP Presolve modified 236 coefficients.
+Aggregator did 22 substitutions.
+Reduced MIP has 276 rows, 1683 columns, and 6209 nonzeros.
+Reduced MIP has 1457 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (5.05 ticks)
+Probing time = 0.00 sec. (2.27 ticks)
+Cover probing fixed 0 vars, tightened 1 bounds.
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 276 rows, 1683 columns, and 6209 nonzeros.
+Reduced MIP has 1457 binaries, 226 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (3.86 ticks)
+Probing time = 0.00 sec. (2.51 ticks)
+Clique table members: 50.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (33.70 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      269.2516   139                    269.2516     1029         
+      0     0      278.5957   208                   Cuts: 115     1293         
+      0     0      281.9375   230                    Cuts: 64     1471         
+      0     0      284.1989   220                    Cuts: 53     1647         
+      0     0      286.0895   257                    Cuts: 39     1863         
+      0     0      287.7197   254                    Cuts: 28     1999         
+Detecting symmetries...
+      0     0      289.7003   258                    Cuts: 30     2148         
+      0     0      290.1949   267                    Cuts: 30     2278         
+      0     0      290.7006   275                    Cuts: 24     2394         
+      0     0      291.1068   303                    Cuts: 25     2505         
+      0     0      291.5516   295                    Cuts: 15     2567         
+      0     0      291.8150   307                    Cuts: 17     2621         
+      0     0      292.0338   294                    Cuts: 10     2705         
+      0     0      292.6627   311                    Cuts: 21     2815         
+      0     0      293.1512   311                    Cuts: 27     2913         
+      0     0      293.6351   318                    Cuts: 38     3110         
+      0     0      293.9516   320                    Cuts: 20     3200         
+*     0+    0                          491.0000      293.9516            40.13%
+      0     0      294.1151   313      491.0000      Cuts: 27     3277   40.10%
+*     0+    0                          489.0000      294.1151            39.85%
+      0     0  -1.00000e+75     0      489.0000      294.1151     3277   39.85%
+      0     0      294.2086   323      489.0000      Cuts: 17     3329   39.83%
+      0     0      294.2886   326      489.0000      Cuts: 11     3392   39.82%
+      0     0      294.3623   323      489.0000       Cuts: 5     3444   39.80%
+      0     0      294.4195   328      489.0000      Cuts: 13     3500   39.79%
+      0     0      294.4205   333      489.0000       Cuts: 7     3514   39.79%
+*     0+    0                          482.0000      294.4205            38.92%
+Detecting symmetries...
+      0     2      294.4205   329      482.0000      294.4205     3514   38.92%
+Elapsed time = 0.58 sec. (731.68 ticks, tree = 0.02 MB, solutions = 3)
+      4     5      295.3125   298      482.0000      294.4355     3767   38.91%
+     19    15      320.5788   262      482.0000      294.4517     5336   38.91%
+*    35+    7                          480.0000      294.4517            38.66%
+     43    36      307.1839   236      480.0000      294.7672     8634   38.59%
+     67    56      317.2676   239      480.0000      294.7672    12185   38.59%
+     94    76      319.2118   241      480.0000      294.7672    14844   38.59%
+    121    99      321.7438   214      480.0000      294.7672    17779   38.59%
+    153   130      348.5241   152      480.0000      294.7672    21833   38.59%
+    191   156      350.1679   147      480.0000      294.7672    25474   38.59%
+    232   178      332.1997   174      480.0000      294.7672    28838   38.59%
+*   422   314      integral     0      454.0000      294.7672    43143   35.07%
+Elapsed time = 2.15 sec. (3707.88 ticks, tree = 0.22 MB, solutions = 5)
+*   538   388      integral     0      399.0000      294.7672    50961   26.12%
+*   541   345      integral     0      397.0000      294.7672    52154   25.75%
+    631   378      349.6510   222      397.0000      297.0018    57600   25.19%
+    810   492      381.0500    33      397.0000      297.7511    71612   25.00%
+   1029   602      357.9900   182      397.0000      298.6217    86735   24.78%
+*  1061   656      integral     0      363.0000      299.0113    92857   17.63%
+   1215   586      326.6520   179      363.0000      300.0687   116753   17.34%
+   1391   663      305.2014   254      363.0000      300.0687   129538   17.34%
+   1550   805      327.7928   251      363.0000      300.0687   155139   17.34%
+
+Clique cuts applied:  0
+Cover cuts applied:  1
+Implied bound cuts applied:  0
+Flow cuts applied:  113
+Zero-half cuts applied:  126
+
+Root node processing (before b&c):
+  Real time             =    0.58 sec. (726.02 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    4.71 sec. (9276.08 ticks)
+  Sync time (average)   =    0.39 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    5.28 sec. (10002.09 ticks)
+Gap: 16.65%
+Upper bound: 363
+Lower bound: 302.548
+Termination status: Normal
+End of CPLEX run. Time: 5.2859 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/csched007.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/medium-1/24proc-2pils/seed-5/3_csched007_seed-5_20260510_031635/iterated_local_search/run_3_worker_12/parallel_6_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  totdelay
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        3
+CPXPARAM_MIP_Cuts_Covers                         2
+CPXPARAM_MIP_Strategy_VariableSelect             3
+CPXPARAM_MIP_Cuts_Implied                        1
+CPXPARAM_MIP_Limits_GomoryCand                   400
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        2
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_Disjunctive                    -1
+CPXPARAM_MIP_Strategy_Dive                       3
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 2 times.
+MIP Presolve eliminated 53 rows and 53 columns.
+MIP Presolve modified 236 coefficients.
+Aggregator did 22 substitutions.
+Reduced MIP has 276 rows, 1683 columns, and 6209 nonzeros.
+Reduced MIP has 1457 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (5.05 ticks)
+Probing time = 0.00 sec. (2.27 ticks)
+Cover probing fixed 0 vars, tightened 1 bounds.
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 276 rows, 1683 columns, and 6209 nonzeros.
+Reduced MIP has 1457 binaries, 226 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (3.86 ticks)
+Probing time = 0.00 sec. (2.51 ticks)
+Clique table members: 50.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (33.70 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      269.2516   139                    269.2516     1029         
+      0     0      278.5957   208                   Cuts: 115     1293         
+      0     0      281.9375   230                    Cuts: 64     1471         
+      0     0      284.1989   220                    Cuts: 53     1647         
+      0     0      286.0895   257                    Cuts: 39     1863         
+      0     0      287.7197   254                    Cuts: 28     1999         
+Detecting symmetries...
+      0     0      289.7003   258                    Cuts: 30     2148         
+      0     0      290.1949   267                    Cuts: 30     2278         
+      0     0      290.7006   275                    Cuts: 24     2394         
+      0     0      291.1068   303                    Cuts: 25     2505         
+      0     0      291.5516   295                    Cuts: 15     2567         
+      0     0      291.8150   307                    Cuts: 17     2621         
+      0     0      292.0338   294                    Cuts: 10     2705         
+      0     0      292.6627   311                    Cuts: 21     2815         
+      0     0      293.1512   311                    Cuts: 27     2913         
+      0     0      293.6351   318                    Cuts: 38     3110         
+      0     0      293.9516   320                    Cuts: 20     3200         
+*     0+    0                          491.0000      293.9516            40.13%
+      0     0      294.1151   313      491.0000      Cuts: 27     3277   40.10%
+*     0+    0                          489.0000      294.1151            39.85%
+      0     0  -1.00000e+75     0      489.0000      294.1151     3277   39.85%
+      0     0      294.2086   323      489.0000      Cuts: 17     3329   39.83%
+      0     0      294.2886   326      489.0000      Cuts: 11     3392   39.82%
+      0     0      294.3623   323      489.0000       Cuts: 5     3444   39.80%
+      0     0      294.4195   328      489.0000      Cuts: 13     3500   39.79%
+      0     0      294.4205   333      489.0000       Cuts: 7     3514   39.79%
+*     0+    0                          482.0000      294.4205            38.92%
+Detecting symmetries...
+      0     2      294.4205   329      482.0000      294.4205     3514   38.92%
+Elapsed time = 0.60 sec. (731.89 ticks, tree = 0.02 MB, solutions = 3)
+      4     5      295.3125   298      482.0000      294.4355     3767   38.91%
+     19    15      320.5788   262      482.0000      294.4517     5336   38.91%
+*    35+    7                          480.0000      294.4517            38.66%
+     43    36      307.1839   236      480.0000      294.7672     8634   38.59%
+     67    56      317.2676   239      480.0000      294.7672    12185   38.59%
+     94    76      319.2118   241      480.0000      294.7672    14844   38.59%
+    121    99      321.7438   214      480.0000      294.7672    17779   38.59%
+    153   130      348.5241   152      480.0000      294.7672    21833   38.59%
+    191   156      350.1679   147      480.0000      294.7672    25474   38.59%
+    232   178      332.1997   174      480.0000      294.7672    28838   38.59%
+*   422   314      integral     0      454.0000      294.7672    43143   35.07%
+Elapsed time = 2.13 sec. (3708.09 ticks, tree = 0.22 MB, solutions = 5)
+*   538   388      integral     0      399.0000      294.7672    50961   26.12%
+*   541   345      integral     0      397.0000      294.7672    52154   25.75%
+    631   378      349.6510   222      397.0000      297.0018    57600   25.19%
+    810   492      381.0500    33      397.0000      297.7511    71612   25.00%
+   1029   602      357.9900   182      397.0000      298.6217    86735   24.78%
+*  1061   656      integral     0      363.0000      299.0113    92857   17.63%
+   1215   586      326.6520   179      363.0000      300.0687   116753   17.34%
+   1391   663      305.2014   254      363.0000      300.0687   129538   17.34%
+   1550   805      327.7928   251      363.0000      300.0687   155139   17.34%
+
+Clique cuts applied:  0
+Cover cuts applied:  1
+Implied bound cuts applied:  0
+Flow cuts applied:  113
+Flow path cuts applied:  0
+Zero-half cuts applied:  126
+
+Root node processing (before b&c):
+  Real time             =    0.59 sec. (726.22 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    4.66 sec. (9275.88 ticks)
+  Sync time (average)   =    0.39 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    5.26 sec. (10002.10 ticks)
+Gap: 16.65%
+Upper bound: 363
+Lower bound: 302.548
+Termination status: Normal
+End of CPLEX run. Time: 5.25882 seconds
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-1/csched007.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/medium-1/24proc-2pils/seed-5/3_csched007_seed-5_20260510_031635/iterated_local_search/run_3_worker_12/parallel_8_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  totdelay
+Selected RHS        name:  rhs
+Selected bound      name:  bnd
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        3
+CPXPARAM_MIP_Strategy_VariableSelect             3
+CPXPARAM_MIP_Cuts_Implied                        1
+CPXPARAM_MIP_Limits_GomoryCand                   400
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_MIP_Cuts_Disjunctive                    -1
+CPXPARAM_MIP_Strategy_Dive                       3
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 2 times.
+MIP Presolve eliminated 53 rows and 53 columns.
+MIP Presolve modified 236 coefficients.
+Aggregator did 22 substitutions.
+Reduced MIP has 276 rows, 1683 columns, and 6209 nonzeros.
+Reduced MIP has 1457 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (5.05 ticks)
+Probing time = 0.00 sec. (2.27 ticks)
+Cover probing fixed 0 vars, tightened 1 bounds.
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 276 rows, 1683 columns, and 6209 nonzeros.
+Reduced MIP has 1457 binaries, 226 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.00 sec. (3.86 ticks)
+Probing time = 0.00 sec. (2.51 ticks)
+Clique table members: 50.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.03 sec. (33.70 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      269.2516   139                    269.2516     1029         
+      0     0      278.5957   208                   Cuts: 115     1293         
+      0     0      281.9375   230                    Cuts: 64     1471         
+      0     0      284.1989   220                    Cuts: 53     1647         
+      0     0      286.0895   257                    Cuts: 39     1863         
+      0     0      287.7197   254                    Cuts: 28     1999         
+Detecting symmetries...
+      0     0      289.7003   258                    Cuts: 30     2148         
+      0     0      290.1949   267                    Cuts: 30     2278         
+      0     0      290.7006   275                    Cuts: 24     2394         
+      0     0      291.1068   303                    Cuts: 25     2505         
+      0     0      291.5516   295                    Cuts: 15     2567         
+      0     0      291.8150   307                    Cuts: 17     2621         
+      0     0      292.0338   294                    Cuts: 10     2705         
+      0     0      292.6627   311                    Cuts: 21     2815         
+      0     0      293.1512   311                    Cuts: 27     2913         
+      0     0      293.6351   318                    Cuts: 38     3110         
+      0     0      293.9516   320                    Cuts: 20     3200         
+*     0+    0                          491.0000      293.9516            40.13%
+      0     0      294.1151   313      491.0000      Cuts: 27     3277   40.10%
+*     0+    0                          489.0000      294.1151            39.85%
+      0     0  -1.00000e+75     0      489.0000      294.1151     3277   39.85%
+      0     0      294.2086   323      489.0000      Cuts: 17     3329   39.83%
+      0     0      294.2886   326      489.0000      Cuts: 11     3392   39.82%
+      0     0      294.3623   323      489.0000       Cuts: 5     3444   39.80%
+      0     0      294.4195   328      489.0000      Cuts: 13     3500   39.79%
+      0     0      294.4205   333      489.0000       Cuts: 7     3514   39.79%
+*     0+    0                          482.0000      294.4205            38.92%
+Detecting symmetries...
+      0     2      294.4205   329      482.0000      294.4205     3514   38.92%
+Elapsed time = 0.59 sec. (731.68 ticks, tree = 0.02 MB, solutions = 3)
+      4     5      295.3125   298      482.0000      294.4355     3767   38.91%
+     19    15      320.5788   262      482.0000      294.4517     5336   38.91%
+*    35+    7                          480.0000      294.4517            38.66%
+     43    36      307.1839   236      480.0000      294.7672     8634   38.59%
+     67    56      317.2676   239      480.0000      294.7672    12185   38.59%
+     94    76      319.2118   241      480.0000      294.7672    14844   38.59%
+    121    99      321.7438   214      480.0000      294.7672    17779   38.59%
+    153   130      348.5241   152      480.0000      294.7672    21833   38.59%
+    191   156      350.1679   147      480.0000      294.7672    25474   38.59%
+    232   178      332.1997   174      480.0000      294.7672    28838   38.59%
+*   422   314      integral     0      454.0000      294.7672    43143   35.07%
+Elapsed time = 2.15 sec. (3707.88 ticks, tree = 0.22 MB, solutions = 5)
+*   538   388      integral     0      399.0000      294.7672    50961   26.12%
+*   541   345      integral     0      397.0000      294.7672    52154   25.75%
+    631   378      349.6510   222      397.0000      297.0018    57600   25.19%
+    810   492      381.0500    33      397.0000      297.7511    71612   25.00%
+   1029   602      357.9900   182      397.0000      298.6217    86735   24.78%
+*  1061   656      integral     0      363.0000      299.0113    92857   17.63%
+   1215   586      326.6520   179      363.0000      300.0687   116753   17.34%
+   1391   663      305.2014   254      363.0000      300.0687   129538   17.34%
+   1550   805      327.7928   251      363.0000      300.0687   155139   17.34%
+
+Clique cuts applied:  0
+Cover cuts applied:  1
+Implied bound cuts applied:  0
+Flow cuts applied:  113
+Zero-half cuts applied:  126
+
+Root node processing (before b&c):
+  Real time             =    0.58 sec. (726.02 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    4.64 sec. (9276.08 ticks)
+  Sync time (average)   =    0.38 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    5.23 sec. (10002.09 ticks)
+Gap: 16.65%
+Upper bound: 363
+Lower bound: 302.548
+Termination status: Normal
+End of CPLEX run. Time: 5.22655 seconds
