@@ -1,0 +1,81 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-2/neos-5093327-huahum.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/medium-2/24proc-6pils/seed-9/3_neos-5093327-huahum_seed-9_20260510_180850/expansion/config_param_CPXPARAM_MIP_Strategy_VariableSelect_3_iter_1.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R51841
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        3
+CPXPARAM_MIP_Strategy_VariableSelect             3
+CPXPARAM_MIP_Cuts_Implied                        2
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_Emphasis_MIP                            4
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 2 times.
+MIP Presolve eliminated 25439 rows and 1794 columns.
+MIP Presolve modified 1548 coefficients.
+Aggregator did 19640 substitutions.
+Reduced MIP has 6532 rows, 19206 columns, and 368488 nonzeros.
+Reduced MIP has 64 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.32 sec. (553.84 ticks)
+Probing time = 0.00 sec. (4.45 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve eliminated 0 rows and 46 columns.
+Reduced MIP has 6509 rows, 19160 columns, and 368396 nonzeros.
+Reduced MIP has 64 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.07 sec. (129.65 ticks)
+Probing time = 0.00 sec. (4.54 ticks)
+MIP emphasis: hidden feasible solutions.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.31 sec. (635.60 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0     3934.0000    64                   3934.0000     9113         
+      0     0     4345.8536    64                   Cuts: 746    10383         
+      0     0     4601.6215    64                   Cuts: 420    11373         
+      0     0     4711.5035    64                   Cuts: 674    12114         
+      0     0     4775.5618    64                   Cuts: 694    12889         
+      0     0     4809.0591    64                   Cuts: 665    13570         
+      0     0     4834.3926    64                   Cuts: 627    14145         
+      0     0     4846.4195    64                   Cuts: 514    14630         
+      0     0     4857.5851    64               Flowcuts: 493    15124         
+      0     0     4865.3414    64                   Cuts: 587    15539         
+      0     0     4874.3460    64                   Cuts: 476    15924         
+*     0+    0                         8000.0000     4874.3460            39.07%
+      0     0     4880.1750    64     8000.0000 Flowcuts: 321    16306   39.00%
+      0     0     4888.1289    64     8000.0000 Flowcuts: 305    16651   38.90%
+      0     0     4891.6727    64     8000.0000 Flowcuts: 276    16943   38.85%
+      0     0     4895.8884    64     8000.0000 Flowcuts: 260    17187   38.80%
+
+Clique cuts applied:  0
+Implied bound cuts applied:  0
+Flow cuts applied:  1653
+Multi commodity flow cuts applied:  1
+Lift and project cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    4.69 sec. (10012.22 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    4.69 sec. (10012.22 ticks)
+Gap: 38.8%
+Upper bound: 8000
+Lower bound: 4895.89
+Termination status: Normal
+End of CPLEX run. Time: 4.70335 seconds

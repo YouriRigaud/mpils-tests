@@ -1,0 +1,88 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-2/supportcase6.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/medium-2/24proc-2pils/seed-6/9_supportcase6_seed-6_20260510_202945/expansion/config_param_CPXPARAM_MIP_Strategy_StartAlgorithm_2_iter_3.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  OBJ
+Selected RHS        name:  RHS1
+Selected bound      name:  BND1
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Strategy_StartAlgorithm             2
+CPXPARAM_MIP_Cuts_FlowCovers                     -1
+CPXPARAM_MIP_Cuts_Implied                        2
+CPXPARAM_MIP_Cuts_GUBCovers                      1
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_MIRCut                         2
+CPXPARAM_MIP_Cuts_Disjunctive                    1
+CPXPARAM_MIP_Strategy_HeuristicFreq              -1
+CPXPARAM_DetTimeLimit                            10000
+CPXPARAM_MIP_Limits_ProbeTime                    1
+Tried aggregator 3 times.
+MIP Presolve eliminated 0 rows and 1 columns.
+MIP Presolve modified 757 coefficients.
+Aggregator did 7 substitutions.
+Reduced MIP has 764 rows, 130044 columns, and 583545 nonzeros.
+Reduced MIP has 130044 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.49 sec. (732.24 ticks)
+Tried aggregator 1 time.
+Detecting symmetries...
+Reduced MIP has 764 rows, 130044 columns, and 583545 nonzeros.
+Reduced MIP has 130044 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.26 sec. (317.07 ticks)
+Probing time = 1.02 sec. (1053.05 ticks)
+Clique table members: 229813.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 1.24 sec. (2658.28 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0    45090.7322   140                  45090.7322    10406         
+      0     0    45123.2835   133                 ZeroHalf: 3    10515         
+      0     0    45124.4738   133                 ZeroHalf: 6    10536         
+      0     0    45124.7410   136                 ZeroHalf: 1    10540         
+      0     0    45124.7683   141                 ZeroHalf: 1    10550         
+Detecting symmetries...
+      0     2    45124.7683   141                  45124.7683    10550         
+Elapsed time = 3.93 sec. (6301.28 ticks, tree = 0.02 MB, solutions = 0)
+     10     7    45185.1297   131                  45126.6288    10708         
+     23    15    45172.4287   137                  45130.2197    11215         
+     35    34    46064.8305    82                  45130.2197    13165         
+*    51    38      integral     0    52000.9448    45130.2197    14697   13.21%
+     55    43    47021.8033    20    52000.9448    45130.2197    15281   13.21%
+*    71    50      integral     0    52000.2568    45130.2197    15936   13.21%
+     89    70    48673.6129    32    52000.2568    45130.2197    18038   13.21%
+    107    88    51989.5129    36    52000.2568    45130.2197    20544   13.21%
+*   113    88      integral     0    51991.6663    45130.2197    20702   13.20%
+*   130    98      integral     0    51990.9784    45130.2197    23916   13.20%
+    132    97        cutoff          51990.9784    45130.2197    23932   13.20%
+    146   101    46278.9068   100    51990.9784    45130.2197    24558   13.20%
+
+GUB cover cuts applied:  0
+Implied bound cuts applied:  0
+Mixed integer rounding cuts applied:  0
+Zero-half cuts applied:  7
+Disjunctive cuts applied:  0
+Cone linearizations applied:  0
+
+Root node processing (before b&c):
+  Real time             =    3.71 sec. (6132.48 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    3.04 sec. (3922.05 ticks)
+  Sync time (average)   =    0.80 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    6.75 sec. (10054.52 ticks)
+Gap: 13.2%
+Upper bound: 51991
+Lower bound: 45130.2
+Termination status: Normal
+End of CPLEX run. Time: 6.75537 seconds

@@ -1,0 +1,81 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-2/neos-5093327-huahum.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/medium-2/24proc-4pils/seed-9/3_neos-5093327-huahum_seed-9_20260510_182258/expansion/config_param_CPXPARAM_Read_Scale_1_iter_8.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R51841
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Read_Scale                              1
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        3
+CPXPARAM_MIP_Cuts_Implied                        2
+CPXPARAM_MIP_Strategy_Probe                      -1
+CPXPARAM_MIP_Limits_GomoryCand                   25
+CPXPARAM_MIP_Cuts_Gomory                         -1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_Emphasis_MIP                            4
+CPXPARAM_Preprocessing_Symmetry                  4
+CPXPARAM_Preprocessing_RepeatPresolve            0
+CPXPARAM_MIP_Strategy_RINSHeur                   200
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 2 times.
+Detecting symmetries...
+MIP Presolve eliminated 25439 rows and 1794 columns.
+MIP Presolve modified 1548 coefficients.
+Aggregator did 19640 substitutions.
+Reduced MIP has 6532 rows, 19206 columns, and 368488 nonzeros.
+Reduced MIP has 64 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.36 sec. (603.38 ticks)
+MIP emphasis: hidden feasible solutions.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.31 sec. (584.54 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0     3934.0000    64                   3934.0000     8627         
+      0     0     4323.5245    64                   Cuts: 685     9921         
+      0     0     4607.0022    64                   Cuts: 339    11137         
+*     0+    0                         6836.0000     4607.0022            32.61%
+      0     0     4706.9010    64     6836.0000     Cuts: 581    12146   31.15%
+      0     0     4770.8752    64     6836.0000     Cuts: 507    13196   30.21%
+      0     0     4808.8239    64     6836.0000     Cuts: 585    13894   29.65%
+      0     0     4834.6499    64     6836.0000 Flowcuts: 497    14652   29.28%
+      0     0     4848.5407    64     6836.0000     Cuts: 406    15204   29.07%
+      0     0     4857.7988    64     6836.0000 Flowcuts: 419    15793   28.94%
+      0     0     4869.6274    64     6836.0000 Flowcuts: 359    16290   28.76%
+*     0+    0                         6728.0000     4869.6274            27.62%
+      0     0     4875.2403    64     6728.0000 Flowcuts: 362    16599   27.54%
+      0     0     4881.3844    64     6728.0000 Flowcuts: 290    16897   27.45%
+      0     0     4885.7722    64     6728.0000     Cuts: 340    17214   27.38%
+      0     0     4889.8504    64     6728.0000 Flowcuts: 301    17570   27.32%
+      0     0     4892.7804    64     6728.0000 Flowcuts: 294    17906   27.28%
+      0     0     4894.9803    64     6728.0000 Flowcuts: 231    18126   27.24%
+
+Clique cuts applied:  0
+Implied bound cuts applied:  0
+Flow cuts applied:  1431
+Multi commodity flow cuts applied:  1
+Lift and project cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =    4.90 sec. (10007.93 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    4.90 sec. (10007.93 ticks)
+Gap: 27.24%
+Upper bound: 6728
+Lower bound: 4894.98
+Termination status: Normal
+End of CPLEX run. Time: 4.91127 seconds

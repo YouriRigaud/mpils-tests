@@ -1,0 +1,93 @@
+
+===== New CPLEX run =====
+Instance: /home/yorig/tuner/mpils-tests/instances/miplib/medium-2/neos-5093327-huahum.mps
+Config: /scratch/yorig/mpils-results-grid-ticks-10000-7may/medium-2/24proc-4pils/seed-8/3_neos-5093327-huahum_seed-8_20260510_181945/expansion/config_param_CPXPARAM_Barrier_Crossover_1_iter_5.prm
+========================
+
+Selected objective sense:  MINIMIZE
+Selected objective  name:  R51841
+Selected RHS        name:  B
+Selected bound      name:  BOUND
+Wall watchdog: disabled
+Version identifier: 22.1.2.0 | 2024-11-26 | 0edbb82fd
+CPXPARAM_Threads                                 8
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Cuts_Cliques                        -1
+CPXPARAM_MIP_Strategy_StartAlgorithm             4
+CPXPARAM_MIP_Strategy_SubAlgorithm               2
+CPXPARAM_MIP_Strategy_VariableSelect             2
+CPXPARAM_MIP_Cuts_FlowCovers                     2
+CPXPARAM_MIP_Cuts_Implied                        -1
+CPXPARAM_MIP_Strategy_Probe                      -1
+CPXPARAM_MIP_Cuts_GUBCovers                      2
+CPXPARAM_MIP_Limits_GomoryCand                   10
+CPXPARAM_MIP_Cuts_Gomory                         1
+CPXPARAM_MIP_Cuts_PathCut                        -1
+CPXPARAM_MIP_Cuts_MIRCut                         -1
+CPXPARAM_Preprocessing_Symmetry                  4
+CPXPARAM_Barrier_Crossover                       1
+CPXPARAM_DetTimeLimit                            10000
+Tried aggregator 2 times.
+MIP Presolve eliminated 25439 rows and 1794 columns.
+MIP Presolve modified 1548 coefficients.
+Aggregator did 19640 substitutions.
+Reduced MIP has 6532 rows, 19206 columns, and 368488 nonzeros.
+Reduced MIP has 64 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.33 sec. (553.84 ticks)
+Detecting symmetries...
+Tried aggregator 1 time.
+Detecting symmetries...
+MIP Presolve eliminated 64 rows and 78 columns.
+Reduced MIP has 6445 rows, 19128 columns, and 352908 nonzeros.
+Reduced MIP has 32 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.08 sec. (136.23 ticks)
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.49 sec. (1143.07 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0     3934.0000    30                   3934.0000       26         
+      0     0     4329.8481    32                   Cuts: 470     1447         
+*     0+    0                         7514.0000     4329.8481            42.38%
+      0     0     4573.5770    32     7514.0000     Cuts: 364     2184   39.13%
+      0     0     4688.5507    32     7514.0000     Cuts: 405     2828   37.60%
+*     0+    0                         7514.0000     4688.5507            37.60%
+      0     0  -1.00000e+75     0     7514.0000     4688.5507     2828   37.60%
+*     0+    0                         7140.0000     4688.5507            34.33%
+      0     0     4744.7026    32     7140.0000     Cuts: 340     3432   33.55%
+      0     0     4776.4064    31     7140.0000     Cuts: 339     3958   33.10%
+Detecting symmetries...
+      0     0     4806.4468    32     7140.0000     Cuts: 326     4541   32.68%
+*     0+    0                         7140.0000     4806.4468            32.68%
+      0     0     4823.5238    31     7140.0000     Cuts: 331     4951   32.44%
+      0     0     4835.9070    31     7140.0000 Flowcuts: 277     5409   32.27%
+      0     0     4845.0449    32     7140.0000     Cuts: 272     5703   32.14%
+      0     0     4851.1889    32     7140.0000 Flowcuts: 323     5985   32.06%
+      0     0     4858.7035    32     7140.0000 Flowcuts: 270     6336   31.95%
+      0     0     4868.8903    32     7140.0000 Flowcuts: 159     6669   31.81%
+      0     0     4873.6180    32     7140.0000 Flowcuts: 183     6915   31.74%
+      0     0     4876.7824    32     7140.0000 Flowcuts: 193     7087   31.70%
+      0     0     4879.7668    32     7140.0000 Flowcuts: 148     7287   31.66%
+      0     0     4883.8534    32     7140.0000     Cuts: 142     7476   31.60%
+      0     0     4889.0249    32     7140.0000 Flowcuts: 161     7713   31.53%
+
+GUB cover cuts applied:  0
+Flow cuts applied:  1064
+Gomory fractional cuts applied:  3
+
+Root node processing (before b&c):
+  Real time             =    5.14 sec. (10003.63 ticks)
+Parallel b&c, 8 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    5.14 sec. (10003.63 ticks)
+Gap: 31.53%
+Upper bound: 7140
+Lower bound: 4889.02
+Termination status: Normal
+End of CPLEX run. Time: 5.15607 seconds
