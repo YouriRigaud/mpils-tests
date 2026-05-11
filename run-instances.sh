@@ -314,8 +314,12 @@ for instance_path in "${instances[@]}"; do
     # The file has a header and rows of the form: instance_stem,seconds
     instance_wall_time=$(awk -F',' -v stem="$instance_stem" \
       'NR>1 && $1==stem { print int($2); exit }' "$paramils_budgets_file")
-    [[ -n "$instance_wall_time" ]] || \
-      fail "instance '${instance_stem}' not found in budgets file: $paramils_budgets_file"
+    if [[ -z "$instance_wall_time" ]]; then
+      echo "Skipping ${instance_name}: not found in budgets file ${paramils_budgets_file}" >&2
+      echo "${instance_name},${seed},skipped,0,NA,NA" >>"$summary_csv"
+      echo "${instance_name},${seed},NA,NA" >>"$metrics_csv"
+      continue
+    fi
     echo "ParamILS wall time for ${instance_name}: ${instance_wall_time}s"
     tuner_args+=(
       --local-search-engine paramils

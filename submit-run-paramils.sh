@@ -22,22 +22,23 @@
 #    16      16             8
 #    24      24            12   ← full node
 #
-# PARAMILS_BUDGETS_FILE: path to a CSV file mapping each instance to its
-# wall-clock budget in seconds (derived from the median MPILS tuning time).
-# Format — header + one row per instance (stem without .mps):
-#   instance,wall_time
-#   b1c1s1,868
-#   sorrell3,3286
-#   ...
-# Pass via --export:
+# PARAMILS_BUDGETS_FILE defaults to TESTS_DIR/paramils_budgets_${MPI_PROCS}proc.csv.
+# Each file maps instance stems (no .mps) to their wall-clock budget in seconds,
+# derived from the median MPILS tuning time at that proc count.
+# Override with --export=ALL,...,PARAMILS_BUDGETS_FILE=/other/path if needed.
 #
-#   sbatch --ntasks=24 --ntasks-per-socket=12 \
-#          --export=ALL,MPI_PROCS=24,PARAMILS_BUDGETS_FILE=/path/to/budgets.csv \
-#          submit-run-paramils.sh
+# Submission commands (only --ntasks and --ntasks-per-socket change):
+#
+#   sbatch --ntasks=1  --ntasks-per-socket=1  --export=ALL,MPI_PROCS=1  submit-run-paramils.sh
+#   sbatch --ntasks=2  --ntasks-per-socket=1  --export=ALL,MPI_PROCS=2  submit-run-paramils.sh
+#   sbatch --ntasks=4  --ntasks-per-socket=2  --export=ALL,MPI_PROCS=4  submit-run-paramils.sh
+#   sbatch --ntasks=8  --ntasks-per-socket=4  --export=ALL,MPI_PROCS=8  submit-run-paramils.sh
+#   sbatch --ntasks=16 --ntasks-per-socket=8  --export=ALL,MPI_PROCS=16 submit-run-paramils.sh
+#   sbatch --ntasks=24 --ntasks-per-socket=12 --export=ALL,MPI_PROCS=24 submit-run-paramils.sh
 #
 #SBATCH --job-name=paramils-batch
-# 3 instance dirs * 10 seeds = 30 array tasks.
-#SBATCH --array=0-29
+# 2 instance dirs * 10 seeds = 20 array tasks.
+#SBATCH --array=0-19
 #SBATCH --nodes=1                  # all ranks on the same physical node
 #SBATCH --exclusive                # no other job shares this node
 #SBATCH --ntasks=1                 # [CHANGE PER SUBMISSION] = MPI_PROCS
@@ -52,14 +53,14 @@ set -euo pipefail
 
 TESTS_DIR="/home/yorig/tuner/mpils-tests"
 
-INSTANCE_DIR_NAMES=(${INSTANCE_DIR_NAMES:-easy medium-1 medium-2})
+INSTANCE_DIR_NAMES=(${INSTANCE_DIR_NAMES:-medium-1 medium-2})
 SEEDS=(${SEEDS:-1 2 3 4 5 6 7 8 9 10})
 
 MPI_PROCS="${MPI_PROCS:-1}"
 CPLEX_THREADS="${CPLEX_THREADS:-8}"
 SOLVER_TIME="${SOLVER_TIME:-10000}"
 SOLVER_TIME_MODE="${SOLVER_TIME_MODE:-ticks}"
-PARAMILS_BUDGETS_FILE="${PARAMILS_BUDGETS_FILE:?PARAMILS_BUDGETS_FILE must be set. Pass via --export=ALL,PARAMILS_BUDGETS_FILE=/path/to/budgets.csv}"
+PARAMILS_BUDGETS_FILE="${PARAMILS_BUDGETS_FILE:-${TESTS_DIR}/paramils_budgets_${MPI_PROCS}proc.csv}"
 [[ -f "$PARAMILS_BUDGETS_FILE" ]] || { echo "Error: budgets file not found: $PARAMILS_BUDGETS_FILE" >&2; exit 1; }
 
 TUNER_DIR="${TUNER_DIR:-/home/yorig/tuner/mpils}"
