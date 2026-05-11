@@ -15,23 +15,31 @@ Usage:
     --solver-time-mode MODE \
     --seed N \
     [--mpi-procs-per-ils N] \
+    [--local-search-engine ENGINE] \
+    [--paramils-budgets-file PATH] \
     [--parameters-file PATH]
 
 Required arguments:
-  --instances-dir PATH     Directory scanned recursively for *.mps instances
-  --tuner-dir PATH         Root directory of the tuner repository
-  --output-root PATH       Root directory for per-instance tuner outputs
-  --mpi-procs N            Number of MPI ranks/tasks for each tuner launch
-  --cplex-threads N        Number of CPLEX threads per rank
-  --solver-time N          Solver cutoff used by the tuner for each evaluation
-  --solver-time-mode MODE  Solver time mode: seconds or ticks
-  --seed N                 Base random seed passed to the tuner
+  --instances-dir PATH       Directory scanned recursively for *.mps instances
+  --tuner-dir PATH           Root directory of the tuner repository
+  --output-root PATH         Root directory for per-instance tuner outputs
+  --mpi-procs N              Number of MPI ranks/tasks for each tuner launch
+  --cplex-threads N          Number of CPLEX threads per rank
+  --solver-time N            Solver cutoff used by the tuner for each evaluation
+  --solver-time-mode MODE    Solver time mode: seconds or ticks
+  --seed N                   Base random seed passed to the tuner
 
 Optional arguments:
-  --mpi-procs-per-ils N    MPI ranks dedicated to each ILS instance (default: 1)
-                           Must divide --mpi-procs evenly.
-                           ILS instances = mpi-procs / mpi-procs-per-ils
-  --parameters-file PATH   Parameter definition file (default: TUNER_DIR/cplex/params_12_cpx.txt)
+  --mpi-procs-per-ils N      MPI ranks dedicated to each ILS instance (default: 1)
+                             Must divide --mpi-procs evenly.
+                             ILS instances = mpi-procs / mpi-procs-per-ils
+  --local-search-engine NAME iterated_local_search (default) or paramils
+  --paramils-budgets-file PATH
+                             CSV file with per-instance wall-clock budgets
+                             (required when --local-search-engine paramils).
+                             Format: header line "instance,wall_time", then one
+                             row per instance: stem (no .mps), seconds.
+  --parameters-file PATH     Parameter definition file (default: TUNER_DIR/cplex/params_12_cpx.txt)
 
 Notes:
   - This script runs the tuner only. It does not perform a post-tuning CPLEX test.
@@ -62,6 +70,8 @@ tuner_dir=""
 output_root=""
 mpi_procs=""
 mpi_procs_per_ils="1"
+local_search_engine=""
+paramils_budgets_file=""
 cplex_threads=""
 solver_time=""
 solver_time_mode=""
@@ -115,6 +125,16 @@ while [[ $# -gt 0 ]]; do
       mpi_procs_per_ils="$2"
       shift 2
       ;;
+    --local-search-engine)
+      [[ $# -ge 2 ]] || fail "missing value for $1"
+      local_search_engine="$2"
+      shift 2
+      ;;
+    --paramils-budgets-file)
+      [[ $# -ge 2 ]] || fail "missing value for $1"
+      paramils_budgets_file="$2"
+      shift 2
+      ;;
     --parameters-file)
       [[ $# -ge 2 ]] || fail "missing value for $1"
       parameters_file="$2"
@@ -154,6 +174,16 @@ case "$solver_time_mode" in
     fail "--solver-time-mode must be one of: seconds, ticks"
     ;;
 esac
+
+case "$local_search_engine" in
+  ""|iterated_local_search|paramils) ;;
+  *) fail "--local-search-engine must be one of: iterated_local_search, paramils" ;;
+esac
+if [[ "$local_search_engine" == "paramils" ]]; then
+  [[ -n "$paramils_budgets_file" ]] || fail "--paramils-budgets-file is required when --local-search-engine paramils"
+  paramils_budgets_file=$(realpath "$paramils_budgets_file")
+  [[ -f "$paramils_budgets_file" ]] || fail "paramils budgets file not found: $paramils_budgets_file"
+fi
 
 instances_dir=$(realpath "$instances_dir")
 tuner_dir=$(realpath "$tuner_dir")
@@ -227,6 +257,8 @@ echo "output_root=$output_root"
 echo "mpi_procs=$mpi_procs"
 echo "mpi_procs_per_ils=$mpi_procs_per_ils"
 echo "ils_count=$((mpi_procs / mpi_procs_per_ils))"
+echo "local_search_engine=${local_search_engine:-default}"
+[[ -n "$paramils_budgets_file" ]] && echo "paramils_budgets_file=$paramils_budgets_file"
 echo "ntasks_per_socket=$ntasks_per_socket"
 echo "cplex_threads=$cplex_threads"
 echo "solver_time=$solver_time"
@@ -266,6 +298,43 @@ for instance_path in "${instances[@]}"; do
   [[ ! -e "$output_dir" ]] || fail "output directory already exists: $output_dir"
   mkdir -p "$output_dir"
 
+  # Build tuner flag array depending on search engine
+  tuner_args=(
+    "$instance_path"
+    --working-dir "$output_dir"
+    --parameters-file "$parameters_file"
+    --clean-working-dir
+    --solver-threads "$cplex_threads"
+    --solver-time "$solver_time"
+    --solver-time-mode "$solver_time_mode"
+    --seed "$seed"
+  )
+  if [[ "$local_search_engine" == "paramils" ]]; then
+    # Look up per-instance wall-clock budget from the budgets CSV.
+    # The file has a header and rows of the form: instance_stem,seconds
+    instance_wall_time=$(awk -F',' -v stem="$instance_stem" \
+      'NR>1 && $1==stem { print int($2); exit }' "$paramils_budgets_file")
+    [[ -n "$instance_wall_time" ]] || \
+      fail "instance '${instance_stem}' not found in budgets file: $paramils_budgets_file"
+    echo "ParamILS wall time for ${instance_name}: ${instance_wall_time}s"
+    tuner_args+=(
+      --local-search-engine paramils
+      --exploration-only
+      --initial-selected-parameters 71
+      --no-random-worker-initial-configs
+      --paramils-wall-time "$instance_wall_time"
+    )
+  else
+    tuner_args+=(
+      --no-shared-cache
+      --disable-mip-starts
+      --expansion-value-strategy all
+      --mpi-procs-per-ils "$mpi_procs_per_ils"
+    )
+    [[ -n "$local_search_engine" ]] && \
+      tuner_args+=(--local-search-engine "$local_search_engine")
+  fi
+
   set +e
   srun \
     --ntasks="$mpi_procs" \
@@ -275,19 +344,7 @@ for instance_path in "${instances[@]}"; do
     --hint=nomultithread \
     --cpu-bind=cores \
     --mem-bind=local \
-    "$tuner_app" \
-      "$instance_path" \
-      --working-dir "$output_dir" \
-      --parameters-file "$parameters_file" \
-      --clean-working-dir \
-      --no-shared-cache \
-      --disable-mip-starts \
-      --expansion-value-strategy all \
-      --solver-threads "$cplex_threads" \
-      --solver-time "$solver_time" \
-      --solver-time-mode "$solver_time_mode" \
-      --seed "$seed" \
-      --mpi-procs-per-ils "$mpi_procs_per_ils" \
+    "$tuner_app" "${tuner_args[@]}" \
       </dev/null >"$log_file" 2>&1
   tuner_rc=$?
   set -e
