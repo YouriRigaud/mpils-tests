@@ -8,7 +8,7 @@ from pathlib import Path
 from statistics import median, median_high, median_low
 
 
-PROC_DIR_RE = re.compile(r"^([1-9][0-9]*)proc$")
+PROC_DIR_RE = re.compile(r"^([1-9][0-9]*)proc(?:-([1-9][0-9]*)pils)?$")
 
 
 def parse_args():
@@ -37,6 +37,24 @@ def parse_args():
         help="Only include these top-level instance dirs, for example: medium-1 medium-2",
     )
     parser.add_argument(
+        "--experiment",
+        choices=("standard", "single-ils", "split", "all"),
+        default="all",
+        help=(
+            "Which experiment type to include: "
+            "standard = Nproc-1pils only (N independent ILS, 1 proc each); "
+            "single-ils = Nproc-Npils only (1 ILS, N procs); "
+            "split = fixed total procs, varying pils (use --split-procs); "
+            "all = everything (default)"
+        ),
+    )
+    parser.add_argument(
+        "--split-procs",
+        type=int,
+        default=24,
+        help="Total proc count for the split experiment (default: 24, used with --experiment split)",
+    )
+    parser.add_argument(
         "--median-method",
         choices=("low", "high", "average"),
         default="low",
@@ -48,13 +66,29 @@ def parse_args():
     return parser.parse_args()
 
 
-def proc_count_for(path, results_root):
-    relative_parts = path.relative_to(results_root).parts
-    for part in relative_parts:
+def config_for(path, results_root):
+    """Return (proc, pils) from path, or None if no matching component found."""
+    for part in path.relative_to(results_root).parts:
         match = PROC_DIR_RE.match(part)
         if match:
-            return int(match.group(1))
-    raise ValueError(f"could not find <N>proc component in path: {path}")
+            proc = int(match.group(1))
+            pils = int(match.group(2)) if match.group(2) else 1
+            return (proc, pils)
+    return None
+
+
+def config_label(proc, pils):
+    return f"{proc}proc-{pils}pils"
+
+
+def include_config(proc, pils, experiment, split_procs):
+    if experiment == "standard":
+        return pils == 1
+    if experiment == "single-ils":
+        return proc == pils
+    if experiment == "split":
+        return proc == split_procs
+    return True  # all
 
 
 def as_float(value, csv_path, row_number, column):
@@ -87,6 +121,8 @@ def main():
         raise SystemExit(f"results root not found: {results_root}")
 
     selected_instance_dirs = set(args.instance_dirs or [])
+    experiment = args.experiment
+    split_procs = args.split_procs
     values = defaultdict(lambda: defaultdict(lambda: {"objective": [], "tuning_time": []}))
     skipped_na = []  # (metrics_path, instance) pairs skipped due to NA
 
@@ -99,7 +135,14 @@ def main():
         if selected_instance_dirs and relative_parts[0] not in selected_instance_dirs:
             continue
 
-        proc_count = proc_count_for(metrics_path, results_root)
+        cfg = config_for(metrics_path, results_root)
+        if cfg is None:
+            continue
+        proc, pils = cfg
+        if not include_config(proc, pils, experiment, split_procs):
+            continue
+        col_key = config_label(proc, pils)
+
         with metrics_path.open(newline="") as csv_file:
             reader = csv.DictReader(csv_file)
             required_columns = {"instance", "objective", "tuning_time"}
@@ -113,10 +156,10 @@ def main():
                     skipped_na.append((metrics_path, row["instance"]))
                     continue
                 instance = row["instance"]
-                values[instance][proc_count]["objective"].append(
+                values[instance][col_key]["objective"].append(
                     as_float(row["objective"], metrics_path, row_number, "objective")
                 )
-                values[instance][proc_count]["tuning_time"].append(
+                values[instance][col_key]["tuning_time"].append(
                     as_float(row["tuning_time"], metrics_path, row_number, "tuning_time")
                 )
 
@@ -124,10 +167,14 @@ def main():
         selected = ", ".join(sorted(selected_instance_dirs))
         raise SystemExit(f"no metric rows matched selected instance dirs: {selected}")
 
-    proc_counts = sorted({proc for per_proc in values.values() for proc in per_proc})
+    def sort_key(label):
+        m = re.match(r"(\d+)proc-(\d+)pils", label)
+        return (int(m.group(1)), int(m.group(2))) if m else (0, 0)
+
+    col_keys = sorted({k for per_cfg in values.values() for k in per_cfg}, key=sort_key)
     header = ["instance"]
-    for proc_count in proc_counts:
-        header.extend([f"{proc_count}proc_objective", f"{proc_count}proc_tuning_time"])
+    for key in col_keys:
+        header.extend([f"{key}_objective", f"{key}_tuning_time"])
 
     with output_path.open("w", newline="") as csv_file:
         writer = csv.writer(csv_file)
@@ -135,8 +182,8 @@ def main():
 
         for instance in sorted(values):
             row = [instance]
-            for proc_count in proc_counts:
-                metrics = values[instance].get(proc_count)
+            for key in col_keys:
+                metrics = values[instance].get(key)
                 if metrics is None:
                     row.extend(["", ""])
                     continue
@@ -151,7 +198,7 @@ def main():
     print(f"wrote {output_path}")
     print(f"metrics files: {len(metrics_files)}")
     print(f"instances: {len(values)}")
-    print("proc counts: " + ", ".join(f"{proc}proc" for proc in proc_counts))
+    print("configs: " + ", ".join(col_keys))
     if skipped_na:
         from collections import Counter
         counts = Counter((str(p), inst) for p, inst in skipped_na)
