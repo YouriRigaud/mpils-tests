@@ -56,7 +56,7 @@ SOLVER_TIME_MODE="${SOLVER_TIME_MODE:-ticks}"
 
 BUDGETS_FILE="${BUDGETS_FILE:-${TESTS_DIR}/paramils_budgets_max.csv}"
 PARAMS_FILE="${PARAMS_FILE:-${TESTS_DIR}/params_12_cpx.txt}"
-RESULTS_ROOT="${RESULTS_ROOT:-/scratch/${USER}/smac-results-${SOLVER_TIME_MODE}-${SOLVER_TIME}}"
+RESULTS_ROOT="${RESULTS_ROOT:-/scratch/${USER}/smac-results-${SOLVER_TIME_MODE}-${SOLVER_TIME}/${N_WORKERS}proc}"
 
 [[ -f "$BUDGETS_FILE" ]] || { echo "Error: budgets file not found: $BUDGETS_FILE" >&2; exit 1; }
 [[ -f "$PARAMS_FILE"  ]] || { echo "Error: params file not found: $PARAMS_FILE" >&2; exit 1; }
