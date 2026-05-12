@@ -19,7 +19,10 @@ except ImportError as e:
 try:
     import smac
     from smac import Scenario, HyperparameterOptimizationFacade
-    print(f"[OK] SMAC {smac.__version__}")
+    version = getattr(smac, "__version__", None) or \
+              getattr(__import__("importlib.metadata", fromlist=["version"]),
+                      "version", lambda *a: "unknown")("smac")
+    print(f"[OK] SMAC {version}")
 except ImportError as e:
     errors.append(f"SMAC: {e}")
 
