@@ -24,6 +24,12 @@ import subprocess
 import sys
 import tempfile
 import time
+
+# os._exit(0) is called at the end of main() to skip Python finalization.
+# When n_workers > 1, SMAC uses dask; its DaskParallelRunner.__del__ triggers
+# the CPLEX C extension's none_dealloc crash during GC, returning non-zero and
+# killing the outer loop in submit-run-smac.sh. os._exit bypasses all finalizers
+# since every result is already flushed to disk before it is called.
 from pathlib import Path
 
 from ConfigSpace import ConfigurationSpace
@@ -173,6 +179,11 @@ def main():
         for k, v in sorted(incumbent.items()):
             f.write(f"{k} {v}\n")
     print(f"Best config saved to {prm_path}")
+
+    # Skip Python finalization to avoid the dask + CPLEX C extension crash.
+    sys.stdout.flush()
+    sys.stderr.flush()
+    os._exit(0)
 
 
 if __name__ == "__main__":
