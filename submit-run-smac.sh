@@ -32,12 +32,10 @@
 #SBATCH --job-name=smac-cplex
 # 2 instance dirs * 10 seeds = 20 array tasks.
 #SBATCH --array=0-19
-#SBATCH --nodes=1
-#SBATCH --exclusive
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=192     # [CHANGE] = N_WORKERS × CPLEX_THREADS
-#SBATCH --time=24:00:00
-#SBATCH --mem=0
+#SBATCH --ntasks=2
+#SBATCH --cpus-per-task=8     # [CHANGE] = N_WORKERS × CPLEX_THREADS
+#SBATCH --time=12:00:00
+#SBATCH --mem-per-cpu=2G
 #SBATCH --output=job_%A_%a.out
 #SBATCH --error=job_%A_%a.err
 
@@ -49,12 +47,12 @@ VENV_DIR="/home/yorig/envs/smac-cplex"
 INSTANCE_DIR_NAMES=(${INSTANCE_DIR_NAMES:-medium-1 medium-2})
 SEEDS=(${SEEDS:-1 2 3 4 5 6 7 8 9 10})
 
-N_WORKERS="${N_WORKERS:-24}"
+N_WORKERS="${N_WORKERS:-2}"
 CPLEX_THREADS="${CPLEX_THREADS:-8}"
-SOLVER_TIME="${SOLVER_TIME:-10000}"
-SOLVER_TIME_MODE="${SOLVER_TIME_MODE:-ticks}"
+SOLVER_TIME="${SOLVER_TIME:-10}"
+SOLVER_TIME_MODE="${SOLVER_TIME_MODE:-seconds}"
 
-BUDGETS_FILE="${BUDGETS_FILE:-${TESTS_DIR}/paramils_budgets_max.csv}"
+BUDGETS_FILE="${BUDGETS_FILE:-${TESTS_DIR}/paramils_budgets_2proc.csv}"
 PARAMS_FILE="${PARAMS_FILE:-${TESTS_DIR}/params_12_cpx.txt}"
 RESULTS_ROOT="${RESULTS_ROOT:-/scratch/${USER}/smac-results-${SOLVER_TIME_MODE}-${SOLVER_TIME}/${N_WORKERS}proc}"
 
