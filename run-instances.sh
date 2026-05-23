@@ -21,7 +21,9 @@ Usage:
 
 Required arguments:
   --instances-dir PATH       Directory scanned recursively for *.mps instances
-  --tuner-dir PATH           Root directory of the tuner repository
+  --tuner-dir PATH           Root directory of the tuner repository (passed as
+                             --project-dir to the binary so it can locate
+                             param_ils/, cplex/, etc. regardless of CWD)
   --output-root PATH         Root directory for per-instance tuner outputs
   --mpi-procs N              Number of MPI ranks/tasks for each tuner launch
   --cplex-threads N          Number of CPLEX threads per rank
@@ -301,6 +303,7 @@ for instance_path in "${instances[@]}"; do
   # Build tuner flag array depending on search engine
   tuner_args=(
     "$instance_path"
+    --project-dir "$tuner_dir"
     --working-dir "$output_dir"
     --parameters-file "$parameters_file"
     --clean-working-dir
