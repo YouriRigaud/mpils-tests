@@ -334,6 +334,7 @@ for instance_path in "${instances[@]}"; do
       --disable-mip-starts
       --expansion-value-strategy all
       --mpi-procs-per-ils "$mpi_procs_per_ils"
+      --no-solver-wall-watchdog
     )
     [[ -n "$local_search_engine" ]] && \
       tuner_args+=(--local-search-engine "$local_search_engine")
