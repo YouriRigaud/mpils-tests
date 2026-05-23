@@ -125,7 +125,8 @@ for instance_path in "${instances[@]}"; do
     --walltime      "$budget" \
     --n-workers     "$N_WORKERS" \
     --output-dir    "$output_dir" \
-    --seed          "$SEED"
+    --seed          "$SEED" \
+    || echo "Warning: smac_tune_cplex.py exited non-zero for ${instance_stem} (likely dask cleanup crash); continuing."
 done
 
 echo
