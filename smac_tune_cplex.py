@@ -90,9 +90,13 @@ def parse_params_file(path: str) -> ConfigurationSpace:
 # Target function — runs CPLEX in an isolated subprocess
 # ---------------------------------------------------------------------------
 
-def make_target(instance_path: str, solver_time: int, threads: int):
+def make_target(instance_path: str, solver_time: int, threads: int,
+                time_mode: str = "ticks"):
     evaluator = str(_EVALUATOR)
     python = sys.executable
+    # Safety timeout: for ticks mode 10x is fine; for seconds mode cap at 5x
+    # (10s × 5 = 50s max per subprocess call).
+    subprocess_timeout = solver_time * (5 if time_mode == "seconds" else 10)
 
     def target(config, seed: int = 0, budget: float = None) -> float:
         # Write a temporary .prm file with this configuration
@@ -105,9 +109,9 @@ def make_target(instance_path: str, solver_time: int, threads: int):
         try:
             result = subprocess.run(
                 [python, evaluator, instance_path, prm_path,
-                 str(solver_time), str(threads)],
+                 str(solver_time), str(threads), time_mode],
                 capture_output=True, text=True,
-                timeout=solver_time * 10,  # safety cap: 10x the tick budget
+                timeout=subprocess_timeout,
             )
             gap = float(result.stdout.strip())
         except Exception:
@@ -132,8 +136,10 @@ def parse_args():
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--instance",    required=True)
     p.add_argument("--params-file", required=True)
-    p.add_argument("--solver-time", type=int, default=10000)
-    p.add_argument("--threads",     type=int, default=8)
+    p.add_argument("--solver-time",      type=int, default=10000)
+    p.add_argument("--solver-time-mode", default="ticks",
+                   choices=["ticks", "seconds"])
+    p.add_argument("--threads",          type=int, default=8)
     p.add_argument("--walltime",    type=int, required=True)
     p.add_argument("--n-workers",   type=int, default=1)
     p.add_argument("--output-dir",  required=True)
@@ -149,7 +155,8 @@ def main():
     cs = parse_params_file(args.params_file)
     print(f"Configuration space: {len(list(cs.values()))} tunable parameters")
 
-    target = make_target(args.instance, args.solver_time, args.threads)
+    target = make_target(args.instance, args.solver_time, args.threads,
+                         args.solver_time_mode)
 
     scenario = Scenario(
         configspace=cs,

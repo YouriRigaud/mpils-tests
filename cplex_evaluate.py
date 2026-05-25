@@ -6,17 +6,18 @@ This isolation prevents the CPLEX C extension from corrupting the dask
 worker process during garbage collection.
 
 Usage:
-    python cplex_evaluate.py instance.mps config.prm solver_time threads
+    python cplex_evaluate.py instance.mps config.prm solver_time threads [ticks|seconds]
 """
 import sys
 import cplex
 
 def main():
-    if len(sys.argv) != 5:
+    if len(sys.argv) not in (5, 6):
         print("100.0")
         sys.exit(0)
 
-    instance_path, prm_path, solver_time_str, threads_str = sys.argv[1:]
+    instance_path, prm_path, solver_time_str, threads_str = sys.argv[1:5]
+    time_mode = sys.argv[5] if len(sys.argv) == 6 else "ticks"
     solver_time = int(solver_time_str)
     threads = int(threads_str)
 
@@ -34,7 +35,10 @@ def main():
         sys.exit(0)
 
     c.parameters.threads.set(threads)
-    c.parameters.dettimelimit.set(solver_time)
+    if time_mode == "seconds":
+        c.parameters.timelimit.set(solver_time)
+    else:
+        c.parameters.dettimelimit.set(solver_time)
     c.parameters.mip.display.set(0)
 
     try:

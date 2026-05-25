@@ -118,14 +118,15 @@ for instance_path in "${instances[@]}"; do
   echo "------------------------------------------"
 
   python "${TESTS_DIR}/smac_tune_cplex.py" \
-    --instance      "$instance_path" \
-    --params-file   "$PARAMS_FILE" \
-    --solver-time   "$SOLVER_TIME" \
-    --threads       "$CPLEX_THREADS" \
-    --walltime      "$budget" \
-    --n-workers     "$N_WORKERS" \
-    --output-dir    "$output_dir" \
-    --seed          "$SEED" \
+    --instance           "$instance_path" \
+    --params-file        "$PARAMS_FILE" \
+    --solver-time        "$SOLVER_TIME" \
+    --solver-time-mode   "$SOLVER_TIME_MODE" \
+    --threads            "$CPLEX_THREADS" \
+    --walltime           "$budget" \
+    --n-workers          "$N_WORKERS" \
+    --output-dir         "$output_dir" \
+    --seed               "$SEED" \
     || echo "Warning: smac_tune_cplex.py exited non-zero for ${instance_stem} (likely dask cleanup crash); continuing."
 done
 
