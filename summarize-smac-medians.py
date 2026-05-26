@@ -32,12 +32,17 @@ def low_median(values):
 
 
 def read_runhistory(rh_path: Path):
-    """Return (objective, tuning_time_s) for one seed run."""
-    with open(rh_path) as f:
-        rh = json.load(f)
-    data = rh["data"]
+    """Return (objective, tuning_time_s) for one seed run, or None if unreadable."""
+    try:
+        with open(rh_path) as f:
+            rh = json.load(f)
+    except (json.JSONDecodeError, OSError):
+        print(f"Warning: skipping unreadable runhistory: {rh_path}")
+        return None
+
+    data = rh.get("data", [])
     if not data:
-        return 100.0, 0
+        return None
 
     costs = [r["cost"] for r in data if isinstance(r.get("cost"), (int, float))]
     objective = min(costs) if costs else 100.0
@@ -81,7 +86,10 @@ def collect(results_dir: Path) -> dict:
                         print(f"Warning: no runhistory.json in {seed_dir}")
                         continue
                     rh_path = max(rh_files, key=lambda p: p.stat().st_mtime)
-                    obj, t = read_runhistory(rh_path)
+                    result = read_runhistory(rh_path)
+                    if result is None:
+                        continue
+                    obj, t = result
                     data[instance][proc]["objectives"].append(obj)
                     data[instance][proc]["times"].append(t)
 
