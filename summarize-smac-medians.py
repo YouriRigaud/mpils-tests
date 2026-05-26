@@ -49,6 +49,9 @@ def read_runhistory(rh_path: Path):
     objective = min(objective, 100.0)
 
     tuning_time = round(data[-1]["endtime"] - data[0]["starttime"])
+    if tuning_time < 0:
+        print(f"Warning: negative tuning time ({tuning_time}s) in {rh_path}, skipping.")
+        return None
     return objective, tuning_time
 
 
