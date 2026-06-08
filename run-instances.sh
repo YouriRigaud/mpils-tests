@@ -79,6 +79,7 @@ solver_time=""
 solver_time_mode=""
 seed=""
 parameters_file=""
+exploration_budget_factor=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -135,6 +136,11 @@ while [[ $# -gt 0 ]]; do
     --paramils-budgets-file)
       [[ $# -ge 2 ]] || fail "missing value for $1"
       paramils_budgets_file="$2"
+      shift 2
+      ;;
+    --exploration-budget-factor)
+      [[ $# -ge 2 ]] || fail "missing value for $1"
+      exploration_budget_factor="$2"
       shift 2
       ;;
     --parameters-file)
@@ -338,6 +344,7 @@ for instance_path in "${instances[@]}"; do
       --expansion-value-strategy all
       --mpi-procs-per-ils "$mpi_procs_per_ils"
       --no-solver-wall-watchdog
+      --exploration-budget-factor "$exploration_budget_factor"
     )
     [[ -n "$local_search_engine" ]] && \
       tuner_args+=(--local-search-engine "$local_search_engine")
