@@ -10,7 +10,7 @@ from statistics import median, median_high, median_low
 SEED_DIR_RE = re.compile(r"^seed-([1-9][0-9]*)$")
 
 
-PROC_DIR_RE = re.compile(r"^([1-9][0-9]*)proc(?:-([1-9][0-9]*)pils)?$")
+PROC_DIR_RE = re.compile(r"^([1-9][0-9]*)proc(?:-([1-9][0-9]*)pils|-paramils)?$")
 
 
 def parse_args():

@@ -50,14 +50,14 @@ def read_runhistory(rh_path: Path):
 
     tuning_time = round(data[-1]["endtime"] - data[0]["starttime"])
     if tuning_time < 0:
-        print(f"Warning: negative tuning time ({tuning_time}s) in {rh_path}, skipping.")
-        return None
+        print(f"Warning: negative tuning time ({tuning_time}s) in {rh_path}, time set to NA.")
+        tuning_time = None
     return objective, tuning_time
 
 
 def collect(results_dir: Path) -> dict:
     """
-    Return data[instance][proc] = {"objectives": [], "times": []}
+    Return data[instance][proc][seed] = (objective, tuning_time).
     """
     data = {}
 
@@ -77,12 +77,14 @@ def collect(results_dir: Path) -> dict:
                     continue
                 instance = inst_dir.name
 
-                data.setdefault(instance, {}).setdefault(
-                    proc, {"objectives": [], "times": []}
-                )
+                data.setdefault(instance, {}).setdefault(proc, {})
 
                 for seed_dir in sorted(inst_dir.iterdir()):
                     if not seed_dir.is_dir() or not seed_dir.name.startswith("seed-"):
+                        continue
+                    try:
+                        seed = int(seed_dir.name.split("-", 1)[1])
+                    except (IndexError, ValueError):
                         continue
                     rh_files = list(seed_dir.rglob("runhistory.json"))
                     if not rh_files:
@@ -92,9 +94,7 @@ def collect(results_dir: Path) -> dict:
                     result = read_runhistory(rh_path)
                     if result is None:
                         continue
-                    obj, t = result
-                    data[instance][proc]["objectives"].append(obj)
-                    data[instance][proc]["times"].append(t)
+                    data[instance][proc][seed] = result
 
     return data
 
@@ -117,6 +117,8 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--results-dir", default="smac-results-seconds-10")
     ap.add_argument("--output",      default="smac-median-result.csv")
+    ap.add_argument("--all-seeds", action="store_true",
+                    help="Output one row per (instance, seed) instead of the median.")
     args = ap.parse_args()
 
     results_dir = Path(args.results_dir)
@@ -129,37 +131,57 @@ def main():
     for proc in PROCS:
         header += [f"{proc}proc_obj", f"{proc}proc_time_s"]
 
-    rows = []
-    for instance in order:
-        row = [instance]
-        for proc in PROCS:
-            d = data.get(instance, {}).get(proc)
-            if d and d["objectives"]:
-                obj  = low_median(d["objectives"])
-                time = low_median(d["times"])
-                row += [f"{obj:.2f}", str(time)]
-            else:
-                row += ["NA", "NA"]
-        rows.append(row)
-
-    mean_row = ["mean"]
-    for proc in PROCS:
-        objs, times = [], []
-        for instance in order:
-            d = data.get(instance, {}).get(proc)
-            if d and d["objectives"]:
-                objs.append(low_median(d["objectives"]))
-                times.append(low_median(d["times"]))
-        mean_row += [
-            f"{sum(objs)/len(objs):.2f}" if objs else "NA",
-            f"{sum(times)//len(times)}"  if times else "NA",
-        ]
-    rows.append(mean_row)
-
     with open(output_path, "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(header)
-        w.writerows(rows)
+
+        if args.all_seeds:
+            header = ["instance", "seed"] + header[1:]
+            w.writerow(header)
+            for instance in order:
+                seeds = sorted({s for proc_data in data.get(instance, {}).values()
+                                   for s in proc_data})
+                for seed in seeds:
+                    row = [instance, seed]
+                    for proc in PROCS:
+                        entry = data.get(instance, {}).get(proc, {}).get(seed)
+                        if entry is None:
+                            row += ["NA", "NA"]
+                        else:
+                            obj, t = entry
+                            row += [f"{obj:.2f}", "NA" if t is None else str(t)]
+                    w.writerow(row)
+        else:
+            w.writerow(header)
+            rows = []
+            for instance in order:
+                row = [instance]
+                for proc in PROCS:
+                    seed_data = data.get(instance, {}).get(proc, {})
+                    objs  = [v[0] for v in seed_data.values()]
+                    times = [v[1] for v in seed_data.values() if v[1] is not None]
+                    if objs:
+                        row += [f"{low_median(objs):.2f}",
+                                str(low_median(times)) if times else "NA"]
+                    else:
+                        row += ["NA", "NA"]
+                rows.append(row)
+
+            mean_row = ["mean"]
+            for proc in PROCS:
+                objs, times = [], []
+                for instance in order:
+                    seed_data = data.get(instance, {}).get(proc, {})
+                    if seed_data:
+                        objs.append(low_median([v[0] for v in seed_data.values()]))
+                        valid_times = [v[1] for v in seed_data.values() if v[1] is not None]
+                        if valid_times:
+                            times.append(low_median(valid_times))
+                mean_row += [
+                    f"{sum(objs)/len(objs):.2f}" if objs else "NA",
+                    f"{sum(times)//len(times)}"  if times else "NA",
+                ]
+            rows.append(mean_row)
+            w.writerows(rows)
 
     print(f"Written: {output_path}  ({len(order)} instances, {len(PROCS)} proc counts)")
 
