@@ -6,7 +6,7 @@
 #   ./target-runner.sh <config_id> <instance_id> <seed> <instance_path> <bound> \
 #       --PARAM1 val1 --PARAM2 val2 ...
 #
-# Prints the MIP gap (%) to stdout. Any other output must go to stderr.
+# Prints "cost time" to stdout (irace format). Any other output must go to stderr.
 #
 set -euo pipefail
 
@@ -54,6 +54,9 @@ done
 # Activate the Python environment that has the cplex package
 source "${VENV_DIR}/bin/activate"
 
-# Run CPLEX and print the gap to stdout (irace reads this)
-python3 "${TESTS_DIR}/cplex_evaluate.py" \
-    "$INSTANCE" "$TMPFILE" "$SOLVER_TIME" "$CPLEX_THREADS" "$SOLVER_TIME_MODE"
+# Run CPLEX and print "cost time" to stdout (irace format)
+start_s=$(date +%s)
+cost=$(python3 "${TESTS_DIR}/cplex_evaluate.py" \
+    "$INSTANCE" "$TMPFILE" "$SOLVER_TIME" "$CPLEX_THREADS" "$SOLVER_TIME_MODE")
+elapsed=$(( $(date +%s) - start_s ))
+echo "$cost $elapsed"
