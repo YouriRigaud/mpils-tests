@@ -30,10 +30,10 @@
 #SBATCH --job-name=irace-cplex
 # 2 instance dirs * 10 seeds = 20 array tasks
 #SBATCH --array=0-19
-#SBATCH --ntasks=1                 # [CHANGE] = N_WORKERS
+#SBATCH --ntasks=24                 # [CHANGE] = N_WORKERS
 #SBATCH --cpus-per-task=8          # fixed: one chiplet per evaluation slot
-#SBATCH --time=24:00:00
-#SBATCH --mem=0
+#SBATCH --time=6:00:00
+#SBATCH --mem-per-cpu=2G
 #SBATCH --output=job_%A_%a.out
 #SBATCH --error=job_%A_%a.err
 
@@ -46,15 +46,15 @@ VENV_DIR="${VENV_DIR:-/home/yorig/envs/smac-cplex}"
 INSTANCE_DIR_NAMES=(${INSTANCE_DIR_NAMES:-medium-1 medium-2})
 SEEDS=(${SEEDS:-1 2 3 4 5 6 7 8 9 10})
 
-N_WORKERS="${N_WORKERS:-1}"
+N_WORKERS="${N_WORKERS:-24}"
 CPLEX_THREADS="${CPLEX_THREADS:-8}"
-SOLVER_TIME="${SOLVER_TIME:-10000}"
-SOLVER_TIME_MODE="${SOLVER_TIME_MODE:-ticks}"
+SOLVER_TIME="${SOLVER_TIME:-10}"
+SOLVER_TIME_MODE="${SOLVER_TIME_MODE:-seconds}"
 
 BUDGETS_FILE="${BUDGETS_FILE:-${TESTS_DIR}/paramils_budgets_${N_WORKERS}proc.csv}"
 [[ -f "$BUDGETS_FILE" ]] || { echo "Error: budgets file not found: $BUDGETS_FILE" >&2; exit 1; }
 
-RESULTS_ROOT="${RESULTS_ROOT:-/scratch/${USER}/irace-results-${SOLVER_TIME_MODE}-${SOLVER_TIME}/${N_WORKERS}proc}"
+RESULTS_ROOT="${RESULTS_ROOT:-/scratch/${USER}/irace-results-${SOLVER_TIME_MODE}-${SOLVER_TIME}-Npils/${N_WORKERS}proc}"
 
 task_id="${SLURM_ARRAY_TASK_ID:-0}"
 num_seeds="${#SEEDS[@]}"
@@ -81,7 +81,7 @@ module load r/4.4.0 2>/dev/null || module load r 2>/dev/null || true
 
 # Safety timeout per evaluation: 3x the solver time in seconds
 # (for ticks mode, 10000 ticks ~ a few seconds; use a safe upper bound)
-RUNNER_TIMEOUT=300
+RUNNER_TIMEOUT=30
 
 mapfile -d '' instances < <(find "$INSTANCES_DIR" -type f -name '*.mps' -print0 | sort -z)
 
