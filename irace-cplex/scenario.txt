@@ -1,0 +1,50 @@
+# irace scenario template — values in [PLACEHOLDERS] are filled at runtime
+# by submit-run-irace.sh for each (instance, seed, budget, n_workers).
+#
+# Budget logic:
+#   maxTime = N_WORKERS * wall_clock_budget
+#   irace counts the *sum* of all individual run times; with parallel = N_WORKERS
+#   this gives approximately wall_clock_budget seconds of wall-clock tuning time —
+#   directly comparable to the SMAC walltime_limit budget.
+
+targetRunner        = "./target-runner.sh"
+parameterFile       = "./parameters.irace"
+
+# Set at runtime:
+trainInstancesFile  = "[INSTANCES_FILE]"   # one-line file with the instance path
+maxTime             = [MAX_TIME]           # N_WORKERS * wall_clock_budget (seconds)
+parallel            = [N_WORKERS]          # evaluations run simultaneously
+seed                = [SEED]
+
+# Racing settings
+#
+# Single-instance tuning requires two fixes:
+#
+# 1. deterministic = 1
+#    CPLEX with ticks is fully deterministic: the same config on the same
+#    instance always returns the same gap. With deterministic = 0, irace
+#    would re-evaluate identical results and the statistical test collapses
+#    (variance = 0). With deterministic = 1, irace evaluates each config
+#    once and uses direct comparison instead of a statistical test.
+#
+# 2. testType = "t-test"
+#    The default Friedman test requires >= 2 instances (blocks) and throws
+#    "Error: The number of blocks must be at least 2" with a single instance.
+#    The t-test works with as few as 2 instance-seed pairs.
+#    Combined with deterministic = 1, irace uses direct ordering (no test
+#    is actually needed) so this is a safe fallback.
+#
+# 3. trainInstancesFile lists the same instance [FIRST_TEST] times
+#    (written by the submit script) so the first race has enough rows.
+#
+firstTest           = 5
+mu                  = 5
+minNbSurvival       = 1
+deterministic       = 1
+testType            = "t-test"
+
+# Safety timeout per evaluation (3x solver time is generous)
+targetRunnerTimeout = [RUNNER_TIMEOUT]
+
+# Output
+logFile             = "irace.log"
