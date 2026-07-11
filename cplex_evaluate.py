@@ -30,7 +30,8 @@ def main():
     try:
         c.read(instance_path)
         c.parameters.read_file(prm_path)
-    except Exception:
+    except Exception as e:
+        print(f"cplex_evaluate ERROR: {e}", file=sys.stderr)
         print("100.0")
         sys.exit(0)
 
@@ -45,7 +46,8 @@ def main():
         c.solve()
         gap = c.solution.MIP.get_mip_relative_gap() * 100.0
         print(f"{round(gap, 4)}")
-    except Exception:
+    except Exception as e:
+        print(f"cplex_evaluate SOLVE ERROR: {e}", file=sys.stderr)
         print("100.0")
 
 
