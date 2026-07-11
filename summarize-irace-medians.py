@@ -94,8 +94,12 @@ def collect(results_dir: Path) -> dict:
     Calls Rscript once for all irace.Rdata files found.
     """
     rdata_files = sorted(results_dir.rglob("irace.Rdata"))
+    # Also pick up old runs where logFile was set to "irace.log"
+    rdata_files += [p for p in sorted(results_dir.rglob("irace.log"))
+                    if p not in rdata_files]
+    rdata_files = sorted(set(rdata_files))
     if not rdata_files:
-        print(f"No irace.Rdata files found under {results_dir}", file=sys.stderr)
+        print(f"No irace.Rdata/irace.log files found under {results_dir}", file=sys.stderr)
         return {}
 
     # Run R extraction script
@@ -201,7 +205,7 @@ def main():
     if not results_dir.is_dir():
         sys.exit(f"results dir not found: {results_dir}")
 
-    print(f"Scanning {results_dir} for irace.Rdata files…", file=sys.stderr)
+    print(f"Scanning {results_dir} for irace result files…", file=sys.stderr)
     data  = collect(results_dir)
     order = instance_order(results_dir)
 
@@ -214,7 +218,7 @@ def main():
         header += [f"{proc}proc_obj", f"{proc}proc_time_s"]
 
     n_rdata = sum(len(seeds) for proc_data in data.values() for seeds in proc_data.values())
-    print(f"Found {n_rdata} irace.Rdata files across {len(data)} instances.", file=sys.stderr)
+    print(f"Found {n_rdata} irace result files across {len(data)} instances.", file=sys.stderr)
 
     with open(output_path, "w", newline="") as f:
         w = csv.writer(f)
