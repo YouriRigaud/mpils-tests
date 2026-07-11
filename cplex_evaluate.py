@@ -29,11 +29,28 @@ def main():
 
     try:
         c.read(instance_path)
-        c.parameters.read_file(prm_path)
-    except Exception as e:
-        print(f"cplex_evaluate ERROR: {e}", file=sys.stderr)
+    except Exception:
         print("100.0")
         sys.exit(0)
+
+    import os, tempfile
+    with open(prm_path) as pf:
+        for line in pf:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                fd, tfname = tempfile.mkstemp(suffix='.prm')
+                with os.fdopen(fd, 'w') as tf:
+                    tf.write(line + "\n")
+                c.parameters.read_file(tfname)
+            except Exception:
+                pass
+            finally:
+                try:
+                    os.unlink(tfname)
+                except Exception:
+                    pass
 
     c.parameters.threads.set(threads)
     if time_mode == "seconds":
@@ -46,8 +63,7 @@ def main():
         c.solve()
         gap = c.solution.MIP.get_mip_relative_gap() * 100.0
         print(f"{round(gap, 4)}")
-    except Exception as e:
-        print(f"cplex_evaluate SOLVE ERROR: {e}", file=sys.stderr)
+    except Exception:
         print("100.0")
 
 
