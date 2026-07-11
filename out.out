@@ -1,0 +1,421 @@
+===== irace launch info =====
+Array task   : 8
+Instance dir : medium-1
+Seed         : 9
+N workers    : 24
+CPLEX threads: 8
+Solver time  : 10 (seconds)
+Budgets file : /home/yorig/tuner/mpils-tests/paramils_budgets_24proc.csv
+Results root : /scratch/yorig/irace-results-seconds-10-Npils/24proc
+=============================
+
+------------------------------------------
+Instance : b1c1s1
+Budget   : 285s wall-clock
+maxTime  : 6840s (N_WORKERS × budget)
+Output   : /scratch/yorig/irace-results-seconds-10-Npils/24proc/medium-1/b1c1s1/seed-9
+------------------------------------------
+# 2026-07-11 10:31:58 EDT: Reading parameter file '/home/yorig/tuner/mpils-tests/irace-cplex/parameters.irace'.
+# 2026-07-11 10:31:58 EDT: Estimating execution time using 5% of 6840 = 342
+Warning: irace exited non-zero for b1c1s1; continuing.
+
+------------------------------------------
+Instance : cost266-UUE
+Budget   : 263s wall-clock
+maxTime  : 6312s (N_WORKERS × budget)
+Output   : /scratch/yorig/irace-results-seconds-10-Npils/24proc/medium-1/cost266-UUE/seed-9
+------------------------------------------
+# 2026-07-11 10:32:00 EDT: Reading parameter file '/home/yorig/tuner/mpils-tests/irace-cplex/parameters.irace'.
+# 2026-07-11 10:32:00 EDT: Estimating execution time using 5% of 6312 = 316
+Warning: irace exited non-zero for cost266-UUE; continuing.
+
+------------------------------------------
+Instance : csched007
+Budget   : 287s wall-clock
+maxTime  : 6888s (N_WORKERS × budget)
+Output   : /scratch/yorig/irace-results-seconds-10-Npils/24proc/medium-1/csched007/seed-9
+------------------------------------------
+# 2026-07-11 10:32:01 EDT: Reading parameter file '/home/yorig/tuner/mpils-tests/irace-cplex/parameters.irace'.
+# 2026-07-11 10:32:01 EDT: Estimating execution time using 5% of 6888 = 345
+Warning: irace exited non-zero for csched007; continuing.
+
+------------------------------------------
+Instance : cvs16r128-89
+Budget   : 293s wall-clock
+maxTime  : 7032s (N_WORKERS × budget)
+Output   : /scratch/yorig/irace-results-seconds-10-Npils/24proc/medium-1/cvs16r128-89/seed-9
+------------------------------------------
+# 2026-07-11 10:32:03 EDT: Reading parameter file '/home/yorig/tuner/mpils-tests/irace-cplex/parameters.irace'.
+# 2026-07-11 10:32:03 EDT: Estimating execution time using 5% of 7032 = 352
+Warning: irace exited non-zero for cvs16r128-89; continuing.
+
+------------------------------------------
+Instance : eilA101-2
+Budget   : 340s wall-clock
+maxTime  : 8160s (N_WORKERS × budget)
+Output   : /scratch/yorig/irace-results-seconds-10-Npils/24proc/medium-1/eilA101-2/seed-9
+------------------------------------------
+# 2026-07-11 10:32:05 EDT: Reading parameter file '/home/yorig/tuner/mpils-tests/irace-cplex/parameters.irace'.
+# 2026-07-11 10:32:05 EDT: Estimating execution time using 5% of 8160 = 408
+# 2026-07-11 10:32:29 EDT: Estimated execution time is 2 based on 49 configurations and 5 instances. Used time: 400, remaining time: 7760, remaining budget (experiments): 3880
+# 2026-07-11 10:32:29 EDT: Initialization
+# Elitist race
+# Elitist new instances: 1
+# Elitist limit: 2
+# nbIterations: 7
+# minNbSurvival: 1
+# nbParameters: 59
+# seed: 9
+# confidence level: 0.95
+# budget: 3880
+# time budget: 7760
+# mu: 5
+# deterministic: TRUE
+
+# 2026-07-11 10:32:29 EDT: Iteration 1 of 7
+# experimentsUsed: 245
+# timeUsed: 400
+# boundEstimate: 2
+# remainingBudget: 3880
+# currentBudget: 554
+# nbConfigurations: 92
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . Alive configurations were already evaluated on this instance and nothing is discarded.
+     : All alive configurations are elite, but some need to be evaluated on this instance.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          2|         92|          1|     100.0000000|         43|00:00:04|   NA|  NA|    NA|
+|x|          3|         92|          1|     100.0000000|         86|00:00:03|+1.00|1.00|0.0000|
+|x|          1|         92|          1|     100.0000000|        129|00:00:03|+1.00|1.00|0.0000|
+|x|          4|         92|          1|     100.0000000|        172|00:00:04|+1.00|1.00|0.0000|
+|=|          5|         92|          1|     100.0000000|        215|00:00:04|+1.00|1.00|0.0000|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:           1    mean value:      100.0000000
+Description of the best-so-far configuration:
+  .ID. CPXPARAM_Emphasis_MIP CPXPARAM_MIP_Cuts_Cliques CPXPARAM_MIP_Cuts_MIRCut
+1    1                     5                         2                        2
+  CPXPARAM_MIP_Cuts_Implied CPXPARAM_MIP_Cuts_Disjunctive
+1                         1                            -1
+  CPXPARAM_MIP_Cuts_FlowCovers CPXPARAM_MIP_Cuts_PathCut
+1                            1                         2
+  CPXPARAM_MIP_Cuts_GUBCovers CPXPARAM_MIP_Cuts_Gomory
+1                           0                       -1
+  CPXPARAM_MIP_Limits_GomoryCand CPXPARAM_MIP_Strategy_Probe
+1                             25                           2
+  CPXPARAM_MIP_Cuts_Covers CPXPARAM_MIP_Strategy_VariableSelect
+1                        0                                    0
+  CPXPARAM_MIP_Strategy_NodeSelect CPXPARAM_MIP_Strategy_Dive
+1                                1                          3
+  CPXPARAM_MIP_Limits_ProbeTime CPXPARAM_MIP_Strategy_RINSHeur
+1                           240                             40
+  CPXPARAM_MIP_Strategy_BBInterval CPXPARAM_MIP_Strategy_Branch
+1                               30                            0
+  CPXPARAM_MIP_Limits_CutsFactor CPXPARAM_MIP_Strategy_PresolveNode
+1                             16                                  2
+  CPXPARAM_MIP_Strategy_Order CPXPARAM_Preprocessing_Presolve
+1                           1                               0
+  CPXPARAM_Preprocessing_Symmetry CPXPARAM_Preprocessing_Dual
+1                               3                           1
+  CPXPARAM_MIP_Strategy_LBHeur CPXPARAM_MIP_Strategy_HeuristicFreq
+1                            1                                 100
+  CPXPARAM_MIP_Strategy_StartAlgorithm CPXPARAM_MIP_Strategy_SubAlgorithm
+1                                    4                                  1
+  CPXPARAM_Simplex_DGradient CPXPARAM_Simplex_PGradient CPXPARAM_Advance
+1                          5                         -1                2
+  CPXPARAM_MIP_Limits_AggForCut CPXPARAM_Preprocessing_Fill
+1                            10                           2
+  CPXPARAM_Barrier_Crossover CPXPARAM_Barrier_Ordering
+1                          0                         2
+  CPXPARAM_Barrier_StartAlg CPXPARAM_Preprocessing_BoundStrength
+1                         4                                    1
+  CPXPARAM_Preprocessing_CoeffReduce CPXPARAM_Simplex_Crash
+1                                  2                      0
+  CPXPARAM_Preprocessing_Dependency CPXPARAM_Feasopt_Mode
+1                                 0                     1
+  CPXPARAM_Emphasis_Memory CPXPARAM_MIP_OrderType CPXPARAM_Network_NetFind
+1                        1                      3                        2
+  CPXPARAM_Network_Pricing CPXPARAM_MIP_Strategy_File
+1                        2                          3
+  CPXPARAM_Emphasis_Numerical CPXPARAM_Preprocessing_Reduce
+1                           1                             1
+  CPXPARAM_Preprocessing_Relax CPXPARAM_Preprocessing_RepeatPresolve
+1                            1                                     2
+  CPXPARAM_LPMethod CPXPARAM_Read_Scale CPXPARAM_Sifting_Algorithm
+1                 1                   0                          4
+  CPXPARAM_Simplex_Limits_Singularity CPXPARAM_Barrier_Algorithm
+1                                  10                          2
+  CPXPARAM_MIP_Limits_StrongCand CPXPARAM_Preprocessing_QPMakePSD
+1                             20                                0
+  CPXPARAM_MIP_Limits_Nodes .PARENT.
+1                         0       NA
+
+# 2026-07-11 10:32:50 EDT: Elite configurations (first number is the configuration ID; listed from best to worst according to the mean value):
+  CPXPARAM_Emphasis_MIP CPXPARAM_MIP_Cuts_Cliques CPXPARAM_MIP_Cuts_MIRCut
+1                     5                         2                        2
+  CPXPARAM_MIP_Cuts_Implied CPXPARAM_MIP_Cuts_Disjunctive
+1                         1                            -1
+  CPXPARAM_MIP_Cuts_FlowCovers CPXPARAM_MIP_Cuts_PathCut
+1                            1                         2
+  CPXPARAM_MIP_Cuts_GUBCovers CPXPARAM_MIP_Cuts_Gomory
+1                           0                       -1
+  CPXPARAM_MIP_Limits_GomoryCand CPXPARAM_MIP_Strategy_Probe
+1                             25                           2
+  CPXPARAM_MIP_Cuts_Covers CPXPARAM_MIP_Strategy_VariableSelect
+1                        0                                    0
+  CPXPARAM_MIP_Strategy_NodeSelect CPXPARAM_MIP_Strategy_Dive
+1                                1                          3
+  CPXPARAM_MIP_Limits_ProbeTime CPXPARAM_MIP_Strategy_RINSHeur
+1                           240                             40
+  CPXPARAM_MIP_Strategy_BBInterval CPXPARAM_MIP_Strategy_Branch
+1                               30                            0
+  CPXPARAM_MIP_Limits_CutsFactor CPXPARAM_MIP_Strategy_PresolveNode
+1                             16                                  2
+  CPXPARAM_MIP_Strategy_Order CPXPARAM_Preprocessing_Presolve
+1                           1                               0
+  CPXPARAM_Preprocessing_Symmetry CPXPARAM_Preprocessing_Dual
+1                               3                           1
+  CPXPARAM_MIP_Strategy_LBHeur CPXPARAM_MIP_Strategy_HeuristicFreq
+1                            1                                 100
+  CPXPARAM_MIP_Strategy_StartAlgorithm CPXPARAM_MIP_Strategy_SubAlgorithm
+1                                    4                                  1
+  CPXPARAM_Simplex_DGradient CPXPARAM_Simplex_PGradient CPXPARAM_Advance
+1                          5                         -1                2
+  CPXPARAM_MIP_Limits_AggForCut CPXPARAM_Preprocessing_Fill
+1                            10                           2
+  CPXPARAM_Barrier_Crossover CPXPARAM_Barrier_Ordering
+1                          0                         2
+  CPXPARAM_Barrier_StartAlg CPXPARAM_Preprocessing_BoundStrength
+1                         4                                    1
+  CPXPARAM_Preprocessing_CoeffReduce CPXPARAM_Simplex_Crash
+1                                  2                      0
+  CPXPARAM_Preprocessing_Dependency CPXPARAM_Feasopt_Mode
+1                                 0                     1
+  CPXPARAM_Emphasis_Memory CPXPARAM_MIP_OrderType CPXPARAM_Network_NetFind
+1                        1                      3                        2
+  CPXPARAM_Network_Pricing CPXPARAM_MIP_Strategy_File
+1                        2                          3
+  CPXPARAM_Emphasis_Numerical CPXPARAM_Preprocessing_Reduce
+1                           1                             1
+  CPXPARAM_Preprocessing_Relax CPXPARAM_Preprocessing_RepeatPresolve
+1                            1                                     2
+  CPXPARAM_LPMethod CPXPARAM_Read_Scale CPXPARAM_Sifting_Algorithm
+1                 1                   0                          4
+  CPXPARAM_Simplex_Limits_Singularity CPXPARAM_Barrier_Algorithm
+1                                  10                          2
+  CPXPARAM_MIP_Limits_StrongCand CPXPARAM_Preprocessing_QPMakePSD
+1                             20                                0
+  CPXPARAM_MIP_Limits_Nodes
+1                         0
+# 2026-07-11 10:32:50 EDT: Iteration 2 of 7
+# experimentsUsed: 460
+# timeUsed: 784
+# boundEstimate: 1.70434782608696
+# remainingBudget: 4328
+# currentBudget: 721
+# nbConfigurations: 103
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . Alive configurations were already evaluated on this instance and nothing is discarded.
+     : All alive configurations are elite, but some need to be evaluated on this instance.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          4|        103|          1|     100.0000000|        102|00:00:09|   NA|  NA|    NA|
+|x|          2|        103|          1|     100.0000000|        204|00:00:09|+1.00|1.00|0.0000|
+|x|          3|        103|          1|     100.0000000|        306|00:00:08|+1.00|1.00|0.0000|
+|x|          1|        103|          1|     100.0000000|        408|00:00:10|+1.00|1.00|0.0000|
+|=|          5|        103|          1|     100.0000000|        510|00:00:11|+1.00|1.00|0.0000|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+Best-so-far configuration:           1    mean value:      100.0000000
+Description of the best-so-far configuration:
+  .ID. CPXPARAM_Emphasis_MIP CPXPARAM_MIP_Cuts_Cliques CPXPARAM_MIP_Cuts_MIRCut
+1    1                     5                         2                        2
+  CPXPARAM_MIP_Cuts_Implied CPXPARAM_MIP_Cuts_Disjunctive
+1                         1                            -1
+  CPXPARAM_MIP_Cuts_FlowCovers CPXPARAM_MIP_Cuts_PathCut
+1                            1                         2
+  CPXPARAM_MIP_Cuts_GUBCovers CPXPARAM_MIP_Cuts_Gomory
+1                           0                       -1
+  CPXPARAM_MIP_Limits_GomoryCand CPXPARAM_MIP_Strategy_Probe
+1                             25                           2
+  CPXPARAM_MIP_Cuts_Covers CPXPARAM_MIP_Strategy_VariableSelect
+1                        0                                    0
+  CPXPARAM_MIP_Strategy_NodeSelect CPXPARAM_MIP_Strategy_Dive
+1                                1                          3
+  CPXPARAM_MIP_Limits_ProbeTime CPXPARAM_MIP_Strategy_RINSHeur
+1                           240                             40
+  CPXPARAM_MIP_Strategy_BBInterval CPXPARAM_MIP_Strategy_Branch
+1                               30                            0
+  CPXPARAM_MIP_Limits_CutsFactor CPXPARAM_MIP_Strategy_PresolveNode
+1                             16                                  2
+  CPXPARAM_MIP_Strategy_Order CPXPARAM_Preprocessing_Presolve
+1                           1                               0
+  CPXPARAM_Preprocessing_Symmetry CPXPARAM_Preprocessing_Dual
+1                               3                           1
+  CPXPARAM_MIP_Strategy_LBHeur CPXPARAM_MIP_Strategy_HeuristicFreq
+1                            1                                 100
+  CPXPARAM_MIP_Strategy_StartAlgorithm CPXPARAM_MIP_Strategy_SubAlgorithm
+1                                    4                                  1
+  CPXPARAM_Simplex_DGradient CPXPARAM_Simplex_PGradient CPXPARAM_Advance
+1                          5                         -1                2
+  CPXPARAM_MIP_Limits_AggForCut CPXPARAM_Preprocessing_Fill
+1                            10                           2
+  CPXPARAM_Barrier_Crossover CPXPARAM_Barrier_Ordering
+1                          0                         2
+  CPXPARAM_Barrier_StartAlg CPXPARAM_Preprocessing_BoundStrength
+1                         4                                    1
+  CPXPARAM_Preprocessing_CoeffReduce CPXPARAM_Simplex_Crash
+1                                  2                      0
+  CPXPARAM_Preprocessing_Dependency CPXPARAM_Feasopt_Mode
+1                                 0                     1
+  CPXPARAM_Emphasis_Memory CPXPARAM_MIP_OrderType CPXPARAM_Network_NetFind
+1                        1                      3                        2
+  CPXPARAM_Network_Pricing CPXPARAM_MIP_Strategy_File
+1                        2                          3
+  CPXPARAM_Emphasis_Numerical CPXPARAM_Preprocessing_Reduce
+1                           1                             1
+  CPXPARAM_Preprocessing_Relax CPXPARAM_Preprocessing_RepeatPresolve
+1                            1                                     2
+  CPXPARAM_LPMethod CPXPARAM_Read_Scale CPXPARAM_Sifting_Algorithm
+1                 1                   0                          4
+  CPXPARAM_Simplex_Limits_Singularity CPXPARAM_Barrier_Algorithm
+1                                  10                          2
+  CPXPARAM_MIP_Limits_StrongCand CPXPARAM_Preprocessing_QPMakePSD
+1                             20                                0
+  CPXPARAM_MIP_Limits_Nodes .PARENT.
+1                         0       NA
+
+# 2026-07-11 10:33:39 EDT: Elite configurations (first number is the configuration ID; listed from best to worst according to the mean value):
+  CPXPARAM_Emphasis_MIP CPXPARAM_MIP_Cuts_Cliques CPXPARAM_MIP_Cuts_MIRCut
+1                     5                         2                        2
+  CPXPARAM_MIP_Cuts_Implied CPXPARAM_MIP_Cuts_Disjunctive
+1                         1                            -1
+  CPXPARAM_MIP_Cuts_FlowCovers CPXPARAM_MIP_Cuts_PathCut
+1                            1                         2
+  CPXPARAM_MIP_Cuts_GUBCovers CPXPARAM_MIP_Cuts_Gomory
+1                           0                       -1
+  CPXPARAM_MIP_Limits_GomoryCand CPXPARAM_MIP_Strategy_Probe
+1                             25                           2
+  CPXPARAM_MIP_Cuts_Covers CPXPARAM_MIP_Strategy_VariableSelect
+1                        0                                    0
+  CPXPARAM_MIP_Strategy_NodeSelect CPXPARAM_MIP_Strategy_Dive
+1                                1                          3
+  CPXPARAM_MIP_Limits_ProbeTime CPXPARAM_MIP_Strategy_RINSHeur
+1                           240                             40
+  CPXPARAM_MIP_Strategy_BBInterval CPXPARAM_MIP_Strategy_Branch
+1                               30                            0
+  CPXPARAM_MIP_Limits_CutsFactor CPXPARAM_MIP_Strategy_PresolveNode
+1                             16                                  2
+  CPXPARAM_MIP_Strategy_Order CPXPARAM_Preprocessing_Presolve
+1                           1                               0
+  CPXPARAM_Preprocessing_Symmetry CPXPARAM_Preprocessing_Dual
+1                               3                           1
+  CPXPARAM_MIP_Strategy_LBHeur CPXPARAM_MIP_Strategy_HeuristicFreq
+1                            1                                 100
+  CPXPARAM_MIP_Strategy_StartAlgorithm CPXPARAM_MIP_Strategy_SubAlgorithm
+1                                    4                                  1
+  CPXPARAM_Simplex_DGradient CPXPARAM_Simplex_PGradient CPXPARAM_Advance
+1                          5                         -1                2
+  CPXPARAM_MIP_Limits_AggForCut CPXPARAM_Preprocessing_Fill
+1                            10                           2
+  CPXPARAM_Barrier_Crossover CPXPARAM_Barrier_Ordering
+1                          0                         2
+  CPXPARAM_Barrier_StartAlg CPXPARAM_Preprocessing_BoundStrength
+1                         4                                    1
+  CPXPARAM_Preprocessing_CoeffReduce CPXPARAM_Simplex_Crash
+1                                  2                      0
+  CPXPARAM_Preprocessing_Dependency CPXPARAM_Feasopt_Mode
+1                                 0                     1
+  CPXPARAM_Emphasis_Memory CPXPARAM_MIP_OrderType CPXPARAM_Network_NetFind
+1                        1                      3                        2
+  CPXPARAM_Network_Pricing CPXPARAM_MIP_Strategy_File
+1                        2                          3
+  CPXPARAM_Emphasis_Numerical CPXPARAM_Preprocessing_Reduce
+1                           1                             1
+  CPXPARAM_Preprocessing_Relax CPXPARAM_Preprocessing_RepeatPresolve
+1                            1                                     2
+  CPXPARAM_LPMethod CPXPARAM_Read_Scale CPXPARAM_Sifting_Algorithm
+1                 1                   0                          4
+  CPXPARAM_Simplex_Limits_Singularity CPXPARAM_Barrier_Algorithm
+1                                  10                          2
+  CPXPARAM_MIP_Limits_StrongCand CPXPARAM_Preprocessing_QPMakePSD
+1                             20                                0
+  CPXPARAM_MIP_Limits_Nodes
+1                         0
+# 2026-07-11 10:33:39 EDT: Iteration 3 of 7
+# experimentsUsed: 970
+# timeUsed: 1814
+# boundEstimate: 1.87010309278351
+# remainingBudget: 3393
+# currentBudget: 678
+# nbConfigurations: 85
+# Markers:
+     x No test is performed.
+     c Configurations are discarded only due to capping.
+     - The test is performed and some configurations are discarded.
+     = The test is performed but no configuration is discarded.
+     ! The test is performed and configurations could be discarded but elite configurations are preserved.
+     . Alive configurations were already evaluated on this instance and nothing is discarded.
+     : All alive configurations are elite, but some need to be evaluated on this instance.
+
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+| |   Instance|      Alive|       Best|       Mean best| Exp so far|  W time|  rho|KenW|  Qvar|
++-+-----------+-----------+-----------+----------------+-----------+--------+-----+----+------+
+|x|          3|         85|          1|     100.0000000|         84|00:00:07|   NA|  NA|    NA|
+|x|          4|         85|          1|     100.0000000|        168|00:00:07|+1.00|1.00|0.0000|
+|x|          5|         85|          1|     100.0000000|        252|00:00:07|+1.00|1.00|0.0000|
+Warning: irace exited non-zero for eilA101-2; continuing.
+
+------------------------------------------
+Instance : momentum1
+Budget   : 254s wall-clock
+maxTime  : 6096s (N_WORKERS × budget)
+Output   : /scratch/yorig/irace-results-seconds-10-Npils/24proc/medium-1/momentum1/seed-9
+------------------------------------------
+# 2026-07-11 10:34:10 EDT: Reading parameter file '/home/yorig/tuner/mpils-tests/irace-cplex/parameters.irace'.
+# 2026-07-11 10:34:10 EDT: Estimating execution time using 5% of 6096 = 305
+Warning: irace exited non-zero for momentum1; continuing.
+
+------------------------------------------
+Instance : mushroom-best
+Budget   : 325s wall-clock
+maxTime  : 7800s (N_WORKERS × budget)
+Output   : /scratch/yorig/irace-results-seconds-10-Npils/24proc/medium-1/mushroom-best/seed-9
+------------------------------------------
+# 2026-07-11 10:34:11 EDT: Reading parameter file '/home/yorig/tuner/mpils-tests/irace-cplex/parameters.irace'.
+# 2026-07-11 10:34:11 EDT: Estimating execution time using 5% of 7800 = 390
+Warning: irace exited non-zero for mushroom-best; continuing.
+
+------------------------------------------
+Instance : neos-1456979
+Budget   : 268s wall-clock
+maxTime  : 6432s (N_WORKERS × budget)
+Output   : /scratch/yorig/irace-results-seconds-10-Npils/24proc/medium-1/neos-1456979/seed-9
+------------------------------------------
+# 2026-07-11 10:34:13 EDT: Reading parameter file '/home/yorig/tuner/mpils-tests/irace-cplex/parameters.irace'.
+# 2026-07-11 10:34:13 EDT: Estimating execution time using 5% of 6432 = 322
+Warning: irace exited non-zero for neos-1456979; continuing.
+
+------------------------------------------
+Instance : neos-3024952-loue
+Budget   : 276s wall-clock
+maxTime  : 6624s (N_WORKERS × budget)
+Output   : /scratch/yorig/irace-results-seconds-10-Npils/24proc/medium-1/neos-3024952-loue/seed-9
+------------------------------------------
+# 2026-07-11 10:34:14 EDT: Reading parameter file '/home/yorig/tuner/mpils-tests/irace-cplex/parameters.irace'.
+# 2026-07-11 10:34:14 EDT: Estimating execution time using 5% of 6624 = 332
+Warning: irace exited non-zero for neos-3024952-loue; continuing.
+
+Batch medium-1 seed-9 complete.
