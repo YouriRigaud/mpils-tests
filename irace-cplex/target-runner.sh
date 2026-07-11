@@ -55,8 +55,10 @@ done
 source "${VENV_DIR}/bin/activate"
 
 # Run CPLEX and print "cost time" to stdout (irace format)
-start_s=$(date +%s)
+start_ms=$(date +%s%3N)
 cost=$(python3 "${TESTS_DIR}/cplex_evaluate.py" \
     "$INSTANCE" "$TMPFILE" "$SOLVER_TIME" "$CPLEX_THREADS" "$SOLVER_TIME_MODE")
-elapsed=$(( $(date +%s) - start_s ))
+elapsed_ms=$(( $(date +%s%3N) - start_ms ))
+elapsed=$(( elapsed_ms / 1000 ))
+[[ $elapsed -lt 1 ]] && elapsed=1
 echo "$cost $elapsed"
