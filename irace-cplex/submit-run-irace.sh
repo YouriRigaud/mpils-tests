@@ -135,8 +135,8 @@ for instance_path in "${instances[@]}"; do
     cd "$output_dir"
     Rscript -e "
         library(irace)
-        irace.main(scenario = readScenario(filename = '${SCENARIO_TMP}',
-                                           scenario = defaultScenario()))
+        irace(scenario = readScenario(filename = '${SCENARIO_TMP}',
+                                      scenario = defaultScenario()))
     " || echo "Warning: irace exited non-zero for ${instance_stem}; continuing."
 
     # Extract best configuration and evaluate it
