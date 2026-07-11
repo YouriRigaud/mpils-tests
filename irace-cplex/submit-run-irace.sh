@@ -121,6 +121,7 @@ for instance_path in "${instances[@]}"; do
     done
 
     sed \
+        -e "s|\[IRACE_DIR\]|${IRACE_DIR}|g" \
         -e "s|\[INSTANCES_FILE\]|${INSTANCES_TMP}|g" \
         -e "s|\[MAX_TIME\]|$((N_WORKERS * budget))|g" \
         -e "s|\[N_WORKERS\]|${N_WORKERS}|g" \
