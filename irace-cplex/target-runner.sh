@@ -27,22 +27,6 @@ shift 5
 TMPFILE=$(mktemp /tmp/irace_cfg_${CONFIG_ID}_XXXXXX.prm)
 trap "rm -f '$TMPFILE'" EXIT
 
-# Fixed params (single-value in params_12_cpx.txt — kept at their required values)
-cat >> "$TMPFILE" <<'FIXED'
-CPXPARAM_MIP_Limits_GomoryPass 0
-CPXPARAM_MIP_Limits_CutPasses 0
-CPXPARAM_Preprocessing_NumPass -1
-CPXPARAM_Simplex_Pricing 0
-CPXPARAM_Preprocessing_Aggregator -1
-CPXPARAM_Barrier_ColNonzeros 0
-CPXPARAM_Barrier_Limits_Corrections -1
-CPXPARAM_Simplex_Refactor 0
-CPXPARAM_MIP_Limits_RepairTries 0
-CPXPARAM_MIP_Limits_StrongIt 0
-CPXPARAM_Simplex_Limits_Perturbation 0
-CPXPARAM_Parallel 1
-FIXED
-
 # Tunable params passed by irace as --NAME value pairs
 while [[ $# -ge 2 ]]; do
     PNAME="${1#--}"
