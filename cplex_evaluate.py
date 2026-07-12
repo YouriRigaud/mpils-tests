@@ -53,6 +53,7 @@ def main():
                     pass
 
     c.parameters.threads.set(threads)
+    c.parameters.parallel.set(1)  # deterministic parallel mode, overrides any value in .prm
     if time_mode == "seconds":
         c.parameters.timelimit.set(solver_time)
     else:
