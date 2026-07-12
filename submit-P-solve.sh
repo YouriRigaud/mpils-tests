@@ -42,7 +42,7 @@ RESULTS_CSV="${RESULTS_DIR}/results.csv"
 # Write header once if the file doesn't exist yet (race-safe via flock)
 {
     flock -x 200
-    [[ -f "$RESULTS_CSV" ]] || echo "instance,status,cplex_time_s,wall_time_s,gap_pct,nodes_explored" > "$RESULTS_CSV"
+    [[ -f "$RESULTS_CSV" ]] || echo "instance,status,wall_time_s,gap_pct,nodes_explored" > "$RESULTS_CSV"
 } 200>"${RESULTS_DIR}/results.csv.lock"
 
 # 5 instances per task: task 1 → P1–P5, task 2 → P6–P10, task 3 → P11–P15

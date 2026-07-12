@@ -36,7 +36,7 @@ export VECLIB_MAXIMUM_THREADS=1
 export NUMEXPR_NUM_THREADS=1
 
 RESULTS_CSV="${RESULTS_DIR}/results.csv"
-echo "instance,status,cplex_time_s,wall_time_s,gap_pct,nodes_explored" > "$RESULTS_CSV"
+echo "instance,status,wall_time_s,gap_pct,nodes_explored" > "$RESULTS_CSV"
 
 for i in $(seq 1 15); do
     INSTANCE_STEM="N${i}"

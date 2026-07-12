@@ -49,7 +49,6 @@ def main():
 
     wall_time  = time.time() - wall_start
     status_str = c.solution.status[c.solution.get_status()]
-    cplex_time = c.solution.get_solve_time()
 
     try:
         gap   = f"{c.solution.MIP.get_mip_relative_gap() * 100.0:.4f}"
@@ -61,7 +60,7 @@ def main():
     except Exception:
         nodes = "NA"
 
-    print(f"{status_str},{cplex_time:.1f},{wall_time:.1f},{gap},{nodes}")
+    print(f"{status_str},{wall_time:.1f},{gap},{nodes}")
 
 
 if __name__ == "__main__":
