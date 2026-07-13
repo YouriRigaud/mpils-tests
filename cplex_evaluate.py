@@ -34,23 +34,29 @@ def main():
         sys.exit(0)
 
     import os, tempfile
-    with open(prm_path) as pf:
-        for line in pf:
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                fd, tfname = tempfile.mkstemp(suffix='.prm')
-                with os.fdopen(fd, 'w') as tf:
-                    tf.write(line + "\n")
-                c.parameters.read_file(tfname)
-            except Exception:
-                pass
-            finally:
+    try:
+        # Fast path: load the whole file at once (works for MPILS configs where all
+        # parameter names are valid). Falls back to line-by-line if any name is
+        # unrecognised (e.g. irace configs with non-standard names).
+        c.parameters.read_file(prm_path)
+    except Exception:
+        with open(prm_path) as pf:
+            for line in pf:
+                line = line.strip()
+                if not line:
+                    continue
                 try:
-                    os.unlink(tfname)
+                    fd, tfname = tempfile.mkstemp(suffix='.prm')
+                    with os.fdopen(fd, 'w') as tf:
+                        tf.write(line + "\n")
+                    c.parameters.read_file(tfname)
                 except Exception:
                     pass
+                finally:
+                    try:
+                        os.unlink(tfname)
+                    except Exception:
+                        pass
 
     c.parameters.threads.set(threads)
     c.parameters.parallel.set(1)  # deterministic parallel mode, overrides any value in .prm
