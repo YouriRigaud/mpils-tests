@@ -16,9 +16,12 @@
 #
 #SBATCH --job-name=smac-P
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=96
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --exclusive
+#SBATCH --mem=0
+#SBATCH --cpus-per-task=192
 #SBATCH --time=20:00:00
-#SBATCH --mem-per-cpu=2G
 #SBATCH --output=smac-P_%j.out
 #SBATCH --error=smac-P_%j.err
 
