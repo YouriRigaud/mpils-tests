@@ -4,8 +4,9 @@
 #
 # Mirrors submit-N-tuning.sh (MPILS) for a fair comparison:
 #   - 60s/eval (same as MPILS)
-#   - 24 SMAC workers × 8 threads = 192 CPUs (same total compute as MPILS 24 procs × 8 threads)
-#   - walltime = MPILS tuning time per instance (hardcoded from test-N results)
+#   - 12 SMAC workers × 8 threads = 96 CPUs
+#   - walltime = MPILS tuning time × 2 (compensates for half the workers,
+#     keeping same total evaluations and CPU work as MPILS 24 procs × 8 threads)
 #   - 1 seed per instance
 #
 # After completion, test the best config with submit-smac-N-test.sh.
@@ -16,7 +17,7 @@
 #SBATCH --job-name=smac-N
 #SBATCH --array=1-15
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=192
+#SBATCH --cpus-per-task=96
 #SBATCH --time=3:30:00
 #SBATCH --mem-per-cpu=2G
 #SBATCH --output=smac-N_%A_%a.out
@@ -30,29 +31,30 @@ VENV_DIR="/home/yorig/envs/smac-cplex"
 PARAMS_FILE="${TESTS_DIR}/params_12_cpx.txt"
 RESULTS_ROOT="/scratch/${USER}/smac-results-N-seconds-60"
 
-N_WORKERS=24
+N_WORKERS=12
 CPLEX_THREADS=8
 SOLVER_TIME=60
 SOLVER_TIME_MODE=seconds
 SEED=1
 
-# MPILS tuning times (seconds) per instance — used as SMAC wall budget for fair comparison
+# MPILS tuning times × 2 to compensate for half the workers (12 instead of 24),
+# keeping the same total number of evaluations and CPU work as MPILS.
 declare -A MPILS_WALLTIME
-MPILS_WALLTIME[1]=4969
-MPILS_WALLTIME[2]=4019
-MPILS_WALLTIME[3]=5993
-MPILS_WALLTIME[4]=124
-MPILS_WALLTIME[5]=66
-MPILS_WALLTIME[6]=375
-MPILS_WALLTIME[7]=5085
-MPILS_WALLTIME[8]=4860
-MPILS_WALLTIME[9]=1059
-MPILS_WALLTIME[10]=248
-MPILS_WALLTIME[11]=186
-MPILS_WALLTIME[12]=6725
-MPILS_WALLTIME[13]=123
-MPILS_WALLTIME[14]=62
-MPILS_WALLTIME[15]=1869
+MPILS_WALLTIME[1]=$((4969*2))
+MPILS_WALLTIME[2]=$((4019*2))
+MPILS_WALLTIME[3]=$((5993*2))
+MPILS_WALLTIME[4]=$((124*2))
+MPILS_WALLTIME[5]=$((66*2))
+MPILS_WALLTIME[6]=$((375*2))
+MPILS_WALLTIME[7]=$((5085*2))
+MPILS_WALLTIME[8]=$((4860*2))
+MPILS_WALLTIME[9]=$((1059*2))
+MPILS_WALLTIME[10]=$((248*2))
+MPILS_WALLTIME[11]=$((186*2))
+MPILS_WALLTIME[12]=$((6725*2))
+MPILS_WALLTIME[13]=$((123*2))
+MPILS_WALLTIME[14]=$((62*2))
+MPILS_WALLTIME[15]=$((1869*2))
 
 i=${SLURM_ARRAY_TASK_ID}
 INSTANCE_PATH="${INSTANCES_DIR}/N${i}.lp"

@@ -4,8 +4,9 @@
 #
 # Phase 1: Tune P1.lp with SMAC.
 #   - 300s/eval (same as MPILS)
-#   - 24 workers × 8 threads = 192 CPUs (same total compute as MPILS 24 procs × 8 threads)
-#   - walltime = MPILS P1 tuning time (hardcoded for fair comparison)
+#   - 12 workers × 8 threads = 96 CPUs
+#   - walltime = MPILS P1 tuning time × 2 (compensates for half the workers,
+#     keeping same total evaluations and CPU work as MPILS 24 procs × 8 threads)
 #
 # Phase 2: Test P1_best.prm and default config on P1–P15 at 300s each.
 #   Output: RESULTS_ROOT/P_smac_transfer_results.csv
@@ -15,8 +16,8 @@
 #
 #SBATCH --job-name=smac-P
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=192
-#SBATCH --time=11:00:00
+#SBATCH --cpus-per-task=96
+#SBATCH --time=20:00:00
 #SBATCH --mem-per-cpu=2G
 #SBATCH --output=smac-P_%j.out
 #SBATCH --error=smac-P_%j.err
@@ -29,13 +30,13 @@ VENV_DIR="/home/yorig/envs/smac-cplex"
 PARAMS_FILE="${TESTS_DIR}/params_12_cpx.txt"
 RESULTS_ROOT="/scratch/${USER}/smac-results-P-seconds-300"
 
-N_WORKERS=24
+N_WORKERS=12
 CPLEX_THREADS=8
 SOLVER_TIME=300
 SOLVER_TIME_MODE=seconds
 SEED=1
 
-WALLTIME=25198   # MPILS P1 tuning time (seconds)
+WALLTIME=$((25198*2))   # MPILS P1 tuning time × 2 (12 workers instead of 24)
 
 P1_PATH="${INSTANCES_DIR}/P1.lp"
 [[ -f "$P1_PATH" ]] || { echo "ERROR: P1.lp not found: $P1_PATH" >&2; exit 1; }
